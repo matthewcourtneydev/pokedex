@@ -1,0 +1,18 @@
+GET http://localhost:3002/users
+
+###
+
+POST http://localhost:3002/users
+Content-Type: application/json
+
+{
+    "username": "firstUserEver",
+    "email": "one@gmail.com",
+    "password": "123",
+    "starter": "Bulbasaur"
+}
+
+
+###
+
+DELETE http://localhost:3002/users/64fa849b9d1f791b46ee580f
