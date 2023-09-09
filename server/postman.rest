@@ -2,6 +2,11 @@ GET http://localhost:3002/users
 
 ###
 
+GET http://localhost:3002/quizes
+
+###
+
+
 POST http://localhost:3002/users
 Content-Type: application/json
 
