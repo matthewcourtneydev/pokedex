@@ -11,5 +11,21 @@ quizRouter.get("/", async (req, res) => {
     }
 })
 
+quizRouter.post("/", async (req, res) => {
+    const newQuiz = new Quiz({
+        questions: req.body.questions,
+        title: req.body.title,
+        world: req.body.world,
+        badge: req.body.badge,
+        pointPerQuestion: req.body.pointPerQuestion
+    });
+
+    try {
+        const savedQuiz = await newQuiz.save();
+        res.json(savedQuiz);
+    } catch (err) {
+        res.json({error: err.message})
+    }
+})
 
 module.exports = quizRouter;

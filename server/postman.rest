@@ -7,6 +7,18 @@ GET http://localhost:3002/quizes
 ###
 
 
+POST http://localhost:3002/quizes
+Content-Type: application/json
+
+{
+    "questions": ["Question 1", "Question 2", "Question 3"],
+    "title": "Quiz 1",
+    "world": "Kanto",
+    "badge": "Boulder Badge",
+    "pointPerQuestion": 10
+}
+###
+
 POST http://localhost:3002/users
 Content-Type: application/json
 
