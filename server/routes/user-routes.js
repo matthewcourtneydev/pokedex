@@ -27,7 +27,27 @@ userRouter.post("/", async (req, res) => {
     } catch (err) {
         res.json({error: err.message})
     }
-})
+});
+
+userRouter.patch("/:id", getUser, async (req, res) => {
+    console.log(res.user)
+    if (req.body.newQuiz) {
+        res.user.completedQuizes = [...res.user.completedQuizes, req.body.newQuiz._id],
+        res.user.badges = [...res.user.badges, req.body.newQuiz.badge],
+        res.user.experience = res.user.experience += req.body.newQuiz.score
+    };
+
+    if (req.body.favorites) {
+        res.user.favorites = [...res.user.favorites, req.body.favorites.favorite]
+    };
+
+    try { 
+        const updatedUser = await res.user.save();
+        res.json(updatedUser)
+    } catch(err) {
+        res.json({error: err.message})
+    }
+});
 
 
 userRouter.delete("/:id", getUser, async (req, res) => {

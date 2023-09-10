@@ -6,6 +6,10 @@ GET http://localhost:3002/quizes
 
 ###
 
+GET http://localhost:3002/completedQuizes
+
+###
+
 
 POST http://localhost:3002/quizes
 Content-Type: application/json
@@ -28,6 +32,47 @@ Content-Type: application/json
     "password": "123",
     "starter": "Bulbasaur"
 }
+
+###
+
+POST http://localhost:3002/completedQuizes
+Content-Type: application/json
+
+{
+    "score": 100,
+    "badge": "Boulder Badge",
+    "quizRef": "64fbe7e73aa997c2f91bd7ee",
+    "world": "Kanto"
+}
+
+
+###
+
+PATCH http://localhost:3002/users/64fa84c09d1f791b46ee5811
+Content-Type: application/json
+
+{
+    "newQuiz": {
+        "score": 100,
+        "badge": "Boulder Badge",
+        "world": "Kanto",
+        "quizRef": "64fbe7e73aa997c2f91bd7ee",
+        "_id": "64fe1b83073b3d6e440cd345",
+        "__v": 0
+    }
+}
+
+###
+
+PATCH http://localhost:3002/users/64fa84c09d1f791b46ee5811
+Content-Type: application/json
+
+{
+    "favorites": {
+        "favorite": "Charizard"
+    }
+}
+
 
 
 ###
