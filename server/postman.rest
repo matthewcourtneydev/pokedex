@@ -74,7 +74,7 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3002/users/64fa84c09d1f791b46ee5811
+PATCH http://localhost:3002/users/
 Content-Type: application/json
 
 {
@@ -87,4 +87,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3002/users/64ffadeca1842c7fdc20c8bf
+DELETE http://localhost:3002/users/65023f6f7674fd413a9b8171

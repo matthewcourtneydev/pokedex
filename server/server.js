@@ -39,8 +39,8 @@ app.post("/login", async (req, res) => {
     try {
         const calledUser = await User.findOne({email: userEmail});
         if (calledUser) {
-            console.log(calledUser, "Called USer")
             const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+            console.log({ accessToken: accessToken, user: calledUser})
             res.send({ accessToken: accessToken, user: calledUser})
         } else {
             res.json({error: "USER NOT FOUND"})

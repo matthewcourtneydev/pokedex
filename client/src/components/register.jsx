@@ -11,21 +11,29 @@ const RegisterForm = () => {
   const conPassRef = useRef();
   const startRef = useRef();
 
-  console.log(userData)
-
   const navigate = useNavigate();
 
   async function postUser(userData) {
     const response = await fetch("http://localhost:3002/users", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(userData)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userData),
     });
 
     const userRes = response.json();
+    return userRes;
+  }
 
-    console.log(userRes)
-    return userRes
+  async function logUserInAfterPost(postedUser) {
+    console.log(postedUser, "INIT USER LOGIN DATA");
+    const response = await fetch("http://localhost:3002/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postedUser),
+    });
+
+    const loggedInUserRes = response.json();
+    return loggedInUserRes;
   }
 
   async function handleSubmit() {
@@ -39,9 +47,19 @@ const RegisterForm = () => {
     if (passRef.current.value !== conPassRef.current.value) {
       console.log("ERROR HANDLE");
     } else {
-      let postedUser = await postUser(user);
-      localStorage.setItem("user", JSON.stringify(postedUser));
-      navigate("/");
+      try {
+        let postedUser = await postUser(user);
+        console.log(postedUser, "POSTED USER")
+        if (postedUser) {
+          let loggedInUser = await logUserInAfterPost(postedUser);
+          localStorage.setItem("user", JSON.stringify(loggedInUser));
+          navigate("/")
+        } else {
+          console.log("ERROR")
+        }
+      } catch (err) {
+        console.log(err.message, "ERR MESSAGE")
+      }
     }
   }
 
