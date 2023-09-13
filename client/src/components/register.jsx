@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
 
@@ -13,19 +13,23 @@ const RegisterForm = () => {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (userData.user.email) {
+      navigate("/");
+    }
+  }, []);
+
   async function postUser(userData) {
     const response = await fetch("http://localhost:3002/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
     });
-
     const userRes = response.json();
     return userRes;
   }
 
   async function logUserInAfterPost(postedUser) {
-    console.log(postedUser, "INIT USER LOGIN DATA");
     const response = await fetch("http://localhost:3002/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,26 +49,24 @@ const RegisterForm = () => {
     };
 
     if (passRef.current.value !== conPassRef.current.value) {
-      console.log("ERROR HANDLE");
     } else {
       try {
         let postedUser = await postUser(user);
-        console.log(postedUser, "POSTED USER")
         if (postedUser) {
           let loggedInUser = await logUserInAfterPost(postedUser);
           localStorage.setItem("user", JSON.stringify(loggedInUser));
-          navigate("/")
+          navigate("/");
         } else {
-          console.log("ERROR")
+          console.log("ERROR");
         }
       } catch (err) {
-        console.log(err.message, "ERR MESSAGE")
+        console.log(err.message, "ERR MESSAGE");
       }
     }
   }
 
   return (
-    <div id="login-form">
+    <div id="register-form">
       <label htmlFor="username">Username:</label>
       <input type="text" name="username" ref={userRef} />
       <label htmlFor="email">Email:</label>
