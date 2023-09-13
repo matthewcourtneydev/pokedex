@@ -1,5 +1,9 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const User = require("./models/user-model")
 const userRouter = require("./routes/user-routes");
 const quizRouter = require("./routes/quiz-routes");
 const completedQuizRouter = require("./routes/completed-quiz-route");
@@ -27,6 +31,24 @@ app.use((req, res, next) => {
 app.use("/users", userRouter);
 app.use("/quizes", quizRouter);
 app.use("/completedQuizes", completedQuizRouter);
+
+app.post("/login", async (req, res) => {
+    const userEmail = req.body.email;
+    const user = { email: req.body.email }
+
+    try {
+        const calledUser = await User.findOne({email: userEmail});
+        if (calledUser) {
+            console.log(calledUser, "Called USer")
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+            res.send({ accessToken: accessToken, user: calledUser})
+        } else {
+            res.json({error: "USER NOT FOUND"})
+        }
+    } catch (err) {
+        res.json({ error: err.message })
+    }
+})
 
 app.listen(port, () => {
     console.log("App is running on port 3002")
