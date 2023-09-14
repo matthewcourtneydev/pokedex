@@ -14,7 +14,7 @@ const RegisterForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userData.user.email) {
+    if (userData && userData.user.email) {
       navigate("/");
     }
   }, []);

@@ -34,14 +34,18 @@ app.use("/completedQuizes", completedQuizRouter);
 
 app.post("/login", async (req, res) => {
     const userEmail = req.body.email;
-    const user = { email: req.body.email }
+    const user = { email: req.body.email, password: req.body.password }
 
     try {
         const calledUser = await User.findOne({email: userEmail});
         if (calledUser) {
-            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-            console.log({ accessToken: accessToken, user: calledUser})
-            res.send({ accessToken: accessToken, user: calledUser})
+            if (calledUser.password === user.password) {
+                const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+                console.log({ accessToken: accessToken, user: calledUser})
+                res.send({ accessToken: accessToken, user: calledUser})
+            } else {
+                res.json({error: "pasword doesnt match"})
+            }
         } else {
             res.json({error: "USER NOT FOUND"})
         }
