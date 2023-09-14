@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { UserContext } from "../contexts/userContext";
 import Favorite from "../components/favorite";
 
 const Pokemon = () => {
   let { id } = useParams();
   const [pokemon, setPokemon] = useState();
+  const userData = useContext(UserContext);
 
   async function getPokemon() {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -21,7 +23,11 @@ const Pokemon = () => {
     <div className="pokemon-page">
       <h1>{pokemon.name}</h1>
       <img src={pokemon.sprites.front_default} alt={`${pokemon.name} image`} />
-      <Favorite />
+      {userData ? (
+         <Favorite />
+      ) : (
+        <></>
+      )}
     </div>
   ) : (
     <h1>Loading</h1>

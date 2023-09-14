@@ -6,7 +6,7 @@ const Favorite = () => {
     const userData = useContext(UserContext);
     const { id } = useParams();
     let favorites = userData.user.favorites;
-    const [isFav, setIsFav] = useState((favorites.includes(id)));
+    const [isFav, setIsFav] = useState((favorites.includes(id)) || (favorites.includes(JSON.stringify(id))));
     const localStorageData = JSON.parse(localStorage.getItem("user"));
 
     console.log(isFav);
