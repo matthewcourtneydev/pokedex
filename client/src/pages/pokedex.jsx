@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import PokemonCard from "../components/pokemon-card";
 
 const Pokedex = () => {
-  let pokemonList = {};
+  const [pokemonList, setPokemonList] = useState([]);
 
   async function getPokemon() {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
@@ -10,17 +11,24 @@ const Pokedex = () => {
 
   useEffect(() => {
     getPokemon().then((data) => {
-      pokemonList = data
+      setPokemonList(data.results);
+      console.log(pokemonList[0]);
     });
   }, []);
 
-
-
-  return (
-    <div id="pokemon-list">
-        
-    </div>
-  )
+  return pokemonList.length ? (
+    // <div id="pokemon-list">
+    //   <PokemonCard pokemon={pokemonList[0]} />
+    // </div>
+    <>
+    <h1>NOT LOADING</h1>
+    {pokemonList.map((pokemon) => {
+      return <PokemonCard pokemon={pokemon} />
+    })}
+    </>
+  ) : (
+    <h1>Loading</h1>
+  );
 };
 
 export default Pokedex;
