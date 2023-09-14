@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     completedQuizes: [{type: String}],
     password: {type: String},
     experience: {type: Number , default: 0},
-    favorites: [{type: String}],
+    favorites: {type: Array},
     badges: [{type: String}],
     starter: {type: String}
 })

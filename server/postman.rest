@@ -74,13 +74,11 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3002/users/
+PATCH http://localhost:3002/users/64fa84c09d1f791b46ee5811
 Content-Type: application/json
 
 {
-    "favorites": {
-        "favorite": "Charizard"
-    }
+    "favorites": [ 1, 2, 3]
 }
 
 

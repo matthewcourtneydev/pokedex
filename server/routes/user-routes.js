@@ -38,7 +38,8 @@ userRouter.patch("/:id", getUser, async (req, res) => {
     };
 
     if (req.body.favorites) {
-        res.user.favorites = [...res.user.favorites, req.body.favorites.favorite]
+        console.log(req.body)
+        res.user.favorites = req.body.favorites
     };
 
     try { 

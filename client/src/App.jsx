@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import User from "./pages/user";
 import Pokedex from "./pages/pokedex";
+import Pokemon from "./pages/pokemon";
 
 function App() {
   const userState = JSON.parse(localStorage.getItem("user"));
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/user" element={<User />} />
           <Route path="/pokedex" element={<Pokedex />} />
+          <Route path={"/pokemon/:id"} element={<Pokemon />} />
         </Routes>
       </UserContext.Provider>
     </div>
