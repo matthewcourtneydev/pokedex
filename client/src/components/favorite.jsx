@@ -7,6 +7,7 @@ const Favorite = () => {
     const { id } = useParams();
     let favorites = userData.user.favorites;
     const [isFav, setIsFav] = useState((favorites.includes(id)));
+    const localStorageData = JSON.parse(localStorage.getItem("user"));
 
     console.log(isFav);
 
@@ -14,6 +15,8 @@ const Favorite = () => {
         setIsFav(prevIsFav => !prevIsFav);
         console.log(userData.user._id, isFav);
         patchFavs([...favorites, id]).then((data) => console.log(data));
+        localStorageData.user.favorites = [...favorites, id];
+        localStorage.setItem("user", JSON.stringify(localStorageData))
     }
 
     async function removeFromFavorites() {
