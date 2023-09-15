@@ -5,7 +5,7 @@ const Pokedex = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
   async function getPokemon() {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=3");
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
     return response.json();
   }
 
@@ -19,12 +19,11 @@ const Pokedex = () => {
     // <div id="pokemon-list">
     //   <PokemonCard pokemon={pokemonList[0]} />
     // </div>
-    <>
-    <h1>NOT LOADING</h1>
+    <div className="pokedex-page page">
     {pokemonList.map((pokemon) => {
       return <PokemonCard key={pokemon.name} pokemon={pokemon} />
     })}
-    </>
+    </div>
   ) : (
     <h1>Loading</h1>
   );

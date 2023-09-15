@@ -13,6 +13,8 @@ const Pokemon = () => {
     return response.json();
   }
 
+  console.log(pokemon);
+
   useEffect(() => {
     getPokemon().then((data) => {
       setPokemon(data);
@@ -20,14 +22,21 @@ const Pokemon = () => {
   }, []);
 
   return pokemon ? (
-    <div className="pokemon-page">
-      <h1>{pokemon.name}</h1>
+    <div className="pokemon-page page">
+      <div className="header-pokemon">
+        <h2>{pokemon.name}</h2>
+        {pokemon.stats.map((stat) => {
+          if (stat.stat.name == "hp") {
+            return <p>HP {stat.base_stat}</p>;
+          }
+        })}
+      </div>
+      <div className="square">
+
+      </div>
       <img src={pokemon.sprites.front_default} alt={`${pokemon.name} image`} />
-      {(userData.user && userData.user.email) ? (
-         <Favorite />
-      ) : (
-        <></>
-      )}
+
+      {userData.user && userData.user.email ? <Favorite /> : <></>}
     </div>
   ) : (
     <h1>Loading</h1>
