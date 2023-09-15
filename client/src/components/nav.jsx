@@ -8,28 +8,41 @@ const Nav = () => {
   const navigate = useNavigate();
 
   function logOut() {
-    localStorage.setItem("user", JSON.stringify({}))
+    localStorage.setItem("user", JSON.stringify({}));
+    window.location.reload();
     navigate("/");
   }
 
-  return (userData.user && userData.user.email) ? (
+  return userData.user && userData.user.email ? (
     <nav id="nav-bar">
       <span>
-        <a href="/"><UilTrophy /></a>
+        <a href="/">
+          <UilTrophy />
+        </a>
       </span>
       <ul className="nav-items">
-        <li className="nav-item" onClick={logOut}>Logout</li>
-        <li className="nav-item"><a href="/pokedex">Pokedex</a></li>
+        <li className="nav-item" onClick={logOut}>
+          Logout
+        </li>
+        <li className="nav-item">
+          <a href="/pokedex">Pokedex</a>
+        </li>
       </ul>
     </nav>
   ) : (
     <nav id="nav-bar">
       <span>
-        <UilTrophy />
+        <a href="/">
+          <UilTrophy />
+        </a>
       </span>
       <ul className="nav-items">
-        <li className="nav-item"><a href="/login">Login</a></li>
-        <li className="nav-item"><a href="/pokedex">Pokedex</a></li>
+        <li className="nav-item">
+          <a href="/login">Login</a>
+        </li>
+        <li className="nav-item">
+          <a href="/pokedex">Pokedex</a>
+        </li>
       </ul>
     </nav>
   );

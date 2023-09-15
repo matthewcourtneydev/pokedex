@@ -23,7 +23,7 @@ const Pokemon = () => {
     <div className="pokemon-page">
       <h1>{pokemon.name}</h1>
       <img src={pokemon.sprites.front_default} alt={`${pokemon.name} image`} />
-      {userData ? (
+      {(userData.user && userData.user.email) ? (
          <Favorite />
       ) : (
         <></>

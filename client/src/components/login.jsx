@@ -34,6 +34,7 @@ const LoginForm = () => {
 
         const loggedInUser = await login(loginInfo)
         localStorage.setItem("user", JSON.stringify(loggedInUser));
+        window.location.reload();
         navigate("/");
     }
     return (
