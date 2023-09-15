@@ -10,7 +10,7 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (userData && userData.user.email) {
+        if (userData.user && userData.user.email) {
           navigate("/");
         }
       }, []);

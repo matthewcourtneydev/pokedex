@@ -1,7 +1,8 @@
-import "./App.css";
+import "./App.scss"
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./contexts/userContext";
+import Nav from './components/nav'
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value={user}>
+        <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
