@@ -7,6 +7,7 @@ import trainer from "../imgs/ash.webp";
 const Pokemon = () => {
   let { id } = useParams();
   const [pokemon, setPokemon] = useState();
+  const [attackCount, setAttackCount] = useState(10);
   const [isTrainerLarger, setIsTrainerLarger] = useState();
   const [desc, setDesc] = useState();
   const [evolutionChain, setEvolutionChain] = useState();
@@ -17,6 +18,14 @@ const Pokemon = () => {
   async function getPokemon() {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     return response.json();
+  }
+
+  function showMoreAttacks() {
+    setAttackCount(pokemon.moves.length)
+  }
+
+  function showLessAttacks() {
+    setAttackCount(10)
   }
 
   function getCompareValues(pokeH) {
@@ -49,7 +58,7 @@ const Pokemon = () => {
   // console.log(desc);
   // console.log(evolutionChain);
   console.log(pokemon);
-  if(pokemon) {
+  if (pokemon) {
     console.log((pokemon.height * 0.1).toFixed(1));
   }
   useEffect(() => {
@@ -118,69 +127,43 @@ const Pokemon = () => {
       </div>
       <div className="attributes">
         <div className="height-compare">
-          <div className="compare-text"><p>Height Comparison</p></div>
-            {isTrainerLarger ? (
-              <div className="height-compare-inner">
-                <img
-                  src={trainer}
-                  alt=""
-                  className="trainer-height"
-                  height={"100%"}
-                />
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-                  alt={`${pokemon.name} image`}
-                  className="pokemon-height"
-                  height={getCompareValues(pokemon.height).pokemon}
-                />
-              </div>
-            ) : (
-              <div className="height-compare-inner height-compare-inner-large">
-                <img
-                  src={trainer}
-                  alt=""
-                  className="trainer-height"
-                  height={getCompareValues(pokemon.height).trainer}
-                />
-                <img
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-                  alt={`${pokemon.name} image`}
-                  className="pokemon-height-large"
-                  height={"100%"}
-                  styles={{"right": "-50px"}}
-                />
-              </div>
-            )}
-            {/* {(parseInt(pokemon.height) * 0.1).toFixed(1) < trainerHeight ? (
-              <>
-                <img src={trainer} alt="" className="trainer-height" styles={{height: `${trainerHeight / (parseInt(pokemon.height) * 0.1).toFixed(1)}%`}}/>
-
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-                  alt={`${pokemon.name} image`}
-                  className="pokemon-height"
-                  styles={{height: "100%"}}
-                />
-              </>
-            ) : (
-              <>
-                <img src={trainer} alt="" className="trainer-height" />
-
-                <img
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-                  alt={`${pokemon.name} image`}
-                  className="pokemon-height"
-                />
-              </>
-            )} */}
-            {/* <img src={trainer} alt="" className="trainer-height"/>
-
-            <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-              alt={`${pokemon.name} image`}
-              className="pokemon-height"
-            /> */}
+          <div className="compare-text">
+            <p>Height Comparison</p>
           </div>
+          {isTrainerLarger ? (
+            <div className="height-compare-inner">
+              <img
+                src={trainer}
+                alt=""
+                className="trainer-height"
+                height={"100%"}
+              />
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+                alt={`${pokemon.name} image`}
+                className="pokemon-height"
+                height={getCompareValues(pokemon.height).pokemon}
+              />
+            </div>
+          ) : (
+            <div className="height-compare-inner height-compare-inner-large">
+              <img
+                src={trainer}
+                alt=""
+                className="trainer-height"
+                height={getCompareValues(pokemon.height).trainer}
+              />
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
+                alt={`${pokemon.name} image`}
+                className="pokemon-height-large"
+                height={"100%"}
+                styles={{ right: "-50px" }}
+              />
+            </div>
+          )}
+        </div>
+
         {/* <p>Height: {(parseInt(pokemon.height) * 0.1).toFixed(1)}m</p>
             <p>weight: {(parseInt(pokemon.weight) * 0.1).toFixed(1)}kg</p>
             {desc.genera.map((genre) => {
@@ -188,6 +171,16 @@ const Pokemon = () => {
                 return <p>Category: {genre.genus}</p>
               }
             })} */}
+      </div>
+
+      <div className="attacks">
+        <h2>Attacks</h2>
+        <div className="attack-container">
+        <ul className={"closed"}>
+          {pokemon.moves.slice(0, attackCount).map((move) => <li>{move.move.name}</li>)}
+        </ul>
+            {attackCount <= 10 ? (<button className="expand" onClick={showMoreAttacks}>Show More</button>) : (<button className="expand" onClick={showLessAttacks}>Show Less</button>)}
+        </div>
       </div>
 
       {evolutionChain && evolutionChain.chain.evolves_to.length ? (
