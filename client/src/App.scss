@@ -54,13 +54,14 @@ body {
     }
 
     #nav-bar {
-      background-color: rgba(146, 255, 146, 0.916);
+      background-color: rgba(220, 26, 26, 0.916);
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       padding: 0;
       position: fixed;
       width: 100vw;
+      z-index: 100;
 
 
       a {
@@ -83,20 +84,110 @@ body {
     }
 
     .page {
-      padding-top: 80px;
+      padding-top: 100px;
     }
 
     .pokemon-page {
-      background-color: chartreuse;
+      background-color: rgb(247, 81, 66);
       height: 100vh;
 
-      .header-pokemon {
-        background-color: rgb(140, 140, 254);
-        display: flex;
-        flex-direction: row;
+      .pokemon-img-container {
+        background-color: white;
+        border-radius: 10px;
+        max-width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        border: rgb(198, 198, 198) 10px solid;
+        border-bottom: rgb(198, 198, 198) 35px solid;
 
-        h2, p {
+        img {
+          max-height: 300px;
+          width: auto;
+          margin: 0px;
+          border-radius: 10px;
+        }
+
+        .pokemon-name {
+          position: absolute;
+          padding-top: 30px;
+          bottom: 0;
+          width: 100%;
+          font-size: 40px;
+          margin: 0;
+          margin-bottom: 10px;
+          color: rgb(86, 86, 86);
+          background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
+        }
+      }
+
+      .stat-container, .description {
+        margin-top: 20px;
+        background-color: rgb(198, 198, 198);
+        border-radius: 10px;
+        max-width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: space-around;
+
+
+          li {
+            width: 20%;
+
+            p {
+              margin: 0
+            }
+
+            .stat-value {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      .description p {
+        margin: 0;
+      }
+
+      .description { 
+        background-color: white;
+        
+        p {
+          max-width: 90%;
           margin: auto
+        }
+      }
+
+      .evolutions {
+        background-color: rgb(101, 101, 101);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        margin-top: 20px;
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          color: white;
+          display: flex;
+
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+
+        .current {
+          color: gold
         }
       }
     }
