@@ -1,4 +1,6 @@
 import "./App.scss"
+import "./App.css"
+import 'animate.css';
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./contexts/userContext";
@@ -9,6 +11,7 @@ import Register from "./pages/register";
 import User from "./pages/user";
 import Pokedex from "./pages/pokedex";
 import Pokemon from "./pages/pokemon";
+
 
 function App() {
   const userState = JSON.parse(localStorage.getItem("user"));

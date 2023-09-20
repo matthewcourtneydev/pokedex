@@ -21,11 +21,11 @@ const Pokemon = () => {
   }
 
   function showMoreAttacks() {
-    setAttackCount(pokemon.moves.length)
+    setAttackCount(pokemon.moves.length);
   }
 
   function showLessAttacks() {
-    setAttackCount(10)
+    setAttackCount(10);
   }
 
   function getCompareValues(pokeH) {
@@ -91,6 +91,8 @@ const Pokemon = () => {
       console.log(isTrainerLarger);
     }
   }, [pokemon]);
+
+  // const test = false;
 
   return pokemon && desc && evolutionChain ? (
     <div className="pokemon-page page">
@@ -176,10 +178,20 @@ const Pokemon = () => {
       <div className="attacks">
         <h2>Attacks</h2>
         <div className="attack-container">
-        <ul className={"closed"}>
-          {pokemon.moves.slice(0, attackCount).map((move) => <li>{move.move.name}</li>)}
-        </ul>
-            {attackCount <= 10 ? (<button className="expand" onClick={showMoreAttacks}>Show More</button>) : (<button className="expand" onClick={showLessAttacks}>Show Less</button>)}
+          <ul className={"closed"}>
+            {pokemon.moves.slice(0, attackCount).map((move) => (
+              <li>{move.move.name}</li>
+            ))}
+          </ul>
+          {attackCount <= 10 ? (
+            <button className="expand" onClick={showMoreAttacks}>
+              Show More
+            </button>
+          ) : (
+            <button className="expand" onClick={showLessAttacks}>
+              Show Less
+            </button>
+          )}
         </div>
       </div>
 
@@ -306,7 +318,13 @@ const Pokemon = () => {
       {userData.user && userData.user.email ? <Favorite /> : <></>}
     </div>
   ) : (
-    <h1>Loading</h1>
+    <div className="loading">
+      <div className="loading-content">
+        <p>Loading</p>
+      <div class="o-pokeball c-loader u-tada"></div>
+      </div>
+
+    </div>
   );
 };
 
