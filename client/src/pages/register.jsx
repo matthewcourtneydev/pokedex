@@ -6,8 +6,10 @@ const Register = () => {
     const user = useContext(UserContext);
     
     return (
-        <div>
+        <div className='register-page'>
+            <div className="register-content">
             <RegisterForm />
+            </div>
         </div>
     );
 }

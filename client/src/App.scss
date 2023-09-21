@@ -44,6 +44,19 @@ body {
 
     }
 
+    .login-page, .register-page {
+      max-height: 100vh;
+      max-width: 100vw;
+      min-height: 100vh;
+      min-width: 100vw;
+      background-color: rgb(247, 81, 66);
+      overflow: hidden;
+
+      .login-content, .register-content {
+        margin-top: 90px;
+      }
+    }
+
     .loading {
       background-color: rgba(220, 26, 26, 0.916);
       height: 100vh;
