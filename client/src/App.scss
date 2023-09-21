@@ -127,14 +127,21 @@ body {
     }
 
     .pokedex-page {
-      background-color: rgb(175, 175, 175);
+      background-color: rgb(247, 81, 66);
       padding-bottom: 20px;
+
+      img {
+        width: 90%;
+      height: auto;    
+      margin-bottom: 30px;  
+    }
 
       .poke-card {
         background-image: linear-gradient(
           rgba(255, 255, 255, 0),
           rgb(255, 255, 255)
         );
+        background-color: white;
         width: 80vw;
         margin-left: auto;
         margin-right: auto;

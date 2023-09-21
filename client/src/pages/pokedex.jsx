@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PokemonCard from "../components/pokemon-card";
+import img from "../imgs/pokemon2.png"
 
 const Pokedex = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -20,12 +21,18 @@ const Pokedex = () => {
     //   <PokemonCard pokemon={pokemonList[0]} />
     // </div>
     <div className="pokedex-page page">
-    {pokemonList.map((pokemon) => {
-      return <PokemonCard key={pokemon.name} pokemon={pokemon} />
-    })}
+      <img src={img} alt="" />
+      {pokemonList.map((pokemon) => {
+        return <PokemonCard key={pokemon.name} pokemon={pokemon} />;
+      })}
     </div>
   ) : (
-    <h1>Loading</h1>
+    <div className="loading">
+      <div className="loading-content">
+        <p>Loading</p>
+        <div class="o-pokeball c-loader u-tada"></div>
+      </div>
+    </div>
   );
 };
 
