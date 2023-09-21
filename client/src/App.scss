@@ -44,7 +44,7 @@ body {
 
     }
 
-    .login-page, .register-page {
+    .login-page, .register-page, .user-page {
       max-height: 100vh;
       max-width: 100vw;
       min-height: 100vh;
@@ -88,6 +88,26 @@ body {
 
         p {
           text-align: center;
+        }
+      }
+    }
+
+    .user-page {
+      .user-content {
+        margin-top: 90px;
+
+        .header {
+          background-color: gold;
+          display: flex;
+          width: 80%;
+          margin: auto;
+
+          .profile-pic {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: blue;;
+          }
         }
       }
     }

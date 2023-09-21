@@ -10,7 +10,7 @@ const Home = () => {
   console.log(user)
 
   function rediretToUserProfile() {
-    navigate('/')
+    navigate(`/user/${user.user._id}`)
   }
 
   function rediretToRegister() {
@@ -26,7 +26,7 @@ const Home = () => {
         />
         <p>Start your journey today</p>
         {(user.user && user.user.email) ? (
-          <button className="register" onClick={rediretToRegister} >My Profile</button>
+          <button className="register" onClick={rediretToUserProfile} >My Profile</button>
         ) : (
           <button className="register" onClick={rediretToRegister} >Sign Up Now</button>
         )}
