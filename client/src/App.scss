@@ -33,7 +33,7 @@ body {
         .register {
           background: none;
           font-size: 20px;
-          border: solid rgb(92, 92, 92) 2px;
+          border: none;
           background-color: rgb(238, 240, 240);
           color: rgb(27, 27, 154);
           border-radius: 5px;
@@ -54,6 +54,41 @@ body {
 
       .login-content, .register-content {
         margin-top: 90px;
+
+        img {
+          width: 90%;
+          height: auto;
+        }
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          width: 80%;
+          text-align: left;
+          margin: auto;
+
+          input {
+            line-height: 25px;
+            border-radius: 2px;
+            border: none;
+            margin-bottom: 5px;
+          }
+
+          button {
+            width: 50%;
+            margin: auto;
+            margin-top: 20px;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 20px;
+          }
+        }
+
+        p {
+          text-align: center;
+        }
       }
     }
 

@@ -6,7 +6,7 @@ const Pokedex = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
   async function getPokemon() {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
     return response.json();
   }
 

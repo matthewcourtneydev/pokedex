@@ -38,12 +38,13 @@ const LoginForm = () => {
         navigate("/");
     }
     return (
-        <div id="login-form">
+        <div id="login-form" className='form'>
             <label htmlFor="email">Email</label>
             <input type="text" name="email" ref={emailRef}/>
             <label htmlFor="password">Password</label>
             <input type="password" name="password" ref={passwordRef}/>
-            <button onClick={handleLogin}>Sign up</button>
+            <button onClick={handleLogin}>Sign In</button>
+            <p>Not a member? Register <a href="/register">Here</a>.</p>
         </div>
     );
 }

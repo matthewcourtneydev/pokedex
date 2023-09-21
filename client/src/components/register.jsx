@@ -67,7 +67,7 @@ const RegisterForm = () => {
   }
 
   return (
-    <div id="register-form">
+    <div id="register-form" className="form">
       <label htmlFor="username">Username:</label>
       <input type="text" name="username" ref={userRef} />
       <label htmlFor="email">Email:</label>
@@ -83,6 +83,7 @@ const RegisterForm = () => {
         <option value="007">Squirtle</option>
       </select>
       <button onClick={handleSubmit}>Sign up</button>
+      <p>Already a member? Log in <a href="/login">Here</a>.</p>
     </div>
   );
 };

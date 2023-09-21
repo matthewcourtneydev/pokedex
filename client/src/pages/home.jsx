@@ -7,6 +7,12 @@ const Home = () => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
+  console.log(user)
+
+  function rediretToUserProfile() {
+    navigate('/')
+  }
+
   function rediretToRegister() {
     navigate('/login')
   }
@@ -19,7 +25,11 @@ const Home = () => {
           alt=""
         />
         <p>Start your journey today</p>
-        <button className="register" onClick={rediretToRegister} >Sign Up Now</button>
+        {(user.user && user.user.email) ? (
+          <button className="register" onClick={rediretToRegister} >My Profile</button>
+        ) : (
+          <button className="register" onClick={rediretToRegister} >Sign Up Now</button>
+        )}
       </div>
     </div>
   );

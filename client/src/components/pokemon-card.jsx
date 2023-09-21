@@ -35,7 +35,7 @@ const navigate = useNavigate();
     </strong>
   </div>
   ) : (
-    <h1>Loading</h1>
+    <></>
   )
   );
 };
