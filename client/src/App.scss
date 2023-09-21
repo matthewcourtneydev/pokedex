@@ -18,7 +18,7 @@ body {
 
       .homepage-content {
 
-        margin-top: 90px;
+        margin-top: 30px;
 
         h1 {
           font-size: 35px;
@@ -26,7 +26,7 @@ body {
         }
   
         img {
-          max-width: 70%;
+          max-width: 65%;
           height: auto;
         }
   
@@ -38,7 +38,8 @@ body {
           color: rgb(27, 27, 154);
           border-radius: 5px;
           padding: 5px;
-          width: 70%
+          width: 70%;
+          margin-bottom: 10px;
         }
       }
 
@@ -53,7 +54,7 @@ body {
       overflow: hidden;
 
       .login-content, .register-content {
-        margin-top: 90px;
+        margin-top: 30px;
 
         img {
           width: 90%;
@@ -94,7 +95,7 @@ body {
 
     .user-page {
       .user-content {
-        margin-top: 90px;
+        margin-top: 30px;
 
         .header {
           background-color: gold;
@@ -238,6 +239,7 @@ body {
       position: fixed;
       width: 100vw;
       z-index: 100;
+      padding-top: 10px;
 
       a {
         text-decoration: none;
@@ -250,16 +252,18 @@ body {
         padding-left: 30px;
       }
 
-      ul {
+      .nav-items {
         list-style: none;
         font-size: 18px;
         padding-left: 0;
         padding-right: 30px;
       }
+
+      
     }
 
     .page {
-      padding-top: 100px;
+      padding-top: 50px;
     }
 
     .pokemon-page {
