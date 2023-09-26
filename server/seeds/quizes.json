@@ -1,0 +1,95 @@
+{
+    "kanto": {
+        "pewterCity": {
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "#",
+                    "answers": [
+                        {
+                            "name": "A",
+                            "value": "A",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "B",
+                            "value": "B",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "C",
+                            "value": "C",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "D",
+                            "value": "D",
+                            "isCorrect": true
+                        }
+                    ]
+                }
+            ],
+            "title": "Pewter City Gym",
+            "world": "Kanto",
+            "badge": "Boulder Badge",
+            "leader": "Brock",
+            "pointsPerQuestion": 20
+        },
+        "ceruleanCity": {
+            "questions": [],
+            "title": "Cerulean City Gym",
+            "world": "Kanto",
+            "badge": "Cascade Badge",
+            "leader": "Misty",
+            "pointsPerQuestion": 20
+        },
+        "vermillionCity": {
+            "questions": [],
+            "title": "Vermillion City Gym",
+            "world": "Kanto",
+            "badge": "Thunder Badge",
+            "leader": "Lt. Surge",
+            "pointsPerQuestion": 20
+        },
+        "celadonCity": {
+            "questions": [],
+            "title": "Celadon City Gym",
+            "world": "Kanto",
+            "badge": "Rainbow Badge",
+            "leader": "Erika",
+            "pointsPerQuestion": 20
+        },
+        "fuchsiaCity": {
+            "questions": [],
+            "title": "Fuchsia City Gym",
+            "world": "Kanto",
+            "badge": "Soul Badge",
+            "leader": "Koga",
+            "pointsPerQuestion": 20
+        },
+        "saffronCity": {
+            "questions": [],
+            "title": "Saffron City Gym",
+            "world": "Kanto",
+            "badge": "Marsh Badge",
+            "leader": "Sabrina",
+            "pointsPerQuestion": 20
+        },
+        "cinnabarIslandCity": {
+            "questions": [],
+            "title": "Cinnabar Island City Gym",
+            "world": "Kanto",
+            "badge": "Volcano Badge",
+            "leader": "Blaine",
+            "pointsPerQuestion": 20
+        },
+        "veridianCity": {
+            "questions": [],
+            "title": "ViridianCity Gym",
+            "world": "Kanto",
+            "badge": "Earth Badge",
+            "leader": "Giovanni",
+            "pointsPerQuestion": 20
+        }
+    }
+}
