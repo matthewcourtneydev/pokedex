@@ -11,6 +11,7 @@ import Register from "./pages/register";
 import User from "./pages/user";
 import Pokedex from "./pages/pokedex";
 import Pokemon from "./pages/pokemon";
+import QuizHome from "./pages/quiz-home";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/user/:id" element={<User />} />
           <Route path="/pokedex" element={<Pokedex />} />
           <Route path={"/pokemon/:id"} element={<Pokemon />} />
+          <Route path={"/quizes"} element={<QuizHome />} />
         </Routes>
       </UserContext.Provider>
     </div>
