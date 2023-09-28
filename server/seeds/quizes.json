@@ -4,26 +4,44 @@
             "questions": [
                 {
                     "question": "Name that pokemon",
-                    "img": "#",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
                     "answers": [
                         {
-                            "name": "A",
-                            "value": "A",
+                            "name": "Onix",
                             "isCorrect": false
                         },
                         {
-                            "name": "B",
-                            "value": "B",
+                            "name": "Geodude",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Vulpix",
                             "isCorrect": false
                         },
                         {
-                            "name": "C",
-                            "value": "C",
+                            "name": "Digglet",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+                    "answers": [
+                        {
+                            "name": "Groudon",
                             "isCorrect": false
                         },
                         {
-                            "name": "D",
-                            "value": "D",
+                            "name": "Sandshrew",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Geodude",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Onix",
                             "isCorrect": true
                         }
                     ]
@@ -33,63 +51,606 @@
             "world": "Kanto",
             "badge": "Boulder Badge",
             "leader": "Brock",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 20,
+            "img": "../imgs/gym-leaders/brock.png"
         },
         "ceruleanCity": {
-            "questions": [],
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+                    "answers": [
+                        {
+                            "name": "Horsea",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Psyduck",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Starmie",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Polywag",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+                    "answers": [
+                        {
+                            "name": "Staryu",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Tentacool",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Seel",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Goldeen",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ],
             "title": "Cerulean City Gym",
             "world": "Kanto",
             "badge": "Cascade Badge",
             "leader": "Misty",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 20,
+            "img": "../imgs/gym-leaders/misty.png"
         },
         "vermillionCity": {
-            "questions": [],
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+                    "answers": [
+                        {
+                            "name": "Voltorb",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Pikachu",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Electrode",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Magnamite",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+                    "answers": [
+                        {
+                            "name": "Magnamite",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Voltorb",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Pikachu",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Riachu",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+                    "answers": [
+                        {
+                            "name": "Pikachu",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Electrode",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Voltorb",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Riachu",
+                            "isCorrect": true
+                        }
+                    ]
+                }
+            ],
             "title": "Vermillion City Gym",
             "world": "Kanto",
             "badge": "Thunder Badge",
             "leader": "Lt. Surge",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 20,
+            "img": "../imgs/gym-leaders/lt-surge.webp"
         },
         "celadonCity": {
-            "questions": [],
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+                    "answers": [
+                        {
+                            "name": "Tangula",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Victreebel",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Vileplume",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Exeggcute",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png",
+                    "answers": [
+                        {
+                            "name": "Exeggcute",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Victreebel",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Vileplume",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Tangula",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+                    "answers": [
+                        {
+                            "name": "Tangula",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Exeggcute",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Victreebel",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Vileplume",
+                            "isCorrect": true
+                        }
+                    ]
+                }
+            ],
             "title": "Celadon City Gym",
             "world": "Kanto",
             "badge": "Rainbow Badge",
             "leader": "Erika",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 20,
+            "img": "../imgs/gym-leaders/erika.webp"
         },
         "fuchsiaCity": {
-            "questions": [],
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+                    "answers": [
+                        {
+                            "name": "Muk",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Grimmer",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Weezing",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Koffing",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+                    "answers": [
+                        {
+                            "name": "Grimmer",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Koffing",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Muk",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Weezing",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+                    "answers": [
+                        {
+                            "name": "Koffing",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Muk",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Grimmer",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Weezing",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ],
             "title": "Fuchsia City Gym",
             "world": "Kanto",
             "badge": "Soul Badge",
             "leader": "Koga",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 10,
+            "img": "../imgs/gym-leaders/koga.webp"
         },
         "saffronCity": {
-            "questions": [],
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+                    "answers": [
+                        {
+                            "name": "Kadabra",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Alakazam",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Venomoth",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Mr. Mime",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+                    "answers": [
+                        {
+                            "name": "Mr. Mime",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Alakazam",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Kadabra",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Venomoth",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+                    "answers": [
+                        {
+                            "name": "Venomoth",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Alakazam",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Kadabra",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Mr. Mime",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+                    "answers": [
+                        {
+                            "name": "Venomoth",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Alakazam",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Kadabra",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Mr. Mime",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ],
             "title": "Saffron City Gym",
             "world": "Kanto",
             "badge": "Marsh Badge",
             "leader": "Sabrina",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 10,
+            "img": "../imgs/gym-leaders/sabrina.webp"
         },
         "cinnabarIslandCity": {
-            "questions": [],
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+                    "answers": [
+                        {
+                            "name": "Arcanine",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Growlithe",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Ponyta",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Rapidash",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+                    "answers": [
+                        {
+                            "name": "Ponyta",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Rapidash",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Arcanine",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Growlithe",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+                    "answers": [
+                        {
+                            "name": "Rapidash",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Arcanine",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Growlithe",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Ponyta",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png",
+                    "answers": [
+                        {
+                            "name": "Rapidash",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Ponyta",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Arcanine",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Growlithe",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ],
             "title": "Cinnabar Island City Gym",
             "world": "Kanto",
             "badge": "Volcano Badge",
             "leader": "Blaine",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 15,
+            "img": "../imgs/gym-leaders/blaine.webp"
         },
         "veridianCity": {
-            "questions": [],
+            "questions": [
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+                    "answers": [
+                        {
+                            "name": "Dugtrio",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Nidoking",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Nidoqueen",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Ryhorn",
+                            "isCorrect": true
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png",
+                    "answers": [
+                        {
+                            "name": "Nidoking",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Nidoqueen",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Dugtrio",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Ryhorn",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+                    "answers": [
+                        {
+                            "name": "Nidoqueen",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Nidoking",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Dugtrio",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Ryhorn",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+                    "answers": [
+                        {
+                            "name": "Nidoking",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Dugtrio",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Ryhorn",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Nidoqueen",
+                            "isCorrect": false
+                        }
+                    ]
+                },
+                {
+                    "question": "Name that pokemon",
+                    "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+                    "answers": [
+                        {
+                            "name": "Nidoking",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Ryhorn",
+                            "isCorrect": false
+                        },
+                        {
+                            "name": "Rydon",
+                            "isCorrect": true
+                        },
+                        {
+                            "name": "Nidoqueen",
+                            "isCorrect": false
+                        }
+                    ]
+                }
+            ],
             "title": "ViridianCity Gym",
             "world": "Kanto",
             "badge": "Earth Badge",
             "leader": "Giovanni",
-            "pointsPerQuestion": 20
+            "pointsPerQuestion": 30,
+            "img": "../imgs/gym-leaders/giovanni.webp"
         }
     }
 }

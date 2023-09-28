@@ -28,4 +28,14 @@ quizRouter.post("/", async (req, res) => {
     }
 })
 
+quizRouter.delete("/:id", async (req, res) => {
+    const id = req.params.id;
+    try {
+       await Quiz.deleteOne({_id: id});
+        res.json({message: "deleted quizes"});
+    } catch (err) {
+        res.json({error: err.message})
+    }
+})
+
 module.exports = quizRouter;
