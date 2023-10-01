@@ -12,7 +12,7 @@ GET http://localhost:3002/completedQuizes
 
 
 
-DELETE http://localhost:3002/quizes/6515a8600fbe8d2a41f3ef2e
+DELETE http://localhost:3002/quizes/6519e975686e8a2214fb87c3
 
 ###
 
@@ -136,8 +136,7 @@ Content-Type: application/json
             "world": "Kanto",
             "badge": "Earth Badge",
             "leader": "Giovanni",
-            "pointsPerQuestion": 30,
-            "img": "../imgs/gym-leaders/giovanni.webp"
+            "pointsPerQuestion": 30
 }
 ###
 

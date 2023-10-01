@@ -15,8 +15,7 @@ const quizSchema = new mongoose.Schema({
     world: {type: String},
     badge: {type: String},
     leader: {type: String},
-    pointsPerQuestion: {type: Number},
-    img: {type: String}
+    pointsPerQuestion: {type: Number}
 })
 
 module.exports = mongoose.model("Quiz", quizSchema);

@@ -30,7 +30,7 @@ const Pokedex = () => {
     <div className="loading">
       <div className="loading-content">
         <p>Loading</p>
-        <div class="o-pokeball c-loader u-tada"></div>
+        <div className="o-pokeball c-loader u-tada"></div>
       </div>
     </div>
   );
