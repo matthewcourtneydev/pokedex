@@ -11,6 +11,20 @@ quizRouter.get("/", async (req, res) => {
     }
 })
 
+quizRouter.get('/:id', async (req, res) => {
+    let quiz;
+    try {
+        quiz = await Quiz.findById(req.params.id);
+        if(quiz === null) {
+            res.json({err: "Quiz not found"})
+        } else {
+            res.json(quiz)
+        }
+    } catch(err) {
+        res.json({err: err})
+    }
+})
+
 quizRouter.post("/", async (req, res) => {
     const newQuiz = new Quiz({
         questions: req.body.questions,

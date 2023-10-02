@@ -6,6 +6,7 @@ const QuizCard = (props) => {
     const imgPath = `./imgs/gym-leaders/${props.quiz.leader}.webp`;
     // import img from `client/src/imgs/gym-leaders/${props.quiz._id}.webp`;
     return (
+        
         <div className="quiz-card">
             <img src={imgPath} alt="trainer" />
             <p>{props.quiz.title}</p>

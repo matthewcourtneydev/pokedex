@@ -8,6 +8,11 @@ body {
   .App {
     text-align: center;
 
+    .page {
+      background-color: rgb(247, 81, 66);
+      min-height: 100vh;
+    }
+
     .quiz-home {
       background-color: rgb(247, 81, 66);
       
