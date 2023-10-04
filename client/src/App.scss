@@ -192,20 +192,15 @@ body {
 
     .user-page {
       .user-content {
-        margin-top: 30px;
+        margin-top: 50px;
 
-        .header {
-          background-color: gold;
-          display: flex;
+        .user-info {
+          background-color: rgb(190, 190, 190);
           width: 80%;
           margin: auto;
-
-          .profile-pic {
-            height: 100px;
-            width: 100px;
-            border-radius: 50%;
-            background-color: blue;;
-          }
+          padding: 10px;
+          border-radius: 5px;
+          text-align: left;
         }
       }
     }

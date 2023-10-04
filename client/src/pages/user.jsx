@@ -8,6 +8,14 @@ const User = () => {
   console.log(userData.user);
   const [pageOwner, setPageOwner] = useState(false);
 
+  console.log(user);
+
+  const testBadges = [
+    {
+      "name": "Boulder Badge",
+    }
+  ]
+
   useEffect(() => {
     if (user) {
       if (pagesUser == userData.user._id) {
@@ -19,15 +27,19 @@ const User = () => {
   return pageOwner ? (
     <div className="user-page">
       <div className="user-content">
-        <p>This is the users page you can access your personal profile info</p>
-        {/* <div className="header">
-                <div className="profile-pic"></div>
-                <div className="info">
-                <p>Username: {user.username}</p>
-                <br/>
-                <p>xP: {user.experience}</p>
-                </div>
-            </div> */}
+        <div className="user-info">
+          <p><strong>Username: </strong>{user.username}</p>
+          <p><strong>Email: </strong>{user.email}</p>
+        </div>
+        <div className="badges">
+          <div className="badge">
+            {testBadges.map(badge => {
+              const imgPath = `./imgs/badges/${badge.name.split(" ")[0].toLowerCase()}.png`;
+              console.log(imgPath)
+              return <img src={imgPath} alt="badge" />
+            })}
+          </div>
+        </div>
       </div>
     </div>
   ) : (
