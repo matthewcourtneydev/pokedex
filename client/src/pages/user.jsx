@@ -13,7 +13,28 @@ const User = () => {
   const testBadges = [
     {
       "name": "Boulder Badge",
-    }
+    },
+    {
+      "name": "Cascade Badge",
+    },
+    {
+      "name": "Thunder Badge",
+    },
+    {
+      "name": "Rainbow Badge",
+    },
+    // {
+    //   "name": "Marsh Badge",
+    // },
+    // {
+    //   "name": "Soul Badge",
+    // },
+    // {
+    //   "name": "Volcano Badge",
+    // },
+    // {
+    //   "name": "Earth Badge",
+    // }
   ]
 
   useEffect(() => {
@@ -30,6 +51,7 @@ const User = () => {
         <div className="user-info">
           <p><strong>Username: </strong>{user.username}</p>
           <p><strong>Email: </strong>{user.email}</p>
+          <p><strong>xP: </strong>{user.experience}</p>
         </div>
         <div className="badges">
           <div className="badge">

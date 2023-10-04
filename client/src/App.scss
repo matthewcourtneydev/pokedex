@@ -202,6 +202,22 @@ body {
           border-radius: 5px;
           text-align: left;
         }
+
+        .badges {
+          background-color: rgb(84, 84, 84);
+          width: 80%;
+          padding: 10px;
+          margin: auto;
+          margin-top: 20px;
+          border-radius: 5px;
+          display: flex;
+          flex-wrap: wrap;
+
+          img {
+            max-width: 25%;
+            height: auto;
+          }
+        }
       }
     }
 
