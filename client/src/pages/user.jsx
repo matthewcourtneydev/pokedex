@@ -34,7 +34,7 @@ const User = () => {
         <div className="badges">
           <div className="badge">
             {testBadges.map(badge => {
-              const imgPath = `./imgs/badges/${badge.name.split(" ")[0].toLowerCase()}.png`;
+              const imgPath = `../imgs/badges/${badge.name.split(" ")[0].toLowerCase()}.png`;
               console.log(imgPath)
               return <img src={imgPath} alt="badge" />
             })}
