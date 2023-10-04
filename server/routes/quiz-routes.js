@@ -32,7 +32,7 @@ quizRouter.post("/", async (req, res) => {
         world: req.body.world,
         badge: req.body.badge,
         leader: req.body.leader,
-        pointPerQuestion: req.body.pointPerQuestion
+        pointsPerQuestion: req.body.pointsPerQuestion
     });
 
     try {

@@ -20,7 +20,7 @@ const QuizHome = () => {
             <h1>Quizes</h1>
         <div className="quiz-grid">
         {quizes.map((quiz) => {
-            return <QuizCard quiz={quiz}/>
+            return <a href={`/quizes/${quiz._id}`}><QuizCard quiz={quiz}/></a>
         })}    
         </div> 
         </div>
