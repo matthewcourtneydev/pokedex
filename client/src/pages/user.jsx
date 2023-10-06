@@ -12,16 +12,16 @@ const User = () => {
 
   const testBadges = [
     {
-      "name": "Boulder Badge",
+      name: "Boulder Badge",
     },
     {
-      "name": "Cascade Badge",
+      name: "Cascade Badge",
     },
     {
-      "name": "Thunder Badge",
+      name: "Thunder Badge",
     },
     {
-      "name": "Rainbow Badge",
+      name: "Rainbow Badge",
     },
     // {
     //   "name": "Marsh Badge",
@@ -35,7 +35,9 @@ const User = () => {
     // {
     //   "name": "Earth Badge",
     // }
-  ]
+  ];
+
+  const testFavs = [150]
 
   useEffect(() => {
     if (user) {
@@ -49,19 +51,44 @@ const User = () => {
     <div className="user-page">
       <div className="user-content">
         <div className="user-info">
-          <p><strong>Username: </strong>{user.username}</p>
-          <p><strong>Email: </strong>{user.email}</p>
-          <p><strong>xP: </strong>{user.experience}</p>
+          <p>
+            <strong>Username: </strong>
+            {user.username}
+          </p>
+          <p>
+            <strong>Email: </strong>
+            {user.email}
+          </p>
+          <p>
+            <strong>xP: </strong>
+            {user.experience}
+          </p>
         </div>
-        <div className="badges">
-          <div className="badge">
-            {testBadges.map(badge => {
-              const imgPath = `../imgs/badges/${badge.name.split(" ")[0].toLowerCase()}.png`;
-              console.log(imgPath)
-              return <img src={imgPath} alt="badge" />
-            })}
+        {user.badges.length ? (
+          <div className="badges">
+            <div className="title">Badges</div>
+              {user.badges.map((badge) => {
+                const imgPath = `../imgs/badges/${badge.name
+                  .split(" ")[0]
+                  .toLowerCase()}.png`;
+                console.log(imgPath);
+                return <img src={imgPath} alt="badge" />;
+              })}
           </div>
+        ) : (
+          <></>
+        )}
+        <div className="favorites">
+          <div className="title">Favorites</div>
+          {user.favorites.map((pokemon) => {
+            const imgPath = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`
+            return <img src={imgPath} alt="pokemon"/>
+          })}
         </div>
+
+        <button>Gain More xP</button>
+        <button>Pokedex</button>
+        <button>Signout</button>
       </div>
     </div>
   ) : (
