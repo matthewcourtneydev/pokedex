@@ -20,6 +20,7 @@ const QuizHome = () => {
   return quizes ? (
     <div className="quiz-home page">
       <h1>Quizes</h1>
+      <p>Test your pokemon knowledge and earn badges and xP! The more xP you have the more regions you can explore!</p>
       <div className="quiz-grid">
         {quizes.map((quiz) => {
           if (userData.user.completedQuizes.includes(quiz._id)) {

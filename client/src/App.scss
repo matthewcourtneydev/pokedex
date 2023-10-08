@@ -1,4 +1,13 @@
-$pokemon-text: "Pokemon Solid", sans-serif;
+$digital-text: 'Orbitron', sans-serif;
+$bone-white: rgb(245, 246, 246);
+$completed-green: rgb(110, 255, 110);
+$page-gradient: linear-gradient(rgb(253, 125, 113), rgb(208, 49, 49));
+$white-gradient: linear-gradient(rgba(255, 255, 255, 0.009), $bone-white); 
+$completed-gradient: linear-gradient(rgba(255, 255, 255, 0.009), $completed-green);
+$box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+$light-grey: rgb(190, 190, 190);
+$dark-grey: rgb(84, 84, 84);
+$darker-grey: rgb(61, 61, 61);
 
 body {
   padding: 0;
@@ -7,64 +16,168 @@ body {
 
   .App {
     text-align: center;
+    font-family: $digital-text;
 
     .page {
-      background-color: rgb(247, 81, 66);
+      background-image: $page-gradient;
+      max-width: 100vw;
       min-height: 100vh;
-    }
-    
-    .question-container {
-      height: 300px;
-      width: 80%;
-      margin: auto;
-      margin-top: 20px;
-      background-color: rgb(87, 87, 87);
-      border-radius: 10px;
-      color: white;
-      position: relative;
-
-      img {
-        max-width: 100%;
-      }
-
-      p {
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        bottom: 5px;
-        width: 100%;
-        text-align: center;
-      }
+      min-width: 100vw;
+      font-family: $digital-text;
     }
 
-    .answer-container {
-      height: 200px;
-      width: 75%;
-      margin: auto;
-      margin-top: 10px;
+    .margin-top-30px {
+      margin-top: 30px;
+    }
 
-      ul {
+    #nav-bar {
+      background-color: rgba(253, 125, 113, 0.869);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0;
+      position: fixed;
+      width: 100vw;
+      z-index: 100;
+      padding-top: 15px;
+      padding-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: $darker-grey;
+      }
+      span {
+        justify-content: center;
+
+        padding-left: 30px;
+      }
+
+      .right-icon {
         list-style: none;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0;
-        display: grid;
-        gap: 15px;
+        padding-left: 0;
+        padding-right: 30px;
+      } 
+    }
 
+    .homepage {
+      overflow: hidden;
+
+      .homepage-content {
+        padding-top: 70px;
+  
+        img {
+          max-width: 65%;
+          height: auto;
+        }
+
+        .group-img {
+          padding-top: 0;
+        }
+        
+        p {
+          font-size: 20px;
+          margin: 5px auto 15px auto;
+          font-weight: 600;
+          font-family: $digital-text;
+          color: $darker-grey;
+        }
+
+        .homepage-btn {
+          background: none;
+          font-size: 20px;
+          border: none;
+          background-color: $bone-white;
+          color: $darker-grey;
+          border-radius: 5px;
+          padding: 5px;
+          width: 70%;
+          margin-bottom: 10px;
+          font-weight: 400;
+          font-family: $digital-text;
+          box-shadow: $box-shadow;
+        }
+      }
+
+    }
+
+    .user-page {
+      .user-content {
+        padding-top: 90px;
+        padding-bottom: 40px;
+
+        .user-info {
+          background-color: $light-grey;
+          width: 80%;
+          margin: auto;
+          padding: 10px;
+          border-radius: 5px;
+          color: $darker-grey;
+          text-align: left;
+          box-shadow: $box-shadow;
+        }
+
+        .badges, .favorites {
+          background-color: $dark-grey;
+          width: 80%;
+          padding: 10px;
+          margin: auto;
+          margin-top: 20px;
+          border-radius: 5px;
+          display: flex;
+          flex-wrap: wrap;
+          position: relative;
+          padding-top: 50px;
+          box-shadow: $box-shadow;
+
+          .title {
+            position: absolute;
+            top: 10px;
+            color: white;
+          }
+
+          img {
+            max-width: 25%;
+            height: auto;
+          }
+        }
+
+        .favorites {
+          margin-bottom: 10px;
+          
+        }
+        
         button {
-          background-color: rgb(216, 216, 220);
-          width: 100%;
-          font-size: 25px;
+          background-color: $bone-white;
+          width: 85%;
+          font-size: 20px;
           border: none;
           border-radius: 5px;
-          padding: 5px
-          
+          margin-top: 10px;
+          box-shadow: $box-shadow;
+          padding: 5px;
+          font-family: $digital-text;
+          color: $darker-grey;
         }
       }
     }
 
     .quiz-home {
-      background-color: rgb(247, 81, 66);
+      padding-top: 70px;
+      max-width: 1000px;
+
+      h1 {
+        margin: 0;
+        margin-bottom: 10px;
+        color: $darker-grey;
+      }
+
+      p {
+        max-width: 90%;
+        margin: auto;
+        font-size: 15px;
+        margin-bottom: 25px;
+        color: $darker-grey
+      }
       
       .quiz-grid {
         display: flex;
@@ -72,13 +185,17 @@ body {
         flex-wrap: wrap;
         overflow: scroll;
         padding-bottom: 50px;
+        max-width: 90%;
+        margin: auto;
 
         a {
-          background-color: white;
-          width: 40%;
-          margin-bottom: 10px;
+          background-color: $bone-white;
+          width: 42%;
+          margin-bottom: 20px;
           border-radius: 10px;
           position: relative;
+          text-align: center;
+          box-shadow: $box-shadow;
 
           p {
             position: absolute;
@@ -87,12 +204,12 @@ body {
             bottom: 0;
             width: 100%;
             margin-bottom: 0;
-            color: rgb(86, 86, 86);
-            background-image: linear-gradient(
-              rgba(255, 255, 255, 0.009),
-              rgb(255, 255, 255)
-            );
+            color: $darker-grey;
+            background-image: $white-gradient;
             border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 100%;
           }
 
           img {
@@ -104,55 +221,72 @@ body {
         }
 
         .completed {
-          background-color: rgb(110, 255, 110);
+          background-color: $completed-green;
           border-radius: 10px;
+
+          p {
+            background-image: $completed-gradient;
+          }
         }
       }
     }
 
-    .homepage {
-      max-height: 100vh;
-      max-width: 100vw;
-      min-height: 100vh;
-      min-width: 100vw;
-      background-color: rgb(247, 81, 66);
-      overflow: hidden;
+    .quiz-page {
+      padding-top: 70px;
 
-      .homepage-content {
-
-        margin-top: 30px;
-
-        h1 {
-          font-size: 35px;
-          margin-top: 0;
-        }
+      .question-container {
+        height: 300px;
+        width: 80%;
+        margin: auto;
+        background-image: linear-gradient($dark-grey, $darker-grey);
+        border-radius: 10px;
+        color: white;
+        position: relative;
+        box-shadow: $box-shadow;
   
         img {
-          max-width: 65%;
-          height: auto;
+          max-width: 100%;
         }
   
-        .register {
-          background: none;
-          font-size: 20px;
-          border: none;
-          background-color: rgb(238, 240, 240);
-          color: rgb(27, 27, 154);
-          border-radius: 5px;
-          padding: 5px;
-          width: 70%;
-          margin-bottom: 10px;
+        p {
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          bottom: 5px;
+          width: 100%;
+          text-align: center;
         }
       }
-
+  
+      .answer-container {
+        height: 200px;
+        width: 75%;
+        margin: auto;
+        margin-top: 30px;
+  
+        ul {
+          list-style: none;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 0;
+          display: grid;
+          gap: 15px;
+  
+          button {
+            background-color: rgb(216, 216, 220);
+            width: 100%;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            font-family: $digital-text;
+          }
+        }
+      }
     }
+    
 
     .login-page, .register-page, .user-page {
-      max-height: 100vh;
-      max-width: 100vw;
-      min-height: 100vh;
-      min-width: 100vw;
-      background-color: rgb(247, 81, 66);
       overflow: hidden;
 
       .login-content, .register-content {
@@ -195,65 +329,6 @@ body {
       }
     }
 
-    .user-page {
-      .user-content {
-        margin-top: 50px;
-
-        .user-info {
-          background-color: rgb(190, 190, 190);
-          width: 80%;
-          margin: auto;
-          padding: 10px;
-          border-radius: 5px;
-          text-align: left;
-        }
-
-        .badges, .favorites {
-          background-color: rgb(84, 84, 84);
-          width: 80%;
-          padding: 10px;
-          margin: auto;
-          margin-top: 20px;
-          border-radius: 5px;
-          display: flex;
-          flex-wrap: wrap;
-          position: relative;
-          padding-top: 50px;
-
-          .title {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            color: white;
-          }
-
-          img {
-            max-width: 25%;
-            height: auto;
-          }
-        }
-
-        .favorites {
-          background-color: rgb(234, 21, 21);
-          margin-bottom: 10px;
-          
-          .title {
-            color: black;
-          }
-        }
-        
-        button {
-          background-color: rgb(216, 216, 220);
-          width: 85%;
-          font-size: 25px;
-          border: none;
-          border-radius: 5px;
-          margin-top: 10px;
-
-          padding: 5px
-        }
-      }
-    }
 
     .loading {
       background-color: rgba(220, 26, 26, 0.916);
@@ -319,7 +394,6 @@ body {
     }
 
     h1 {
-      font-family: $pokemon-text;
       letter-spacing: 4px;
       font-size: 50px;
     }
@@ -370,41 +444,6 @@ body {
           margin: 0px;
         }
       }
-    }
-
-    #nav-bar {
-      background-color: rgba(220, 26, 26, 0.916);
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 0;
-      position: fixed;
-      width: 100vw;
-      z-index: 100;
-      padding-top: 10px;
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      span {
-        justify-content: center;
-        margin-top: auto;
-        margin-bottom: auto;
-        padding-left: 30px;
-      }
-
-      .right-icon {
-        list-style: none;
-        padding-left: 0;
-        padding-right: 30px;
-      }
-
-      
-    }
-
-    .page {
-      padding-top: 50px;
     }
 
     .pokemon-page {

@@ -97,7 +97,7 @@ const Quiz = () => {
 
 
   return currentQuiz && currentQuiz.questions ? (
-    <div className="quiz-container page">
+    <div className="quiz-page page">
       <div className="question-container">
         <img src={currentQuiz.questions[question].img} alt="" />
         <p>{currentQuiz.questions[question].question}</p>

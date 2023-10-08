@@ -7,37 +7,46 @@ const Home = () => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
-  console.log(user)
+  console.log(user);
 
   function rediretToUserProfile() {
-    navigate(`/user/${user.user._id}`)
+    navigate(`/user/${user.user._id}`);
   }
 
   function rediretToUserPokedex() {
-    navigate('pokedex')
+    navigate("pokedex");
   }
 
   function rediretToRegister() {
-    navigate('/register')
+    navigate("/register");
   }
   return (
-    <div className="homepage">
+    <div className="homepage page">
       <div className="homepage-content">
         <img src={img} alt="" />
         <img
+          className="group-img"
           src="https://i.pinimg.com/originals/35/ba/a2/35baa23613f80db94564d2fe5c1ecce6.png"
           alt=""
         />
-        <p>Start your journey today</p>
-        {(user.user && user.user.email) ? (
+        {user.user && user.user.email ? (
           <>
-          <button className="register" onClick={rediretToUserProfile} >My Profile</button>
-          <button className="register" onClick={rediretToUserPokedex} >Pokedex</button>
+            <button className="homepage-btn margin-top-30px" onClick={rediretToUserProfile}>
+              My Profile
+            </button>
+            <button className="homepage-btn" onClick={rediretToUserPokedex}>
+              Pokedex
+            </button>
           </>
         ) : (
           <>
-           <button className="register" onClick={rediretToRegister} >Sign Up Now</button>
-           <button className="register" onClick={rediretToUserPokedex} >Pokedex</button>
+            <p>Start your journey today</p>
+            <button className="homepage-btn" onClick={rediretToRegister}>
+              Sign Up Now
+            </button>
+            <button className="homepage-btn" onClick={rediretToUserPokedex}>
+              Pokedex
+            </button>
           </>
         )}
       </div>

@@ -56,7 +56,7 @@ const User = () => {
   }, []);
 
   return pageOwner ? (
-    <div className="user-page">
+    <div className="user-page page">
       <div className="user-content">
         <div className="user-info">
           <p>
