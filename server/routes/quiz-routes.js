@@ -25,6 +25,7 @@ quizRouter.get('/:id', async (req, res) => {
     }
 })
 
+
 quizRouter.post("/", async (req, res) => {
     const newQuiz = new Quiz({
         questions: req.body.questions,

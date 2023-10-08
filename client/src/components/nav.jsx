@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UilTrophy, UilBars } from "@iconscout/react-unicons";
+import { UilTrophy, UilUserCircle, UilSignInAlt } from "@iconscout/react-unicons";
 import { UserContext } from "../contexts/userContext";
 
 const Nav = () => {
@@ -20,15 +20,9 @@ const Nav = () => {
           <UilTrophy />
         </a>
       </span>
-      <div className="nav-items"><UilBars/></div>
-      {/* <ul className="nav-items">
-        <li className="nav-item" onClick={logOut}>
-          Logout
-        </li>
-        <li className="nav-item">
-          <a href="/pokedex">Pokedex</a>
-        </li>
-      </ul> */}
+        <a className="right-icon"  href={`/user/${userData.user._id}`}>
+          <UilUserCircle />
+        </a>
     </nav>
   ) : (
     <nav id="nav-bar">
@@ -37,15 +31,9 @@ const Nav = () => {
           <UilTrophy />
         </a>
       </span>
-      <div className="nav-items"><UilBars/></div>
-      {/* <ul className="nav-items">
-        <li className="nav-item">
-          <a href="/login">Login</a>
-        </li>
-        <li className="nav-item">
-          <a href="/pokedex">Pokedex</a>
-        </li>
-      </ul> */}
+      <a className="right-icon" href="/login">
+        <UilSignInAlt />
+      </a>
     </nav>
   );
 };

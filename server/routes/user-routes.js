@@ -30,15 +30,13 @@ userRouter.post("/", async (req, res) => {
 });
 
 userRouter.patch("/:id", getUser, async (req, res) => {
-    console.log(res.user)
     if (req.body.newQuiz) {
-        res.user.completedQuizes = [...res.user.completedQuizes, req.body.newQuiz._id],
+        res.user.completedQuizes = [...res.user.completedQuizes, req.body.newQuiz.quizId],
         res.user.badges = [...res.user.badges, req.body.newQuiz.badge],
         res.user.experience = res.user.experience += req.body.newQuiz.score
     };
 
     if (req.body.favorites) {
-        console.log(req.body)
         res.user.favorites = req.body.favorites
     };
 

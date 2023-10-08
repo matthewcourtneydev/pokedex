@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
 
 const User = () => {
@@ -7,6 +8,7 @@ const User = () => {
   const pagesUser = window.location.href.split("/").slice(-1)[0];
   console.log(userData.user);
   const [pageOwner, setPageOwner] = useState(false);
+  const navigate = useNavigate();
 
   console.log(user);
 
@@ -37,7 +39,13 @@ const User = () => {
     // }
   ];
 
-  const testFavs = [150]
+  const testFavs = [150];
+
+  function logOut() {
+    localStorage.setItem("user", JSON.stringify({}));
+    window.location.reload();
+    navigate("/");
+  }
 
   useEffect(() => {
     if (user) {
@@ -67,28 +75,32 @@ const User = () => {
         {user.badges.length ? (
           <div className="badges">
             <div className="title">Badges</div>
-              {user.badges.map((badge) => {
-                const imgPath = `../imgs/badges/${badge.name
-                  .split(" ")[0]
-                  .toLowerCase()}.png`;
-                console.log(imgPath);
-                return <img src={imgPath} alt="badge" />;
-              })}
+            {user.badges.map((badge) => {
+              const imgPath = `../imgs/badges/${badge
+                .split(" ")[0]
+                .toLowerCase()}.png`;
+              console.log(imgPath);
+              return <img src={imgPath} alt="badge" />;
+            })}
           </div>
         ) : (
           <></>
         )}
-        <div className="favorites">
-          <div className="title">Favorites</div>
-          {user.favorites.map((pokemon) => {
-            const imgPath = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`
-            return <img src={imgPath} alt="pokemon"/>
-          })}
-        </div>
+        {user.favorites.length ? (
+          <div className="favorites">
+            <div className="title">Favorites</div>
+            {user.favorites.map((pokemon) => {
+              const imgPath = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`;
+              return <img src={imgPath} alt="pokemon" />;
+            })}
+          </div>
+        ) : (
+          <></>
+        )}
 
-        <button>Gain More xP</button>
-        <button>Pokedex</button>
-        <button>Signout</button>
+        <button onClick={() => navigate("/quizes")}>Gain More xP</button>
+        <button onClick={() => navigate("/pokedex")}>Pokedex</button>
+        <button onClick={() => logOut()}>Signout</button>
       </div>
     </div>
   ) : (

@@ -15,7 +15,7 @@ import QuizHome from "./pages/quiz-home";
 import Quiz from "./pages/quiz";
 
 function App() {
-  const userState = JSON.parse(localStorage.getItem("user"));
+  const userState = JSON.parse(localStorage.getItem("user")) || "";
   const [user, setUser] = useState(userState);
 
 

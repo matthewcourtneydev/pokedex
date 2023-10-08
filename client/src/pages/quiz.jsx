@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useImperativeHandle } from "react";
-import { createRoutesFromElements, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { UserContext } from "../contexts/userContext";
 
 const Quiz = () => {
   let { id } = useParams();
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [question, setQuestion] = useState(0);
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(0);
+  const userData = useContext(UserContext);
+  const navigate = useNavigate();
 
   async function getQuizData() {
     const response = await fetch(`http://localhost:3002/quizes/${id}`);
@@ -17,9 +20,41 @@ const Quiz = () => {
     setCurrentQuiz(quiz);
   }
 
-  function handleEndGame() {
+  async function updateUser(updatedInfo) {
+    console.log(userData)
+    const response = await fetch(`http://localhost:3002/users/${userData.user._id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedInfo),
+    });
+
+    const updatedUser = response.json();
+    return updatedUser;
+  }
+
+  async function handleEndGame() {
     const endScore = (score * currentQuiz.pointsPerQuestion);
-    console.log(endScore)
+    console.log(currentQuiz)
+    const updatedInfo = {
+      "newQuiz": {
+        "quizId": currentQuiz._id,
+        "score": endScore,
+        "badge": currentQuiz.badge
+      }
+    };
+    try {
+      updateUser(updatedInfo).then((data) => {
+        localStorage.setItem("user", JSON.stringify({
+          ...JSON.parse(localStorage.getItem("user")),
+          "user": data
+        }));
+        window.location.reload();
+        navigate('/quizes')
+      })
+  
+    } catch(err) {
+      console.log("ERROR: ", err)
+    }
     // TODO
     // add score to user xp then close off quiz. 
     // add badge to the users badges

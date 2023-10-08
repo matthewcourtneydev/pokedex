@@ -55,7 +55,7 @@ const RegisterForm = () => {
         if (postedUser) {
           let loggedInUser = await logUserInAfterPost(postedUser);
           localStorage.setItem("user", JSON.stringify(loggedInUser));
-          window.location.refresh()
+          window.location.reload();
           navigate("/");
         } else {
           console.log("ERROR");
