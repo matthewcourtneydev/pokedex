@@ -25,9 +25,9 @@ const QuizHome = () => {
         {quizes.map((quiz) => {
           if (userData.user.completedQuizes.includes(quiz._id)) {
             return (
-              <a href={`/quizes/${quiz._id}`}>
+              <div className="completed-quiz">
                 <QuizCard quiz={quiz} completed={true} />
-              </a>
+              </div>
             );
           } else {
             return (

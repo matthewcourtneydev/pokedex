@@ -1,13 +1,17 @@
 $digital-text: 'Orbitron', sans-serif;
+
 $bone-white: rgb(245, 246, 246);
 $completed-green: rgb(110, 255, 110);
-$page-gradient: linear-gradient(rgb(253, 125, 113), rgb(208, 49, 49));
-$white-gradient: linear-gradient(rgba(255, 255, 255, 0.009), $bone-white); 
-$completed-gradient: linear-gradient(rgba(255, 255, 255, 0.009), $completed-green);
-$box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 $light-grey: rgb(190, 190, 190);
 $dark-grey: rgb(84, 84, 84);
 $darker-grey: rgb(61, 61, 61);
+
+$page-gradient: linear-gradient(rgb(253, 125, 113), rgb(208, 49, 49));
+$white-gradient: linear-gradient(rgba(255, 255, 255, 0.009), $bone-white); 
+$dark-grey-gradient: linear-gradient($dark-grey, $darker-grey);
+$completed-gradient: linear-gradient(rgba(255, 255, 255, 0.009), $completed-green);
+
+$box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 body {
   padding: 0;
@@ -117,7 +121,7 @@ body {
         }
 
         .badges, .favorites {
-          background-color: $dark-grey;
+          background-image: $dark-grey-gradient;
           width: 80%;
           padding: 10px;
           margin: auto;
@@ -143,7 +147,11 @@ body {
 
         .favorites {
           margin-bottom: 10px;
-          
+        }
+
+        .manual-10px-gap {
+          margin-bottom: 10px;
+          display: block;
         }
         
         button {
@@ -188,7 +196,7 @@ body {
         max-width: 90%;
         margin: auto;
 
-        a {
+        a, .completed-quiz {
           background-color: $bone-white;
           width: 42%;
           margin-bottom: 20px;
@@ -238,7 +246,7 @@ body {
         height: 300px;
         width: 80%;
         margin: auto;
-        background-image: linear-gradient($dark-grey, $darker-grey);
+        background-image: $dark-grey-gradient;
         border-radius: 10px;
         color: white;
         position: relative;
