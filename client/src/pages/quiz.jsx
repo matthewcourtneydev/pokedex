@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { useImperativeHandle } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const Quiz = () => {
   let { id } = useParams();
@@ -44,12 +46,24 @@ const Quiz = () => {
     };
     try {
       updateUser(updatedInfo).then((data) => {
-        localStorage.setItem("user", JSON.stringify({
-          ...JSON.parse(localStorage.getItem("user")),
-          "user": data
-        }));
-        window.location.reload();
-        navigate('/quizes')
+        const imgSrc = `../imgs/badges/${currentQuiz.badge
+          .split(" ")[0]
+          .toLowerCase()}.png`
+
+          debugger
+        Swal.fire({
+          title: 'Congrats!',
+          text: `You earned a ${currentQuiz.badge}!`,
+          imageUrl: imgSrc,
+          imageWidth: "170px",
+          confirmButtonText: 'Continue'
+        })
+        // localStorage.setItem("user", JSON.stringify({
+        //   ...JSON.parse(localStorage.getItem("user")),
+        //   "user": data
+        // }));
+        // window.location.reload();
+        // navigate('/quizes')
       })
   
     } catch(err) {
