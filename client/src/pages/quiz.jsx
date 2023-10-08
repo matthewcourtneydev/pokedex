@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { useImperativeHandle } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
-import Swal from 'sweetalert2'
-import 'sweetalert2/src/sweetalert2.scss'
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
 
 const Quiz = () => {
   let { id } = useParams();
@@ -23,92 +23,133 @@ const Quiz = () => {
   }
 
   async function updateUser(updatedInfo) {
-    console.log(userData)
-    const response = await fetch(`http://localhost:3002/users/${userData.user._id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedInfo),
-    });
+    console.log(userData);
+    const response = await fetch(
+      `http://localhost:3002/users/${userData.user._id}`,
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedInfo),
+      }
+    );
 
     const updatedUser = response.json();
     return updatedUser;
   }
 
   async function handleEndGame() {
-    const endScore = (score * currentQuiz.pointsPerQuestion);
-    console.log(currentQuiz)
+    const endScore = score * currentQuiz.pointsPerQuestion;
+    console.log(currentQuiz);
     const updatedInfo = {
-      "newQuiz": {
-        "quizId": currentQuiz._id,
-        "score": endScore,
-        "badge": currentQuiz.badge
-      }
+      newQuiz: {
+        quizId: currentQuiz._id,
+        score: endScore,
+        badge: currentQuiz.badge,
+      },
     };
-    try {
-      updateUser(updatedInfo).then((data) => {
-        const imgSrc = `../imgs/badges/${currentQuiz.badge
-          .split(" ")[0]
-          .toLowerCase()}.png`
 
-          debugger
-        Swal.fire({
-          title: 'Congrats!',
-          text: `You earned a ${currentQuiz.badge}!`,
-          imageUrl: imgSrc,
-          imageWidth: "170px",
-          confirmButtonText: 'Continue'
-        })
-        // localStorage.setItem("user", JSON.stringify({
-        //   ...JSON.parse(localStorage.getItem("user")),
-        //   "user": data
-        // }));
-        // window.location.reload();
-        // navigate('/quizes')
+    console.log(score, currentQuiz.questions.length);
+    debugger;
+    if (score / currentQuiz.questions.length > 0.7) {
+      const imgSrc = `../imgs/badges/${currentQuiz.badge
+        .split(" ")[0]
+        .toLowerCase()}.png`;
+
+      Swal.fire({
+        title: "Congrats!",
+        text: `You earned a ${currentQuiz.badge}!`,
+        imageUrl: imgSrc,
+        imageWidth: "170px",
+        confirmButtonText: "Continue",
+      });
+
+      document.querySelector(".swal2-confirm").addEventListener("click", () => {
+        try {
+          updateUser(updatedInfo).then((data) => {
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                ...JSON.parse(localStorage.getItem("user")),
+                user: data,
+              })
+            );
+            navigate("/quizes")
+            window.location.reload();
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Oh No!",
+        text: `You score a ${
+          ((score / currentQuiz.questions.length) * 100)
+        }%! You will need atleast a 70% if you want to earn a ${
+          currentQuiz.badge
+        } `,
+        icon: "error",
+        confirmButtonText: "Continue",
+      });
+
+      document.querySelector(".swal2-confirm").addEventListener("click", () => {
+        navigate("/quizes")
       })
-  
-    } catch(err) {
-      console.log("ERROR: ", err)
     }
+    // localStorage.setItem("user", JSON.stringify({
+    //   ...JSON.parse(localStorage.getItem("user")),
+    //   "user": data
+    // }));
+    // window.location.reload();
+    // navigate('/quizes')
+    //   })
+
+    // } catch(err) {
+    //   console.log("ERROR: ", err)
+    // }
     // TODO
-    // add score to user xp then close off quiz. 
+    // add score to user xp then close off quiz.
     // add badge to the users badges
     // redirect to user page
   }
 
   function verifyAnswers(e) {
-    console.log(e.target.value)
-    if (e.target.value) {
-      setScore(currentScore => {
+    console.log(e.target.value);
+    if (e.target.value === "true") {
+      setScore((currentScore) => {
         return currentScore + 1;
       });
       // setQuestion(currentQuestion => {
       //   return currentQuestion + 1
       // });
     } else {
-      setScore(currentScore => {
-        return currentScore + 0;
-      });
+      if (question !== currentQuiz.questions.length - 1) {
+        setQuestion((currentQuestion) => {
+          return currentQuestion + 1;
+        });
+      } else {
+        handleEndGame();
+      }
     }
   }
 
   useEffect(() => {
-    if(currentQuiz.questions) {
-      if (question !== (currentQuiz.questions.length - 1)) {
-        setQuestion(currentQuestion => {
-          return currentQuestion + 1
+    if (currentQuiz.questions) {
+      if (question !== currentQuiz.questions.length - 1) {
+        setQuestion((currentQuestion) => {
+          return currentQuestion + 1;
         });
       } else {
-        handleEndGame()
+        handleEndGame();
       }
     }
-  }, [score])
+  }, [score]);
 
   useEffect(() => {
     getQuizData().then((data) => {
-      updateQuiz(data)
+      updateQuiz(data);
     });
   }, []);
-
 
   return currentQuiz && currentQuiz.questions ? (
     <div className="quiz-page page">
@@ -119,7 +160,16 @@ const Quiz = () => {
       <div className="answer-container">
         <ul className="answers">
           {currentQuiz.questions[question].answers.map((answer) => {
-            return <li><button onClick={(e) => verifyAnswers(e)} value={answer.isCorrect}>{answer.name}</button></li>
+            return (
+              <li>
+                <button
+                  onClick={(e) => verifyAnswers(e)}
+                  value={answer.isCorrect}
+                >
+                  {answer.name}
+                </button>
+              </li>
+            );
           })}
         </ul>
       </div>
