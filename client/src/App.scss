@@ -315,7 +315,7 @@ body {
       overflow: hidden;
 
       .login-content, .register-content {
-        margin-top: 30px;
+        margin-top: 60px;
 
         img {
           width: 90%;
@@ -328,6 +328,7 @@ body {
           width: 80%;
           text-align: left;
           margin: auto;
+          padding-top: 10px;
 
           input {
             line-height: 25px;
@@ -336,15 +337,25 @@ body {
             margin-bottom: 5px;
           }
 
+          label {
+            color: $bone-white
+          }
+
           button {
-            width: 50%;
-            margin: auto;
-            margin-top: 20px;
-            background-color: white;
+            background: none;
+            font-size: 20px;
             border: none;
+            background-color: $bone-white;
+            color: $darker-grey;
             border-radius: 5px;
             padding: 5px;
-            font-size: 20px;
+            width: 70%;
+            margin: auto;
+            margin-bottom: 10px;
+            font-weight: 400;
+            font-family: $digital-text;
+            box-shadow: $box-shadow;
+            margin-top: 30px;
           }
         }
 
@@ -356,7 +367,7 @@ body {
 
 
     .loading {
-      background-color: rgba(220, 26, 26, 0.916);
+      background-image: $page-gradient;
       height: 100vh;
       width: 100vw;
       align-items: center;
