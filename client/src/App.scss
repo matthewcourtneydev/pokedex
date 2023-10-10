@@ -106,7 +106,7 @@ body {
 
     .user-page {
       .user-content {
-        padding-top: 90px;
+        padding-top: 130px;
         padding-bottom: 40px;
 
         .user-info {
@@ -118,6 +118,20 @@ body {
           color: $darker-grey;
           text-align: left;
           box-shadow: $box-shadow;
+          position: relative;
+          padding-top: 50px;
+          text-align: center;
+
+          .starter {
+            background-color: white;
+            width: fit-content;
+            height: fit-content;
+            border-radius: 50%;
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translate(-50%);
+          }
         }
 
         .badges, .favorites {
@@ -137,6 +151,8 @@ body {
             position: absolute;
             top: 10px;
             color: white;
+            left: 50%;
+            transform: translate(-50%);
           }
 
           img {

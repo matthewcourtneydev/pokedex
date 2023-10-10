@@ -59,6 +59,9 @@ const User = () => {
     <div className="user-page page">
       <div className="user-content">
         <div className="user-info">
+          <div className="starter">
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(userData.user.starter)}.png`} alt="" />
+          </div>
           <p>
             <strong>Username: </strong>
             {user.username}
@@ -91,7 +94,8 @@ const User = () => {
             <div className="title">Favorites</div>
             {user.favorites.map((pokemon) => {
               const imgPath = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`;
-              return <img src={imgPath} alt="pokemon" />;
+              const imgPath2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon}.png`
+              return <img src={imgPath2} alt="pokemon" />;
             })}
           </div>
         ) : (
