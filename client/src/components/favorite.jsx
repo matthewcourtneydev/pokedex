@@ -40,7 +40,7 @@ const Favorite = () => {
     }
 
     return (
-        isFav ? (<button onClick={removeFromFavorites} >Remove</button>) : (<button onClick={addToFavorites} >Favorite</button>)
+        isFav ? (<button id="fav-btn" onClick={removeFromFavorites} >Remove</button>) : (<button id="fav-btn" onClick={addToFavorites} >Favorite</button>)
     );
 }
 

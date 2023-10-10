@@ -104,6 +104,7 @@ const Pokemon = () => {
         <strong>
           <p className="pokemon-name">{pokemon.name.toUpperCase()}</p>
         </strong>
+        {userData.user && userData.user.email ? <Favorite /> : <></>}
       </div>
       <div className="stat-container">
         <ul>
@@ -314,8 +315,6 @@ const Pokemon = () => {
           </>
         )}
       </div>
-
-      {userData.user && userData.user.email ? <Favorite /> : <></>}
     </div>
   ) : (
     <div className="loading">
