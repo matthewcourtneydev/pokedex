@@ -44,6 +44,10 @@ userRouter.patch("/:id", getUser, async (req, res) => {
         res.user.favorites = req.body.favorites
     };
 
+    if (req.body.friends) {
+        res.user.friends = req.body.friends
+    };
+
     try { 
         const updatedUser = await res.user.save();
         res.json(updatedUser)
@@ -66,7 +70,7 @@ userRouter.delete("/:id", getUser, async (req, res) => {
 async function getUser(req, res, next) {
     let user
     try {
-        user = await User.findById(req.params.id);
+        user = await User.findById(req.params.id).populate('friends').exec();
         if (user == null) {
             return res.status(400).json({ error: "user not found"})
         };

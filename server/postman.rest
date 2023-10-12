@@ -193,6 +193,17 @@ Content-Type: application/json
     }
 }
 
+
+###
+
+PATCH http://localhost:3002/users/64fa84c09d1f791b46ee5811
+Content-Type: application/json
+
+{
+    "friends": ["65222ef1380098b96f26fc7d"]
+}
+
+
 ###
 
 PATCH http://localhost:3002/users/64fa84c09d1f791b46ee5811

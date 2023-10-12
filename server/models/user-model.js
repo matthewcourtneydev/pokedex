@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
     experience: {type: Number , default: 0},
     favorites: {type: Array},
     badges: [{type: String}],
-    starter: {type: String}
+    starter: {type: String},
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 })
 
 module.exports = mongoose.model("User", userSchema);
