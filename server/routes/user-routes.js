@@ -11,6 +11,10 @@ userRouter.get("/", async (req, res) => {
   }
 });
 
+userRouter.get('/:id', getUser, async (req, res) => {
+    res.json(res.user)
+})
+
 userRouter.post("/", async (req, res) => {
     console.log(req.body)
 

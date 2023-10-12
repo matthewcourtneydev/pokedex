@@ -5,12 +5,10 @@ import { UserContext } from "../contexts/userContext";
 const User = () => {
   const userData = useContext(UserContext);
   const user = userData.user;
-  const pagesUser = window.location.href.split("/").slice(-1)[0];
-  console.log(userData.user);
+  const pageId = window.location.href.split("/").slice(-1)[0];
   const [pageOwner, setPageOwner] = useState(false);
+  const [pageInfo, setPageInfo] = useState({});
   const navigate = useNavigate();
-
-  console.log(user);
 
   const testBadges = [
     {
@@ -47,11 +45,27 @@ const User = () => {
     navigate("/");
   }
 
+  async function getPageInfo() {
+    console.log(window.location.href.split("/").slice(-1)[0]);
+    const response = await fetch(
+      `http://localhost:3002/users/${
+        window.location.href.split("/").slice(-1)[0]
+      }`
+    );
+    return response.json();
+  }
+
+  function update() {}
+
   useEffect(() => {
     if (user) {
-      if (pagesUser == userData.user._id) {
+      if (pageId == userData.user._id) {
         setPageOwner(true);
       }
+    } else {
+      getPageInfo().then((data) => {
+        setPageInfo(data);
+      });
     }
   }, []);
 
@@ -60,7 +74,12 @@ const User = () => {
       <div className="user-content">
         <div className="user-info">
           <div className="starter">
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(userData.user.starter)}.png`} alt="" />
+            <img
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(
+                userData.user.starter
+              )}.png`}
+              alt=""
+            />
           </div>
           <p>
             <strong>Username: </strong>
@@ -94,13 +113,13 @@ const User = () => {
             <div className="title">Favorites</div>
             {user.favorites.map((pokemon) => {
               const imgPath = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`;
-              const imgPath2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon}.png`
+              const imgPath2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon}.png`;
               return <img src={imgPath2} alt="pokemon" />;
             })}
           </div>
         ) : (
           <>
-          <span className="manual-10px-gap"></span>
+            <span className="manual-10px-gap"></span>
           </>
         )}
 
@@ -110,9 +129,55 @@ const User = () => {
       </div>
     </div>
   ) : (
-    <div className="user-page">
+    <div className="user-page page">
       <div className="user-content">
-        <p>This is not your page. You can only view this users public info</p>
+        <div className="user-info">
+          <div className="starter">
+            <img
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(
+                pageInfo.starter
+              )}.png`}
+              alt=""
+            />
+          </div>
+          <p>
+            <strong>Username: </strong>
+            {pageInfo.username}
+          </p>
+          <p>
+            <strong>xP: </strong>
+            {pageInfo.experience}
+          </p>
+        </div>
+        {pageInfo.badges.length ? (
+          <div className="badges">
+            <div className="title">Badges</div>
+            {pageInfo.badges.map((badge) => {
+              const imgPath = `../imgs/badges/${badge
+                .split(" ")[0]
+                .toLowerCase()}.png`;
+              console.log(imgPath);
+              return <img src={imgPath} alt="badge" />;
+            })}
+          </div>
+        ) : (
+          <></>
+        )}
+        {pageInfo.favorites.length ? (
+          <div className="favorites">
+            <div className="title">Favorites</div>
+            {pageInfo.favorites.map((pokemon) => {
+              const imgPath = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon}.svg`;
+              const imgPath2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon}.png`;
+              return <img src={imgPath2} alt="pokemon" />;
+            })}
+          </div>
+        ) : (
+          <>
+            <span className="manual-10px-gap"></span>
+          </>
+        )}
+        <button onClick={() => {console.log('Friend Added!')}}>Add as Friend</button>
       </div>
     </div>
   );
