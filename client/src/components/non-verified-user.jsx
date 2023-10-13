@@ -81,7 +81,7 @@ const NonVerifiedUser = (props) => {
             })}
           </div>
         ) : (
-          <></>
+          <span className="manual-10px-gap"></span>
         )}
         {user && user.friends.filter(friend => friend._id === pageInfo.id).length === 0 ? (
           <button
@@ -135,7 +135,7 @@ const NonVerifiedUser = (props) => {
             })}
           </div>
         ) : (
-          <></>
+          <span className="manual-10px-gap"></span>
         )}
         {Object.keys(pageInfo).length && pageInfo.favorites.length ? (
           <div className="favorites">
@@ -174,7 +174,7 @@ const NonVerifiedUser = (props) => {
             })}
           </div>
         ) : (
-          <></>
+          <span className="manual-10px-gap"></span>
         )}
       </div>
     </div>

@@ -39,8 +39,14 @@ body {
     a {
       text-decoration: none;
     }
+
     .margin-top-30px {
       margin-top: 30px;
+    }
+
+    .manual-10px-gap {
+      margin-bottom: 10px;
+      display: block;
     }
 
     #nav-bar {
@@ -194,13 +200,8 @@ body {
           }
         }
 
-        .favorites {
+        .favorites, .friends {
           margin-bottom: 10px;
-        }
-
-        .manual-10px-gap {
-          margin-bottom: 10px;
-          display: block;
         }
         
         button {
@@ -469,6 +470,7 @@ body {
     .pokedex-page {
       background-color: rgb(247, 81, 66);
       padding-bottom: 20px;
+      padding-top: 90px;
 
       img {
         width: 90%;

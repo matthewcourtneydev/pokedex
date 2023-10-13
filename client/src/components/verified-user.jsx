@@ -88,7 +88,7 @@ const VerifiedUser = (props) => {
             })}
           </div>
         ) : (
-          <></>
+          <span className="manual-10px-gap"></span>
         )}
 
         <button onClick={() => navigate("/quizes")}>Gain More xP</button>
