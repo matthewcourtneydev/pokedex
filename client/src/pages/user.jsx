@@ -24,12 +24,11 @@ const User = () => {
   }
 
 
-  useEffect(async () => {
-    debugger;
+  useEffect( () => {
     if (user && (pageId == userData.user._id)) {
         setPageOwner(true);
     } else {
-      await getPageInfo().then((data) => {
+      getPageInfo().then((data) => {
         setPageInfo(data);
       });
     }

@@ -37,7 +37,7 @@ app.post("/login", async (req, res) => {
     const user = { email: req.body.email, password: req.body.password }
 
     try {
-        const calledUser = await User.findOne({email: userEmail});
+        const calledUser = await User.findOne({email: userEmail}).populate('friends').exec();
         if (calledUser) {
             if (calledUser.password === user.password) {
                 const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);

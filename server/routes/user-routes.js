@@ -4,7 +4,7 @@ const User = require("../models/user-model");
 
 userRouter.get("/", async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find().populate('friends').exec();
     res.json(users);
   } catch (err) {
     res.json({ error: err });
@@ -45,6 +45,7 @@ userRouter.patch("/:id", getUser, async (req, res) => {
     };
 
     if (req.body.friends) {
+        console.log(req.body.friends)
         res.user.friends = req.body.friends
     };
 

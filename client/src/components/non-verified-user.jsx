@@ -58,7 +58,32 @@ const NonVerifiedUser = (props) => {
             <span className="manual-10px-gap"></span>
           </>
         )}
-        {user && user.friends.includes(pageInfo._id) ? (
+
+        {pageInfo.friends && pageInfo.friends.length ? (
+          <div className="friends">
+            <div className="title">Friends</div>
+            {pageInfo.friends.map((friend) => {
+              const imgPath2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(
+                friend.starter
+              )}.png`;
+              return (
+                <a href={`/${friend._id}`}>
+                  <div className="friend">
+                    <img
+                      src={imgPath2}
+                      className={`_${friend.starter}`}
+                      alt="pokemon"
+                    />
+                    ;<p>{friend.username}</p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        ) : (
+          <></>
+        )}
+        {user && user.friends.filter(friend => friend._id === pageInfo.id).length === 0 ? (
           <button
             onClick={() => {
               console.log("Friend Added!");
@@ -72,7 +97,7 @@ const NonVerifiedUser = (props) => {
               console.log("Friend Added!");
             }}
           >
-            Add as Friend
+            Add Friend
           </button>
         )}
       </div>
@@ -125,6 +150,31 @@ const NonVerifiedUser = (props) => {
           <>
             <span className="manual-10px-gap"></span>
           </>
+        )}
+
+        {pageInfo.friends && pageInfo.friends.length ? (
+          <div className="friends">
+            <div className="title">Friends</div>
+            {pageInfo.friends.map((friend) => {
+              const imgPath2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(
+                friend.starter
+              )}.png`;
+              return (
+                <a href={`/${friend._id}`}>
+                  <div className="friend">
+                    <img
+                      src={imgPath2}
+                      className={`_${friend.starter}`}
+                      alt="pokemon"
+                    />
+                    ;<p>{friend.username}</p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        ) : (
+          <></>
         )}
       </div>
     </div>
