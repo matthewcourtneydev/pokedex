@@ -13,7 +13,7 @@ const VerifiedUser = (props) => {
 
   return Object.keys(userData).length ? (
     <div className="user-page page">
-      <div className="user-content">
+      <div className="user-content content">
         <div className="user-info">
           <div className={`_${userData.starter} starter`}>
             <img

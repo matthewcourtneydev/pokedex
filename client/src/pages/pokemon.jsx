@@ -96,6 +96,7 @@ const Pokemon = () => {
 
   return pokemon && desc && evolutionChain ? (
     <div className="pokemon-page page">
+      <div className="content">
       <div className="pokemon-img-container">
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
@@ -315,6 +316,7 @@ const Pokemon = () => {
           </>
         )}
       </div>
+    </div>
     </div>
   ) : (
     <div className="loading">

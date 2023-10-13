@@ -21,6 +21,7 @@ const Pokedex = () => {
     //   <PokemonCard pokemon={pokemonList[0]} />
     // </div>
     <div className="pokedex-page page">
+      <div className="content"></div>
       <img src={img} alt="" />
       {pokemonList.map((pokemon) => {
         return <PokemonCard key={pokemon.name} pokemon={pokemon} />;

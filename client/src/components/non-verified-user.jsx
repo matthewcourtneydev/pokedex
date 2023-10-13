@@ -11,7 +11,7 @@ const NonVerifiedUser = (props) => {
 
   return Object.keys(pageInfo).length && user ? (
     <div className="user-page page">
-      <div className="user-content">
+      <div className="user-content content">
         <div className="user-info">
           <div className="starter">
             <img
@@ -104,7 +104,7 @@ const NonVerifiedUser = (props) => {
     </div>
   ) : (
     <div className="user-page page">
-      <div className="user-content">
+      <div className="user-content content">
         <div className="user-info">
           <div className="starter">
             <img

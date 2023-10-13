@@ -22,7 +22,7 @@ const Home = () => {
   }
   return (
     <div className="homepage page">
-      <div className="homepage-content">
+      <div className="homepage-content content">
         <img src={img} alt="" />
         <img
           className="group-img"

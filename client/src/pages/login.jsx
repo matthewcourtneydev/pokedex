@@ -5,7 +5,7 @@ import img from "../imgs/pokemon2.png";
 const Login = () => {
   return (
     <div className="login-page page">
-      <div className="login-content">
+      <div className="login-content content">
         <img src={img} alt="" />
         <LoginForm />
       </div>
