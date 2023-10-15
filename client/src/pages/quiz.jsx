@@ -73,7 +73,7 @@ const Quiz = () => {
                 user: data,
               })
             );
-            navigate("/quizes")
+            navigate("/quizes");
             window.location.reload();
           });
         } catch (err) {
@@ -84,7 +84,7 @@ const Quiz = () => {
       Swal.fire({
         title: "Oh No!",
         text: `You score a ${
-          ((score / currentQuiz.questions.length) * 100)
+          Math.ceil((score / currentQuiz.questions.length) * 100)
         }%! You will need atleast a 70% if you want to earn a ${
           currentQuiz.badge
         } `,
@@ -93,8 +93,8 @@ const Quiz = () => {
       });
 
       document.querySelector(".swal2-confirm").addEventListener("click", () => {
-        navigate("/quizes")
-      })
+        navigate("/quizes");
+      });
     }
     // localStorage.setItem("user", JSON.stringify({
     //   ...JSON.parse(localStorage.getItem("user")),
@@ -153,25 +153,27 @@ const Quiz = () => {
 
   return currentQuiz && currentQuiz.questions ? (
     <div className="quiz-page page">
-      <div className="question-container">
-        <img src={currentQuiz.questions[question].img} alt="" />
-        <p>{currentQuiz.questions[question].question}</p>
-      </div>
-      <div className="answer-container">
-        <ul className="answers">
-          {currentQuiz.questions[question].answers.map((answer) => {
-            return (
-              <li>
-                <button
-                  onClick={(e) => verifyAnswers(e)}
-                  value={answer.isCorrect}
-                >
-                  {answer.name}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+      <div className="content">
+        <div className="question-container">
+          <img src={currentQuiz.questions[question].img} alt="" />
+          <p>{currentQuiz.questions[question].question}</p>
+        </div>
+        <div className="answer-container">
+          <ul className="answers">
+            {currentQuiz.questions[question].answers.map((answer) => {
+              return (
+                <li>
+                  <button
+                    onClick={(e) => verifyAnswers(e)}
+                    value={answer.isCorrect}
+                  >
+                    {answer.name}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   ) : (

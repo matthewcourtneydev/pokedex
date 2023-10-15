@@ -21,11 +21,12 @@ const Pokedex = () => {
     //   <PokemonCard pokemon={pokemonList[0]} />
     // </div>
     <div className="pokedex-page page">
-      <div className="content"></div>
+      <div className="content">
       <img src={img} alt="" />
       {pokemonList.map((pokemon) => {
         return <PokemonCard key={pokemon.name} pokemon={pokemon} />;
       })}
+      </div>
     </div>
   ) : (
     <div className="loading">

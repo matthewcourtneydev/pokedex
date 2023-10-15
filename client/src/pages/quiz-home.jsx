@@ -19,24 +19,29 @@ const QuizHome = () => {
 
   return quizes ? (
     <div className="quiz-home page">
-      <h1>Quizes</h1>
-      <p>Test your pokemon knowledge and earn badges and xP! The more xP you have the more regions you can explore!</p>
-      <div className="quiz-grid">
-        {quizes.map((quiz) => {
-          if (userData.user.completedQuizes.includes(quiz._id)) {
-            return (
-              <div className="completed-quiz">
-                <QuizCard quiz={quiz} completed={true} />
-              </div>
-            );
-          } else {
-            return (
-              <a href={`/quizes/${quiz._id}`}>
-                <QuizCard quiz={quiz} completed={false} />
-              </a>
-            );
-          }
-        })}
+      <div className="content">
+        <h1>Quizes</h1>
+        <p>
+          Test your pokemon knowledge and earn badges and xP! The more xP you
+          have the more regions you can explore!
+        </p>
+        <div className="quiz-grid">
+          {quizes.map((quiz) => {
+            if (userData.user.completedQuizes.includes(quiz._id)) {
+              return (
+                <div className="completed-quiz">
+                  <QuizCard quiz={quiz} completed={true} />
+                </div>
+              );
+            } else {
+              return (
+                <a href={`/quizes/${quiz._id}`}>
+                  <QuizCard quiz={quiz} completed={false} />
+                </a>
+              );
+            }
+          })}
+        </div>
       </div>
     </div>
   ) : (
