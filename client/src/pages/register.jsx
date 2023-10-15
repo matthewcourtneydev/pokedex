@@ -4,11 +4,9 @@ import RegisterForm from '../components/register';
 import img from '../imgs/pokemon2.png'
 
 const Register = () => {
-    const user = useContext(UserContext);
-    
     return (
         <div className='register-page page'>
-            <div className="register-content">
+            <div className="register-content content">
                 <img src={img} alt="" />
             <RegisterForm />
             </div>

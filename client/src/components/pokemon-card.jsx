@@ -10,7 +10,6 @@ const navigate = useNavigate();
     return response.json();
   }
 
-  console.log(pokemon)
   function redirectToPokemon() {
     const route = `/pokemon/${pokemon.id}`
     navigate(route)

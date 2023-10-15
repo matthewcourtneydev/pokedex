@@ -55,12 +55,6 @@ const Pokemon = () => {
     return response.json();
   }
 
-  // console.log(desc);
-  // console.log(evolutionChain);
-  console.log(pokemon);
-  if (pokemon) {
-    console.log((pokemon.height * 0.1).toFixed(1));
-  }
   useEffect(() => {
     getPokemon().then((data) => {
       setPokemon(data);
@@ -78,7 +72,6 @@ const Pokemon = () => {
           trainerHeight > (parseInt(pokemon.height) * 0.1).toFixed(1)
             ? true
             : false;
-        console.log(isTrainerLarger);
       });
     }
   }, [desc]);
@@ -88,11 +81,9 @@ const Pokemon = () => {
       setIsTrainerLarger(
         trainerHeight > (parseInt(pokemon.height) * 0.1).toFixed(1)
       );
-      console.log(isTrainerLarger);
     }
   }, [pokemon]);
 
-  // const test = false;
 
   return pokemon && desc && evolutionChain ? (
     <div className="pokemon-page page">

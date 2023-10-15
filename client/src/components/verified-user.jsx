@@ -43,7 +43,6 @@ const VerifiedUser = (props) => {
               const imgPath = `../imgs/badges/${badge
                 .split(" ")[0]
                 .toLowerCase()}.png`;
-              console.log(imgPath);
               return <img src={imgPath} alt="badge" />;
             })}
           </div>
@@ -69,7 +68,6 @@ const VerifiedUser = (props) => {
           <div className="friends">
             <div className="title">Friends</div>
             {userData.friends.map((friend) => {
-              console.log(friend)
               const imgPath2 = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${parseInt(
                 friend.starter
               )}.png`;

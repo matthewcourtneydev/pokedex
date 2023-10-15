@@ -6,7 +6,6 @@ const jwt = require("jsonwebtoken");
 const User = require("./models/user-model")
 const userRouter = require("./routes/user-routes");
 const quizRouter = require("./routes/quiz-routes");
-const completedQuizRouter = require("./routes/completed-quiz-route");
 const port = 3002;
 const app = express();
 
@@ -30,7 +29,6 @@ app.use((req, res, next) => {
   });
 app.use("/users", userRouter);
 app.use("/quizes", quizRouter);
-app.use("/completedQuizes", completedQuizRouter);
 
 app.post("/login", async (req, res) => {
     const userEmail = req.body.email;

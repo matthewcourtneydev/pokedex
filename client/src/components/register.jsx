@@ -57,9 +57,7 @@ const RegisterForm = () => {
           localStorage.setItem("user", JSON.stringify(loggedInUser));
           window.location.reload();
           navigate("/");
-        } else {
-          console.log("ERROR");
-        }
+        } 
       } catch (err) {
         console.log(err.message, "ERR MESSAGE");
       }

@@ -23,7 +23,6 @@ const Quiz = () => {
   }
 
   async function updateUser(updatedInfo) {
-    console.log(userData);
     const response = await fetch(
       `http://localhost:3002/users/${userData.user._id}`,
       {
@@ -39,7 +38,6 @@ const Quiz = () => {
 
   async function handleEndGame() {
     const endScore = score * currentQuiz.pointsPerQuestion;
-    console.log(currentQuiz);
     const updatedInfo = {
       newQuiz: {
         quizId: currentQuiz._id,
@@ -48,8 +46,6 @@ const Quiz = () => {
       },
     };
 
-    console.log(score, currentQuiz.questions.length);
-    debugger;
     if (score / currentQuiz.questions.length > 0.7) {
       const imgSrc = `../imgs/badges/${currentQuiz.badge
         .split(" ")[0]
@@ -83,9 +79,9 @@ const Quiz = () => {
     } else {
       Swal.fire({
         title: "Oh No!",
-        text: `You score a ${
-          Math.ceil((score / currentQuiz.questions.length) * 100)
-        }%! You will need atleast a 70% if you want to earn a ${
+        text: `You score a ${Math.ceil(
+          (score / currentQuiz.questions.length) * 100
+        )}%! You will need atleast a 70% if you want to earn a ${
           currentQuiz.badge
         } `,
         icon: "error",
@@ -96,32 +92,13 @@ const Quiz = () => {
         navigate("/quizes");
       });
     }
-    // localStorage.setItem("user", JSON.stringify({
-    //   ...JSON.parse(localStorage.getItem("user")),
-    //   "user": data
-    // }));
-    // window.location.reload();
-    // navigate('/quizes')
-    //   })
-
-    // } catch(err) {
-    //   console.log("ERROR: ", err)
-    // }
-    // TODO
-    // add score to user xp then close off quiz.
-    // add badge to the users badges
-    // redirect to user page
   }
 
   function verifyAnswers(e) {
-    console.log(e.target.value);
     if (e.target.value === "true") {
       setScore((currentScore) => {
         return currentScore + 1;
       });
-      // setQuestion(currentQuestion => {
-      //   return currentQuestion + 1
-      // });
     } else {
       if (question !== currentQuiz.questions.length - 1) {
         setQuestion((currentQuestion) => {

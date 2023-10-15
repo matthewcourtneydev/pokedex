@@ -14,7 +14,6 @@ const User = () => {
 
 
   async function getPageInfo() {
-    console.log(window.location.href.split("/").slice(-1)[0]);
     const response = await fetch(
       `http://localhost:3002/users/${
         window.location.href.split("/").slice(-1)[0]

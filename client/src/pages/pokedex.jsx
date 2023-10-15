@@ -17,9 +17,6 @@ const Pokedex = () => {
   }, []);
 
   return pokemonList.length ? (
-    // <div id="pokemon-list">
-    //   <PokemonCard pokemon={pokemonList[0]} />
-    // </div>
     <div className="pokedex-page page">
       <div className="content">
       <img src={img} alt="" />

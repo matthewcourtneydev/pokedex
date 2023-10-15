@@ -7,8 +7,6 @@ const Home = () => {
   const user = useContext(UserContext);
   const navigate = useNavigate();
 
-  console.log(user);
-
   function rediretToUserProfile() {
     navigate(`/user/${user.user._id}`);
   }

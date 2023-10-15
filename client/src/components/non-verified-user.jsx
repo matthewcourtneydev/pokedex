@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FriendButton from "./friendButton";
 
 const NonVerifiedUser = (props) => {
   const pageInfo = props.pageOwner;
-  const user = props.user;
   const navigate = useNavigate();
+  const localStorageData = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState(localStorageData.user);
 
-  console.log(pageInfo);
-  console.log(user);
 
   return Object.keys(pageInfo).length && user ? (
     <div className="user-page page">
@@ -37,7 +37,6 @@ const NonVerifiedUser = (props) => {
               const imgPath = `../imgs/badges/${badge
                 .split(" ")[0]
                 .toLowerCase()}.png`;
-              console.log(imgPath);
               return <img src={imgPath} alt="badge" />;
             })}
           </div>
@@ -67,7 +66,7 @@ const NonVerifiedUser = (props) => {
                 friend.starter
               )}.png`;
               return (
-                <a href={`/${friend._id}`}>
+                <a href={`/user/${friend._id}`}>
                   <div className="friend">
                     <img
                       src={imgPath2}
@@ -83,23 +82,7 @@ const NonVerifiedUser = (props) => {
         ) : (
           <span className="manual-10px-gap"></span>
         )}
-        {user && user.friends.filter(friend => friend._id === pageInfo.id).length === 0 ? (
-          <button
-            onClick={() => {
-              console.log("Friend Added!");
-            }}
-          >
-            Remove Friend
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              console.log("Friend Added!");
-            }}
-          >
-            Add Friend
-          </button>
-        )}
+        <FriendButton pageInfo={pageInfo} />
       </div>
     </div>
   ) : (
@@ -130,7 +113,6 @@ const NonVerifiedUser = (props) => {
               const imgPath = `../imgs/badges/${badge
                 .split(" ")[0]
                 .toLowerCase()}.png`;
-              console.log(imgPath);
               return <img src={imgPath} alt="badge" />;
             })}
           </div>
@@ -160,7 +142,7 @@ const NonVerifiedUser = (props) => {
                 friend.starter
               )}.png`;
               return (
-                <a href={`/${friend._id}`}>
+                <a href={`/user/${friend._id}`}>
                   <div className="friend">
                     <img
                       src={imgPath2}

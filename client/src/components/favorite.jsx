@@ -9,12 +9,9 @@ const Favorite = () => {
     const [isFav, setIsFav] = useState((favorites.includes(id)) || (favorites.includes(JSON.stringify(id))));
     const localStorageData = JSON.parse(localStorage.getItem("user"));
 
-    console.log(isFav);
-
     async function addToFavorites() {
         setIsFav(prevIsFav => !prevIsFav);
-        console.log(userData.user._id, isFav);
-        patchFavs([...favorites, id]).then((data) => console.log(data));
+        patchFavs([...favorites, id]);
         localStorageData.user.favorites = [...favorites, id];
         localStorage.setItem("user", JSON.stringify(localStorageData))
     }
@@ -23,7 +20,7 @@ const Favorite = () => {
         setIsFav(prevIsFav => !prevIsFav);
         const index = favorites.indexOf(id);
         favorites = favorites.splice(index, 1)
-        patchFavs([...favorites]).then((data) => console.log(data));
+        patchFavs([...favorites]);
     }
 
     async function patchFavs(favorites) {
