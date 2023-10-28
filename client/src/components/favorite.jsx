@@ -24,7 +24,7 @@ const Favorite = () => {
     }
 
     async function patchFavs(favorites) {
-        const response = await fetch(`http://localhost:3002/users/${userData.user._id}`, {
+        const response = await fetch(`/users/${userData.user._id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

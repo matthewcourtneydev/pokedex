@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const User = require("./models/user-model")
 const userRouter = require("./routes/user-routes");
 const quizRouter = require("./routes/quiz-routes");
-const port = 3002;
+const port = 5000;
 const app = express();
 
 
@@ -53,5 +53,5 @@ app.post("/login", async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log("App is running on port 3002")
+    console.log("App is running on port", port)
 })

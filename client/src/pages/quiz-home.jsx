@@ -7,7 +7,7 @@ const QuizHome = () => {
   const userData = useContext(UserContext);
 
   async function getQuizes() {
-    const response = await fetch("http://localhost:3002/quizes");
+    const response = await fetch("/quizes");
     return response.json();
   }
 

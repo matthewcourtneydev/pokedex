@@ -38,7 +38,7 @@ const FriendButton = (props) => {
 
   async function patchFriends(friends) {
     const response = await fetch(
-      `http://localhost:3002/users/${userData.user._id}`,
+      `/users/${userData.user._id}`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },

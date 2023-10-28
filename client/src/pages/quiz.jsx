@@ -14,7 +14,7 @@ const Quiz = () => {
   const navigate = useNavigate();
 
   async function getQuizData() {
-    const response = await fetch(`http://localhost:3002/quizes/${id}`);
+    const response = await fetch(`/quizes/${id}`);
     return response.json();
   }
 
@@ -24,7 +24,7 @@ const Quiz = () => {
 
   async function updateUser(updatedInfo) {
     const response = await fetch(
-      `http://localhost:3002/users/${userData.user._id}`,
+      `/users/${userData.user._id}`,
       {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },

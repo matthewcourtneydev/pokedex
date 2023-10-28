@@ -20,7 +20,7 @@ const RegisterForm = () => {
   }, []);
 
   async function postUser(userData) {
-    const response = await fetch("http://localhost:3002/users", {
+    const response = await fetch("/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
@@ -30,7 +30,7 @@ const RegisterForm = () => {
   }
 
   async function logUserInAfterPost(postedUser) {
-    const response = await fetch("http://localhost:3002/login", {
+    const response = await fetch("/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(postedUser),
@@ -53,6 +53,7 @@ const RegisterForm = () => {
       try {
         let postedUser = await postUser(user);
         if (postedUser) {
+          debugger;
           let loggedInUser = await logUserInAfterPost(postedUser);
           localStorage.setItem("user", JSON.stringify(loggedInUser));
           window.location.reload();
