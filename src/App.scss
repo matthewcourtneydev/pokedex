@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.nav {
+  position: fixed;
+  z-index: 10;  
+  padding: 30px;
+  max-width: 500px;
+  margin: auto;
+
+  .nav-items {
+    font-size: 30px;
+    color: white;
+    span {
+      vertical-align: top;
+      font-size: 27px;
+    }
+  }
+}
+
+.page {
+  min-height: 100vh;
+  min-width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
+  background-color: rgb(130, 130, 137);
+  text-align: center;
+
+  .searchbar {
+    position: relative;
+    max-width: 400px;
+    margin: auto;
+
+    .icon {
+      position: absolute;
+      z-index: 10;
+      bottom: 7px;
+      left: 20px;
+      font-size: 25px;
+      color: grey;
+    }
+    input {
+      position: relative;
+      line-height: 50px;
+      width: 100%;
+      border: none;
+      border-radius: 30px;
+      margin-top: 30px;
+      padding-left: 50px;
+      font-size: 20px;
+    }
+  }
+
+  .homepage-inner {
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    position: absolute;
+    overflow-x: hidden;
+    padding: 30px;
+
+    padding-top: 150px;
+    text-align: left;
+    color: white;
+
+    h1 {
+      margin: auto;
+      width: 400px;
+    }
+
+
+    .lower {
+      left: -50%;
+      width:200%;
+      height:50vh;
+      border-radius:50% 50% 0 0;
+      background-color:#fff;
+      position:absolute;
+      bottom: 0;
+      padding-top: 50px;
+
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        color: black;
+
+        .button { 
+          background-color: green;
+          min-height: 65px;
+          width: 90vw;
+          margin: auto;
+          padding: 20px 30px;
+          font-size: 13px;
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          border-radius: 30px;
+          max-width: 400px;
+
+          .button-icon {
+            font-size: 20px;
+          }
+        }
+
+        .locations {
+          background-color: orange;
+        }
+
+        .moves {
+          background-color: blue;
+        } 
+
+        .favorites {
+          background-color: red;
+        }
+
+
+      }
+    }
+  }
+
+  .search-inner {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(180, 129, 129);
+    padding: 30px;
+  }
+
+  .dark {
+    color: black;
+  }
+}

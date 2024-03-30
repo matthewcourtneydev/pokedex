@@ -1,0 +1,22 @@
+[
+    {
+        "class": "types",
+        "content": "Types",
+        "icon": "pokeball"
+    },
+    {
+        "class": "locations",
+        "content": "Locations",
+        "icon": "pin"
+    },
+    {
+        "class": "moves",
+        "content": "Moves and Abilities",
+        "icon": "star"
+    },
+    {
+        "class": "favorites",
+        "content": "Favorites",
+        "icon": "heart"
+    }
+]
