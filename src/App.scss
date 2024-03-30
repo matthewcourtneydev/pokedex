@@ -54,7 +54,10 @@
       font-size: 20px;
     }
   }
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
   .homepage-inner {
     width: 100vw;
     height: 100vh;
@@ -129,6 +132,123 @@
     height: 100vh;
     background-color: rgb(180, 129, 129);
     padding: 30px;
+    padding-top: 50px;
+    position: relative;
+
+
+    .mini-button-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 85%;
+      gap: 10px;
+      padding-bottom: 30px;
+      position: absolute;
+      bottom: 0;
+      max-height: 80vh;
+      margin: auto;
+      overflow: scroll;
+      
+
+      .mini-button {
+        background-color: purple;
+        color: white;
+        height: 65px;
+        width: 48%;
+        margin: auto;
+        font-size: 15px;
+        border-radius: 35px;
+        text-align: left;
+        padding-left: 15px;
+        display: flex;
+        align-items: center;
+        font-weight: lighter;
+      }
+
+      .normal {
+        background-color: grey;
+      }
+
+      .fire {
+        background-color: orange;
+      }
+
+      .fighting {
+        background-color: red;
+      }
+
+      .water {
+        background-color: blue;
+      }
+
+      .flying {
+        background-color: lavender;
+      }
+
+      .grass {
+        background-color: green;
+      }
+
+      .poison {
+        background-color: magenta;
+      }
+
+      .electric {
+        background-color: yellow;
+      }
+
+      .ground {
+        background-color: sandybrown;
+      }
+
+      .psychic {
+        background-color: pink;
+      }
+
+      .rock {
+        background-color: brown;
+      }
+
+      .ice {
+        background-color: aqua;
+      }
+
+      .bug {
+        background-color: limegreen;
+      }
+
+      .dragon {
+        background-color: purple;
+      }
+
+      .ghost {
+        background-color: blueviolet;
+      }
+
+      .dark {
+        background-color: burlywood;
+      }
+
+      .steel {
+        background-color: teal;
+      }
+
+      .fairy {
+        background-color: lightpink;
+      }
+
+      .unkown {
+        background-color: black;
+      }
+
+      .shadow {
+        background-color: darkorchid;
+      }
+    }
+
+    .mini-button-container::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .dark {

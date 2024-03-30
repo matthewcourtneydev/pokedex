@@ -8,10 +8,17 @@ import Nav from "./components/nav";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 function App() {
-  const [searchCriteria, setSearchCriteria] = useState("Pokemon");
+  const [searchCriteria, setSearchCriteria] = useState("Type");
   const [searchInput, setSearchInput] = useState("");
+  const [pokemonToGetGroup, setPokemonToGetGroup] = useState("");
 
   const navigate = useNavigate()
+
+  function finalizeSearch(url) {
+    setPokemonToGetGroup((prev) => {
+      return url;
+    })
+  }
 
   const selectSearch = (criteria) => {
     setSearchCriteria((prev) => criteria);
@@ -22,21 +29,18 @@ function App() {
   }
 
   useEffect(() => {
-    if (searchCriteria !== "pokemon") {
+    if (searchCriteria !== "Type") {
       navigate("/search")
     }
   }, [searchCriteria])
 
-  useEffect(() => {
-    console.log(searchInput)
-  }, [searchInput])
 
   return (
     <div className="App">
       <Routes>
         <Route path={"/"} element={<Home updateInput={updateInput} selectSearch={selectSearch} />} />
         <Route path={"/search"} element={<Search searchInput={searchInput} searchCriteria={searchCriteria} />} />
-        <Route path={"/pokedex"} element={<Pokedex />} />
+        <Route path={"/pokedex"} element={<Pokedex pokemonToGetGroup={pokemonToGetGroup}/>} />
         <Route path={"/pokemon"} element={<Pokemon />} />
       </Routes>
     </div>
