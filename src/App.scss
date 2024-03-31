@@ -253,6 +253,7 @@
     overflow-y: hidden;
     position: relative;
     padding: 30px;
+    padding-top: 50px;
 
     .pokemon-list {
       position: absolute;
@@ -265,6 +266,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       gap: 10px;
+      padding-bottom: 30px;
 
       .pokedex-card {
         background-color: white;

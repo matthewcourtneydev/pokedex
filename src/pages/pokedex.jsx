@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from "react";
 import PokedexCard from "../components/pokedex-card";
+import Nav from "../components/nav";
+import Searchbar from "../components/searchbar";
 
 const Pokedex = (props) => {
   const [pokemonArray, setPokemonArray] = useState([]);
@@ -36,7 +38,9 @@ const Pokedex = (props) => {
     <>
       {dataPresent && pokemonArray.length === props.expectedDataLength && (
         <div className="page" id="pokedex">
+            <Nav data={{content: "Type Grass"}} additionalClasses={"black"}/>
           <div className="pokedex-inner">
+          <Searchbar />
             <div className="pokemon-list">
               {pokemonArray.map((pokemon) => (
                 <PokedexCard pokemon={pokemon} />
