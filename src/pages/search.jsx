@@ -38,8 +38,6 @@ const Search = (props) => {
 
   useEffect(() => {
     if (Object.keys(currentResult).length) {
-        // debugger;
-        console.log(currentResult);
         setIsLoading(false);
     }
   }, [currentResult]);
@@ -56,7 +54,7 @@ const Search = (props) => {
         <Searchbar />
         <div className="mini-button-container">
           {currentResult.map((type) => (
-            <MiniButton finalizeSearch={props.finalizeSearch} name={type.name} url={type.url}/>
+            <MiniButton setExpectedDataLength={props.setExpectedDataLength} finalizeSearch={props.finalizeSearch} name={type.name} url={type.url}/>
           ))}
         </div>
       </div>

@@ -12,11 +12,11 @@ const MiniButton = (props) => {
     async function setPokemonListState() {
         const list = await fetchPokemonArray();
         await props.finalizeSearch(list.pokemon);
+        props.setExpectedDataLength((prev) => list.pokemon.length)
         nextPage()
     }
 
     function nextPage() {
-        debugger;
         navigate("/pokedex")
     }
 

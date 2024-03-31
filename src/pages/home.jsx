@@ -1,5 +1,4 @@
 import {React, useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
 import Nav from '../components/nav';
 import Searchbar from '../components/searchbar';
 import buttonData from "../jcrs/home-buttons.json"
