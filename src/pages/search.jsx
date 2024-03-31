@@ -22,7 +22,7 @@ const Search = (props) => {
     return true;
   }
 
-  useEffect(async () => {
+  async function retrieveData() {
     let url;
     switch (searchData) {
       case "Types":
@@ -30,13 +30,17 @@ const Search = (props) => {
     }
     const dataIn = await getPokemon(url)
     await settingState(dataIn.results);
+  }
+
+  useEffect(() => {
+    retrieveData();
   }, []);
 
   useEffect(() => {
     if (Object.keys(currentResult).length) {
         // debugger;
         console.log(currentResult);
-        setIsLoading(false)
+        setIsLoading(false);
     }
   }, [currentResult]);
 
@@ -52,7 +56,7 @@ const Search = (props) => {
         <Searchbar />
         <div className="mini-button-container">
           {currentResult.map((type) => (
-            <MiniButton name={type.name} url={type.url}/>
+            <MiniButton finalizeSearch={props.finalizeSearch} name={type.name} url={type.url}/>
           ))}
         </div>
       </div>

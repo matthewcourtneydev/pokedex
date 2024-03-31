@@ -1,4 +1,5 @@
-import React from 'react';
+import {React, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import Nav from '../components/nav';
 import Searchbar from '../components/searchbar';
 import buttonData from "../jcrs/home-buttons.json"
@@ -6,7 +7,6 @@ import Button from '../components/button';
 
 
 const Home = (props) => {
-    console.log(props)
     return (
         <div className="page" id="home">
                   <Nav data={{value: "home", content: "Pokedex"}}/>
