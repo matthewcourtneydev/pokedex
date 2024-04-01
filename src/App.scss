@@ -19,6 +19,10 @@
       vertical-align: top;
       font-size: 27px;
     }
+
+    .pokemon-id {
+      padding-left: 15px;
+    }
   }
 }
 
@@ -160,82 +164,86 @@
         font-weight: lighter;
       }
 
+      .dark-text {
+        color: black;
+      }
+    
       .normal {
         background-color: grey;
       }
-
+    
       .fire {
         background-color: orange;
       }
-
+    
       .fighting {
         background-color: red;
       }
-
+    
       .water {
         background-color: blue;
       }
-
+    
       .flying {
         background-color: lavender;
       }
-
+    
       .grass {
         background-color: green;
       }
-
+    
       .poison {
         background-color: magenta;
       }
-
+    
       .electric {
         background-color: yellow;
       }
-
+    
       .ground {
         background-color: sandybrown;
       }
-
+    
       .psychic {
         background-color: pink;
       }
-
+    
       .rock {
         background-color: brown;
       }
-
+    
       .ice {
         background-color: aqua;
       }
-
+    
       .bug {
         background-color: limegreen;
       }
-
+    
       .dragon {
         background-color: purple;
       }
-
+    
       .ghost {
         background-color: blueviolet;
       }
-
+    
       .dark {
         background-color: burlywood;
       }
-
+    
       .steel {
         background-color: teal;
       }
-
+    
       .fairy {
         background-color: lightpink;
       }
-
+    
       .unkown {
         background-color: black;
       }
-
+    
       .shadow {
         background-color: darkorchid;
       }
@@ -302,7 +310,311 @@
     }
   }
 
-  .dark {
+  .pokemon-inner {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow-x: hidden;
+    padding: 30px;
+
+    padding-top: 150px;
+    text-align: left;
+    color: white;
+
+    .upper {
+      .img-container {
+        width: 100vw;
+        min-width: 300px;
+        min-height: 350px;
+        z-index: 25;
+        position: absolute;
+        margin: auto;
+        left: 20px;
+        right: 0;
+        top: 80px;
+        background-size: contain;
+        background-repeat:no-repeat;
+
+        .pokemon-type {
+          position: absolute;
+          bottom: -50px;
+          left: -40px;
+          right: 0;
+          margin: auto;
+          width: 130px;
+          text-align: center;
+          font-size: 20px;
+          border: 2px solid rgb(188, 187, 187);
+          border-radius: 25px;
+          padding: 3px;
+        }
+      }
+    }
+
+    .lower {
+      left: -50%;
+      width: 200%;
+      height: 70vh;
+      border-radius: 50% 50% 0 0;
+      background-color: #fff;
+      position: absolute;
+      bottom: 0;
+      padding-top: 50px;
+
+      .navigate-buttons {
+        margin: auto;
+        margin-top: 80px;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .left, .right {
+          font-size: 15px;
+          font-weight: bold;
+          padding: 20px;
+          border: none;
+          border-radius: 50%;
+          display: flex;
+          min-height: 50px;
+          align-items: center
+        }
+      }
+
+      .tab-content {
+        width: 100vw;
+        margin: auto;
+        min-height: 50px;
+        padding-top: 70px;
+
+        .container {
+        
+          .tabs {
+            display: flex;
+            width: 80%;
+            margin: auto;
+            list-style: none;
+            
+
+            li {
+              font-size: 20px;
+              padding: 15px 10px;
+              width: 33.33%;
+              border: solid 2px grey;
+              text-align: center;
+            }
+
+            li:first-child {
+              border-radius: 25px 0px 0px 25px;
+            }
+
+            li:last-child {
+              border-radius: 0px 25px 25px 0px;
+            }
+          }
+
+          .display-container {
+            min-height: 23vh;
+            width: 90vw;
+            margin: auto;
+            margin-top: 15px;
+            background-color: blue;
+            overflow-y: scroll;
+          }
+        }
+        
+      }
+
+      .footer {
+        background-color: red;
+        width: 100vw;
+        min-width: 100vw;
+        margin: auto;
+        min-height: 60px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        border-radius: 25px 25px 0px 0px;
+
+        .footer-btn {
+          width: 25%;
+          background: none;
+          border: none;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .dark-text {
     color: black;
+  }
+
+  .normal {
+    background-color: grey;
+  }
+
+  .normal-light {
+    background-color: rgb(158, 158, 158);
+  }
+
+  .fire {
+    background-color: orange;
+  }
+
+  .fire-light {
+    background-color: rgb(251, 195, 90);
+  }
+
+  .fighting {
+    background-color: red;
+  }
+
+  .fighting-light {
+    background-color: rgb(246, 80, 80);
+  }
+
+  .water {
+    background-color: blue;
+  }
+
+  .water-light {
+    background-color: rgb(82, 82, 247);
+  }
+
+  .flying {
+    background-color: lavender;
+  }
+
+  .flying-light {
+    background-color: rgb(83, 83, 254);
+  }
+
+  .grass {
+    background-color: green;
+  }
+
+  .grass-light {
+    background-color: rgb(43, 164, 43);
+  }
+
+  .poison {
+    background-color: magenta;
+  }
+
+  .poison-light {
+    background-color: rgb(248, 87, 248);
+  }
+
+  .electric {
+    background-color: yellow;
+  }
+
+  .electric-light {
+    background-color: rgb(243, 243, 135);
+  }
+
+  .ground {
+    background-color: sandybrown;
+  }
+
+  .ground-light {
+    background-color: rgb(241, 196, 157);
+  }
+
+  .psychic {
+    background-color: pink;
+  }
+
+  .psychic-light {
+    background-color: rgb(250, 218, 223);
+  }
+
+  .rock {
+    background-color: brown;
+  }
+
+  .rock-light {
+    background-color: rgb(170, 72, 72);
+  }
+
+
+  .ice {
+    background-color: aqua;
+  }
+
+  .ice-light {
+    background-color: rgb(133, 233, 233);
+  }
+
+  .bug {
+    background-color: limegreen;
+  }
+
+  .bug-light {
+    background-color: rgb(106, 199, 106);
+  }
+
+  .dragon {
+    background-color: purple;
+  }
+
+  .dragon-light {
+    background-color: rgb(208, 15, 208);
+  }
+
+  .ghost {
+    background-color: blueviolet;
+  }
+
+  .ghost-light {
+    background-color: rgb(161, 99, 220);
+  }
+
+
+  .dark {
+    background-color: burlywood;
+  }
+
+  .dark-light {
+    background-color: rgb(227, 204, 173);
+  }
+
+  .steel {
+    background-color: teal;
+  }
+
+  .steel-light {
+    background-color: rgb(27, 188, 188);
+  }
+
+  .fairy {
+    background-color: lightpink;
+  }
+
+
+  .fairy-light {
+    background-color: rgb(246, 217, 222);
+  }
+
+
+  .unkown {
+    background-color: black;
+  }
+
+  .unkown-light {
+    background-color: rgb(49, 49, 49);
+  }
+
+
+  .shadow {
+    background-color: darkorchid;
+  }
+
+  .shadow-light {
+    background-color: rgb(173, 103, 208);
   }
 }

@@ -11,6 +11,7 @@ function App() {
   const [expectedDataLength, setExpectedDataLength] = useState(0);
   const [searchInput, setSearchInput] = useState("");
   const [pokemonToGetGroup, setPokemonToGetGroup] = useState("");
+  const [currentPokemon, setCurrentPokemon] = useState(null);
 
   function finalizeSearch(array) {
     setPokemonToGetGroup((prev) => {
@@ -31,8 +32,8 @@ function App() {
       <Routes>
         <Route path={"/"} element={<Home updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria}/>} />
         <Route path={"/search"} element={<Search setExpectedDataLength={setExpectedDataLength} searchInput={searchInput} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup}/>} />
-        <Route path={"/pokedex"} element={<Pokedex expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup}/>} />
-        <Route path={"/pokemon"} element={<Pokemon />} />
+        <Route path={"/pokedex"} element={<Pokedex currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup}/>} />
+        <Route path={"/pokemon"} element={<Pokemon currentPokemon={currentPokemon} />} />
       </Routes>
     </div>
   );

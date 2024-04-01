@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PokedexCard from "../components/pokedex-card";
 import Nav from "../components/nav";
 import Searchbar from "../components/searchbar";
@@ -6,6 +7,12 @@ import Searchbar from "../components/searchbar";
 const Pokedex = (props) => {
   const [pokemonArray, setPokemonArray] = useState([]);
   const [dataPresent, setDataPresent] = useState(false);
+  const navigate = useNavigate();
+
+  function selectPokemon(pokemon) {
+    props.setCurrentPokemon((prev) => pokemon);
+    navigate("/pokemon");
+  }
 
   async function getPokemonData(url) {
     const data = await fetch(url);
@@ -28,23 +35,31 @@ const Pokedex = (props) => {
 
   useEffect(() => {
     if (pokemonArray.length === props.expectedDataLength) {
-      console.log(pokemonArray);
       setDataPresent((prev) => {
         return true;
       });
     }
   }, [pokemonArray]);
+
   return (
     <>
       {dataPresent && pokemonArray.length === props.expectedDataLength && (
         <div className="page" id="pokedex">
-            <Nav data={{content: "Type Grass"}} additionalClasses={"black"}/>
+          <Nav data={{ content: "Type Grass" }} additionalClasses={"black"} />
           <div className="pokedex-inner">
-          <Searchbar />
+            <Searchbar />
             <div className="pokemon-list">
-              {pokemonArray.map((pokemon) => (
-                <PokedexCard pokemon={pokemon} />
-              ))}
+              {pokemonArray
+                .sort(function (a, b) {
+                  return a.id - b.id;
+                })
+                .map((pokemon) => (
+                  <PokedexCard
+                    selectPokemon={selectPokemon}
+                    pokemon={pokemon}
+                    setCurrentPokemon={props.setCurrentPokemon}
+                  />
+                ))}
             </div>
           </div>
         </div>

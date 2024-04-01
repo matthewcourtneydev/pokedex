@@ -47,7 +47,7 @@ const Search = (props) => {
     {isLoading && <div>LOADING</div>}
     {!isLoading && <div className="page" id="search">
       <Nav
-        additionalClasses={"dark"}
+        additionalClasses={"dark-text"}
         data={{ value: "", content: `${props.searchCriteria}` }}
       />
       <div className="search-inner">
