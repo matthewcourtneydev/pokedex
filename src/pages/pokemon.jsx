@@ -1,6 +1,9 @@
 import { React, useEffect, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import PokemonFooter from "../components/pokemon-footer";
+import About from "../components/tabs/about";
+import Status from "../components/tabs/status";
+import Moves from "../components/tabs/moves";
 
 import Nav from "../components/nav";
 
@@ -94,7 +97,11 @@ const Pokemon = (props) => {
                         <p>Moves</p>
                     </li>
                   </ul>
-                  <div className="display-container" id="display-container"></div>
+                  <div className="display-container" id="display-container">
+                    {displayIndex === "about" && <About />}
+                    {displayIndex === "status" && <Status/>}
+                    {displayIndex === "moves" && <Moves />}
+                  </div>
                 </div>
               </div>
               <PokemonFooter />
