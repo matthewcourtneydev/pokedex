@@ -443,16 +443,44 @@
                   background-color: grey;
                   margin: auto;
                   border-radius: 25px;
+                  position: relative;
+
+                  span {
+                    position: absolute;
+                    right: 10px;
+                  }
   
                   .progress-bar {
                     min-height: 22px;
                     background-color: green;
                     text-align: right;
                     justify-content: right;
-                    padding-right: 10px;
                     border-radius: 25px;
                   }
                 }     
+              }
+            }
+
+            .about-pokemon {
+              padding-left: 20px;
+              padding-right: 20px;
+
+              .height-weight {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin: auto;
+                width: 100%;
+                padding-top: 12px;
+
+                .height, .weight, .strong {
+                  h3 {
+                    color: grey
+                  }
+                  display: flex;
+                  justify-content: space-between;
+                  width: 70%;
+                }
               }
             }
           }

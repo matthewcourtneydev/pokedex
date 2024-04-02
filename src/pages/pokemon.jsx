@@ -11,7 +11,6 @@ const Pokemon = (props) => {
   const [pokemon, setPokemon] = useState(null);
   const [displayIndex, setDisplayIndex] = useState("about");
   const [isActive, setIsActive] = useState("about");
-  console.log(pokemon);
 
   async function getData(id) {
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
@@ -34,6 +33,7 @@ const Pokemon = (props) => {
     getData(props.currentPokemon).then((data) => {
       setPokemon((prev) => data);
     });
+    console.log(pokemon)
   }, []);
 
   useEffect(() => {
@@ -112,7 +112,7 @@ const Pokemon = (props) => {
                     </li>
                   </ul>
                   <div className="display-container" id="display-container">
-                    {displayIndex === "about" && <About />}
+                    {displayIndex === "about" && <About id={pokemon.id} height={pokemon.height} weight={pokemon.weight}/>}
                     {displayIndex === "status" && <Status stats={pokemon.stats}/>}
                     {displayIndex === "moves" && <Moves />}
                   </div>

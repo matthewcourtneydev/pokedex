@@ -21,7 +21,7 @@ const Status = (props) => {
   }
 
   function getStatMax(stat) {
-    return stat > 100 ? "100%" : `${stat}%`;
+    return stat > 100 ? "100%" : `${stat - 3}%`;
   }
   return (
       <div className="wrapper">
@@ -34,8 +34,8 @@ const Status = (props) => {
                   className={`${stat.stat.name} progress-bar`}
                   style={{ width: getStatMax(stat.base_stat) }}
                 >
-                  <span>{stat.base_stat}</span>
                 </div>
+                <span>{stat.base_stat}</span>
               </div>
             </div>
           );
