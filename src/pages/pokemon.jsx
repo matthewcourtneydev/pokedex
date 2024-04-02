@@ -11,11 +11,23 @@ const Pokemon = (props) => {
   const [pokemon, setPokemon] = useState(null);
   const [displayIndex, setDisplayIndex] = useState("about");
   const [isActive, setIsActive] = useState("about");
-  console.log(props.currentPokemon);
+  console.log(pokemon);
 
   async function getData(id) {
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
     return data.json();
+  }
+
+  function incPokemon() {
+    props.setCurrentPokemon((prev) => {
+        return prev + 1;
+    })
+  }
+
+  function decPokemon() {
+    props.setCurrentPokemon((prev) => {
+        return prev - 1;
+    })
   }
 
   useEffect(() => {
@@ -25,8 +37,10 @@ const Pokemon = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log(pokemon);
-  }, [pokemon]);
+    getData(props.currentPokemon).then((data) => {
+        setPokemon((prev) => data);
+      });
+  }, [props.currentPokemon]);
 
   return (
     <>
@@ -56,10 +70,10 @@ const Pokemon = (props) => {
             </div>
             <div className="lower">
               <div className="navigate-buttons">
-                <button className="left">
+                <button className="left" onClick={() => decPokemon()}>
                   <IoIosArrowBack />
                 </button>
-                <button className="right">
+                <button className="right" onClick={() => incPokemon()}>
                   <IoIosArrowForward />
                 </button>
               </div>
@@ -99,7 +113,7 @@ const Pokemon = (props) => {
                   </ul>
                   <div className="display-container" id="display-container">
                     {displayIndex === "about" && <About />}
-                    {displayIndex === "status" && <Status/>}
+                    {displayIndex === "status" && <Status stats={pokemon.stats}/>}
                     {displayIndex === "moves" && <Moves />}
                   </div>
                 </div>

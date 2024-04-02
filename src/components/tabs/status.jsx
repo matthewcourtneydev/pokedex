@@ -1,11 +1,48 @@
-import React from 'react';
+import React from "react";
 
-const Status = () => {
-    return (
-        <div className="tab-display-container">
-        <h1>Status</h1>
-    </div>
-    );
-}
+const Status = (props) => {
+  console.log(props.stats);
+
+  function getNameAbrv(name) {
+    switch (name) {
+      case "hp":
+        return "HP";
+      case "attack":
+        return "ATK";
+      case "defense":
+        return "DEF";
+      case "special-attack":
+        return "SPK";
+      case "special-defense":
+        return "ADEF";
+      case "speed":
+        return "SPD";
+    }
+  }
+
+  function getStatMax(stat) {
+    return stat > 100 ? "100%" : `${stat}%`;
+  }
+  return (
+      <div className="wrapper">
+        {props.stats.map((stat) => {
+          return (
+            <div>
+             <span className="stat-name dark-text">{getNameAbrv(stat.stat.name)}</span>
+              <div className="progress-outter">
+                <div
+                  className={`${stat.stat.name} progress-bar`}
+                  style={{ width: getStatMax(stat.base_stat) }}
+                >
+                  <span>{stat.base_stat}</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+  );
+};
 
 export default Status;

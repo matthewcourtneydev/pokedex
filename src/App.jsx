@@ -33,7 +33,7 @@ function App() {
         <Route path={"/"} element={<Home updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria}/>} />
         <Route path={"/search"} element={<Search setExpectedDataLength={setExpectedDataLength} searchInput={searchInput} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup}/>} />
         <Route path={"/pokedex"} element={<Pokedex currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup}/>} />
-        <Route path={"/pokemon"} element={<Pokemon currentPokemon={currentPokemon} />} />
+        <Route path={"/pokemon"} element={<Pokemon setCurrentPokemon={setCurrentPokemon} currentPokemon={currentPokemon} />} />
       </Routes>
     </div>
   );

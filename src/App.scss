@@ -378,7 +378,8 @@
           border-radius: 50%;
           display: flex;
           min-height: 50px;
-          align-items: center
+          align-items: center;
+          z-index: 100000;
         }
       }
 
@@ -419,8 +420,41 @@
             width: 90vw;
             margin: auto;
             margin-top: 15px;
-            background-color: blue;
             overflow-y: scroll;
+            padding: 10px;
+
+            .wrapper {
+              width: 100%;
+              margin: auto;
+              display: flex;
+              display: flex;
+              flex-direction: column;
+              gap: 7px;
+
+              div {
+                display: flex;
+                
+                .stat-name {
+                  width: 10%
+                }
+
+                .progress-outter {
+                  width: 80%;
+                  background-color: grey;
+                  margin: auto;
+                  border-radius: 25px;
+  
+                  .progress-bar {
+                    min-height: 22px;
+                    background-color: green;
+                    text-align: right;
+                    justify-content: right;
+                    padding-right: 10px;
+                    border-radius: 25px;
+                  }
+                }     
+              }
+            }
           }
         }
         
