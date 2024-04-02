@@ -39,6 +39,7 @@ const Search = (props) => {
   useEffect(() => {
     if (Object.keys(currentResult).length) {
         setIsLoading(false);
+        console.log(currentResult)
     }
   }, [currentResult]);
 

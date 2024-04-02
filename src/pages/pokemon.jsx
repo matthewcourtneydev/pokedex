@@ -112,7 +112,7 @@ const Pokemon = (props) => {
                     </li>
                   </ul>
                   <div className="display-container" id="display-container">
-                    {displayIndex === "about" && <About id={pokemon.id} height={pokemon.height} weight={pokemon.weight}/>}
+                    {displayIndex === "about" && <About id={pokemon.id} height={pokemon.height} weight={pokemon.weight} types={pokemon.types}/>}
                     {displayIndex === "status" && <Status stats={pokemon.stats}/>}
                     {displayIndex === "moves" && <Moves />}
                   </div>
