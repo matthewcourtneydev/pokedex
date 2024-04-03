@@ -525,15 +525,15 @@
                   .attack-type {
                     text-align: center;
                     width: 90px;
-                    padding: 5px;
+                    padding: 8px;
                     border: solid 1px white;
                     margin: auto;
                     display: flex;
                     justify-content: space-around;
-                    margin-top: 10px;
-                    margin-bottom: 10px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
                     border-radius: 25px;
-                    font-size: 14px;
+                    font-size: 18px;
                   }
                 }
 
@@ -553,7 +553,6 @@
       }
 
       .footer {
-        background-color: red;
         width: 100vw;
         min-width: 100vw;
         margin: auto;
@@ -564,6 +563,8 @@
         right: 0;
         display: flex;
         border-radius: 25px 25px 0px 0px;
+        box-shadow: rgba(0, 0, 0, 0.447) 0 0 10px;
+        border-collapse: collapse;
 
         .footer-btn {
           width: 25%;
