@@ -34,6 +34,7 @@ const Search = (props) => {
 
   useEffect(() => {
     retrieveData();
+    console.log(props.searchCriteria, "SEARCH")
   }, []);
 
   useEffect(() => {

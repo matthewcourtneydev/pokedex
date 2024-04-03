@@ -28,12 +28,16 @@ function App() {
     setSearchInput((prev) => input)
   }
 
+  useEffect(() => {
+    console.log(searchCriteria)
+  }, [searchCriteria])
+
   return (
     <div className="App">
       <Routes>
-        <Route path={"/"} element={<Home setExpectedDataLength={setExpectedDataLength} favorites={favorites} updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch}/>} />
+        <Route path={"/"} element={<Home setSearchCriteria={setSearchCriteria} setExpectedDataLength={setExpectedDataLength} favorites={favorites} updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch}/>} />
         <Route path={"/search"} element={<Search setExpectedDataLength={setExpectedDataLength} searchInput={searchInput} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup}/>} />
-        <Route path={"/pokedex"} element={<Pokedex currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup}/>} />
+        <Route path={"/pokedex"} element={<Pokedex searchCriteria={searchCriteria} currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup}/>} />
         <Route path={"/pokemon"} element={<Pokemon setFavorites={setFavorites} favorites={favorites} setCurrentPokemon={setCurrentPokemon} currentPokemon={currentPokemon} />} />
       </Routes>
     </div>

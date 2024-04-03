@@ -5,22 +5,24 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 
-const Button = ({ buttonData, selectSearch, favorites, finalizeSearch, setExpectedDataLength }) => {
+const Button = ({ buttonData, setSearchCriteria, selectSearch, favorites, finalizeSearch, setExpectedDataLength }) => {
   const navigate = useNavigate();
 
   function handleSubmit(category) {
     if (category === 'Favorites') {
       console.log("Favorites");
       selectSearch(category);
+      setSearchCriteria((prev) => "Favorites")
       finalizeSearch(favorites.favorites);
       setExpectedDataLength((prev) => {
         return favorites.favorites.length
       })
       navigate("/pokedex");
       return;
+    } else {
+      selectSearch(category);
+      navigate("/search");
     }
-    selectSearch(category);
-    navigate("/search");
   }
 
   function determineIcon() {
