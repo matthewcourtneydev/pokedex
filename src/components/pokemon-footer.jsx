@@ -5,8 +5,7 @@ import { CiFaceSmile } from "react-icons/ci";
 
 
 const PokemonFooter = (props) => {
-  console.log(props.favorites)
-  const [isFavorite, setIsFavorite] = useState(props.favorites.favorites.some(obj => obj.id === props.id))
+  const [isFavorite, setIsFavorite] = useState(props.favorites.favorites.some(obj => obj.id === props.id));
 
     function faceBtn() {
         console.log("Face Pressed");
@@ -38,8 +37,8 @@ const PokemonFooter = (props) => {
     }
 
     useEffect(() => {
-      console.log(isFavorite)
-    }, [isFavorite])
+      setIsFavorite(props.favorites.favorites.some(obj => obj.id === props.id))
+    }, [props.id])
   return (
     <div className="footer">
       <button className="footer-btn" onClick={() => faceBtn()}><CiFaceSmile /></button>

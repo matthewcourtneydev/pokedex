@@ -33,13 +33,14 @@ const Pokemon = (props) => {
     getData(props.currentPokemon).then((data) => {
       setPokemon((prev) => data);
     });
-    console.log(pokemon)
   }, []);
 
   useEffect(() => {
     getData(props.currentPokemon).then((data) => {
         setPokemon((prev) => data);
       });
+
+      console.log(pokemon)
   }, [props.currentPokemon]);
 
   return (
@@ -114,7 +115,7 @@ const Pokemon = (props) => {
                   <div className="display-container" id="display-container">
                     {displayIndex === "about" && <About id={pokemon.id} height={pokemon.height} weight={pokemon.weight} types={pokemon.types}/>}
                     {displayIndex === "status" && <Status stats={pokemon.stats}/>}
-                    {displayIndex === "moves" && <Moves />}
+                    {displayIndex === "moves" && <Moves movesArray={pokemon.moves} />}
                   </div>
                 </div>
               </div>

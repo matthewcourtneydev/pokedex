@@ -46,7 +46,6 @@ const About = (props) => {
     }
 
     async function getTypeInfo(url) {
-        console.log(url)
         const typeData = await fetch(url);
         return typeData.json()
     }
@@ -74,7 +73,6 @@ const About = (props) => {
         if (typeData.length > 0) {
             setTypeDataLoaded((prev) => true)
         }
-        console.log(typeData)
     }, [typeData])
 
 
@@ -105,7 +103,6 @@ const About = (props) => {
                 </div>
             </div>
             </div>}
-
         {!pokemonAboutData && <h1>Loading</h1>}
         </>
     );
