@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path={"/"} element={<Home updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria}/>} />
+        <Route path={"/"} element={<Home setExpectedDataLength={setExpectedDataLength} favorites={favorites} updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch}/>} />
         <Route path={"/search"} element={<Search setExpectedDataLength={setExpectedDataLength} searchInput={searchInput} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup}/>} />
         <Route path={"/pokedex"} element={<Pokedex currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup}/>} />
         <Route path={"/pokemon"} element={<Pokemon setFavorites={setFavorites} favorites={favorites} setCurrentPokemon={setCurrentPokemon} currentPokemon={currentPokemon} />} />

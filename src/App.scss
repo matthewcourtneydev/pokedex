@@ -267,6 +267,7 @@
       position: absolute;
       bottom: 0;
       max-height: 80vh;
+      min-height: 80vh;
       width: 85%;
       margin: auto;
       overflow: scroll;
@@ -280,6 +281,7 @@
         background-color: white;
         width: 48%;
         height: auto;
+        max-height: 170px;
         padding: 15px;
         border-radius: 20px;
 

@@ -27,9 +27,15 @@ const Pokedex = (props) => {
 
   useEffect(() => {
     props.pokemonToGetGroup.forEach((pokemon) => {
-      getPokemonData(pokemon.pokemon.url).then((data) => {
-        setData(data);
-      });
+      if (pokemon.pokemon) {
+        getPokemonData(pokemon.pokemon.url).then((data) => {
+          setData(data);
+        });
+      } else {
+        getPokemonData(pokemon.url).then((data) => {
+          setData(data);
+        });
+      }
     });
   }, []);
 

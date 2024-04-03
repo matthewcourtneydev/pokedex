@@ -17,7 +17,7 @@ const Home = (props) => {
                 <div className="lower">
                     <div className="button-container">
                     {buttonData.map((btn, i) => {
-                        return <Button selectSearch={props.selectSearch} index={i} buttonData={btn}/>
+                        return <Button setExpectedDataLength={props.setExpectedDataLength} favorites={props.favorites} selectSearch={props.selectSearch} finalizeSearch={props.finalizeSearch} index={i} buttonData={btn}/>
                     })}
                     </div>
                 </div>
