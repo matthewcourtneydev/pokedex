@@ -12,7 +12,9 @@ const PokemonFooter = (props) => {
     }
 
     function shuffleBtn() {
-        console.log("Shuffle Pressed")
+        props.setCurrentPokemon((prev) => {
+          return Math.round(Math.random() * (1025 - 0) + 0);
+        })
     }
 
     function locationBtn() {

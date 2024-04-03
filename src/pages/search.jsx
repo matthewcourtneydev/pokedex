@@ -9,6 +9,7 @@ const Search = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentResult, setCurrentResult] = useState({});
   const [currentData, setCurrentData] = useState("");
+  let url;
 
   async function getPokemon(url) {
     const response = await fetch(url);
@@ -17,50 +18,62 @@ const Search = (props) => {
 
   async function settingState(newState) {
     setCurrentResult((prev) => {
-        return newState;
+      return newState;
     });
     return true;
   }
 
-  async function retrieveData() {
-    let url;
+  function determineUrl(searchData) {
     switch (searchData) {
       case "Types":
-        url = "https://pokeapi.co/api/v2/type/";
+        return (url = "https://pokeapi.co/api/v2/type/");
+      case "Locations":
+        return (url = "https://pokeapi.co/api/v2/region/");
     }
-    const dataIn = await getPokemon(url)
+  }
+
+  async function retrieveData() {
+    determineUrl(searchData)
+    const dataIn = await getPokemon(url);
     await settingState(dataIn.results);
   }
 
   useEffect(() => {
     retrieveData();
-    console.log(props.searchCriteria, "SEARCH")
+    console.log(props.searchCriteria, "SEARCH");
   }, []);
 
   useEffect(() => {
     if (Object.keys(currentResult).length) {
-        setIsLoading(false);
-        console.log(currentResult)
+      setIsLoading(false);
+      console.log(currentResult);
     }
   }, [currentResult]);
 
   return (
     <>
-    {isLoading && <div>LOADING</div>}
-    {!isLoading && <div className="page" id="search">
-      <Nav
-        additionalClasses={"dark-text"}
-        data={{ value: "", content: `${props.searchCriteria}` }}
-      />
-      <div className="search-inner">
-        <Searchbar />
-        <div className="mini-button-container">
-          {currentResult.map((type) => (
-            <MiniButton setExpectedDataLength={props.setExpectedDataLength} finalizeSearch={props.finalizeSearch} name={type.name} url={type.url}/>
-          ))}
+      {isLoading && <div>LOADING</div>}
+      {!isLoading && (
+        <div className="page" id="search">
+          <Nav
+            additionalClasses={"dark-text"}
+            data={{ value: "", content: `${props.searchCriteria}` }}
+          />
+          <div className="search-inner">
+            <Searchbar />
+            <div className="mini-button-container">
+              {currentResult.map((type) => (
+                <MiniButton
+                  setExpectedDataLength={props.setExpectedDataLength}
+                  finalizeSearch={props.finalizeSearch}
+                  name={type.name}
+                  url={type.url}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>}
+      )}
     </>
   );
 };

@@ -39,9 +39,9 @@ const AttackCard = (props) => {
               <div className="stat-header">PP</div>
             </div>
             <div className="stat-values dark-text">
-              <div className="stat-value">40</div>
-              <div className="stat-value">100</div>
-              <div className="stat-value">30</div>
+              <div className="stat-value">{currentMove.power || 0}</div>
+              <div className="stat-value">{currentMove.accuracy || "??"}</div>
+              <div className="stat-value">{currentMove.pp || 0}</div>
             </div>
           </div>
         </div>

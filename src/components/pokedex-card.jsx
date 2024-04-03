@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 const PokedexCard = (props) => {
 
+    console.log(props.pokemon)
     return (
         <div className="pokedex-card" onClick={() => props.selectPokemon(props.pokemon.id)}>
-            <div className="id"><span>#{props.pokemon.id}</span></div>
+            <div className="id" ><span className={props.pokemon.types[0].type.name}>#{props.pokemon.id}</span></div>
             <div className="image">
                 <img src={props.pokemon.sprites.front_default} alt="" />
             </div>

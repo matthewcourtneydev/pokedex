@@ -119,7 +119,7 @@ const Pokemon = (props) => {
                   </div>
                 </div>
               </div>
-              <PokemonFooter id={pokemon.id} setFavorites={props.setFavorites} favorites={props.favorites} />
+              <PokemonFooter id={pokemon.id} setFavorites={props.setFavorites} setCurrentPokemon={props.setCurrentPokemon} favorites={props.favorites} />
             </div>
           </div>
         </div>

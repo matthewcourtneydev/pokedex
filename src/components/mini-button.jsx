@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const MiniButton = (props) => {
     const navigate = useNavigate()
     const [i, setI] = useState(props.i)
+    
     async function fetchPokemonArray() {
         const list = await fetch(props.url);
         return list.json()
@@ -22,7 +23,7 @@ const MiniButton = (props) => {
 
     return (
         <div className={`mini-button ${props.name}`} onClick={setPokemonListState}>
-            <h3>{props.name.charAt(0).toUpperCase() + props.name.slice(1)}</h3>
+            <h3>{props.name.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase())}</h3>
         </div>
     );
 }
