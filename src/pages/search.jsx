@@ -29,6 +29,8 @@ const Search = (props) => {
         return (url = "https://pokeapi.co/api/v2/type/");
       case "Locations":
         return (url = "https://pokeapi.co/api/v2/region/");
+      case "Moves and Abilities":
+        return (url ="https://pokeapi.co/api/v2/move/")
     }
   }
 

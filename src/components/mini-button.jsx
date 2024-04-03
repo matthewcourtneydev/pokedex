@@ -24,6 +24,10 @@ const MiniButton = (props) => {
             await props.finalizeSearch(newPokedexData.pokemon_entries);
             props.setExpectedDataLength((prev) => newPokedexData.pokemon_entries.length)
             nextPage()
+        } else if (props.searchCriteria === "Moves and Abilities") {
+            await props.finalizeSearch(list.learned_by_pokemon);
+            props.setExpectedDataLength((prev) => list.learned_by_pokemon.length)
+            nextPage()
         }
         
     }
