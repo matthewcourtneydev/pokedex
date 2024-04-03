@@ -12,21 +12,25 @@ const MiniButton = (props) => {
     }
 
     async function setPokemonListState() {
+
         const list = await fetchPokemonArray(props.url);
         console.log(props)
 
         if (props.searchCriteria === "Types") {
             await props.finalizeSearch(list.pokemon);
             props.setExpectedDataLength((prev) => list.pokemon.length)
+            props.setSecondaryCriteria((prev) => props.name.charAt(0).toUpperCase() + props.name.slice(1))
             nextPage()
         } else if (props.searchCriteria === "Locations") {
             const newPokedexData = await fetchPokemonArray(list.pokedexes[0].url)
             await props.finalizeSearch(newPokedexData.pokemon_entries);
             props.setExpectedDataLength((prev) => newPokedexData.pokemon_entries.length)
+            props.setSecondaryCriteria((prev) => props.name.charAt(0).toUpperCase() + props.name.slice(1))
             nextPage()
-        } else if (props.searchCriteria === "Moves and Abilities") {
+        } else if (props.searchCriteria === "Moves") {
             await props.finalizeSearch(list.learned_by_pokemon);
             props.setExpectedDataLength((prev) => list.learned_by_pokemon.length)
+            props.setSecondaryCriteria((prev) => props.name.charAt(0).toUpperCase() + props.name.slice(1))
             nextPage()
         }
         

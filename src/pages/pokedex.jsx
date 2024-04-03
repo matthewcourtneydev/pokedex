@@ -56,7 +56,7 @@ const Pokedex = (props) => {
     <>
       {dataPresent && pokemonArray.length === props.expectedDataLength && (
         <div className="page" id="pokedex">
-          <Nav data={{ content:  props.searchCriteria}} additionalClasses={"black"} />
+          <Nav data={{ content:  `${props.searchCriteria}${props.secondaryCriteria ? `: ${props.secondaryCriteria}` : ""}`}} additionalClasses={"black"} />
           <div className="pokedex-inner">
             <Searchbar />
             <div className="pokemon-list">
