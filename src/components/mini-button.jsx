@@ -5,16 +5,27 @@ const MiniButton = (props) => {
     const navigate = useNavigate()
     const [i, setI] = useState(props.i)
     
-    async function fetchPokemonArray() {
-        const list = await fetch(props.url);
+    async function fetchPokemonArray(url) {
+        const list = await fetch(url);
+
         return list.json()
     }
 
     async function setPokemonListState() {
-        const list = await fetchPokemonArray();
-        await props.finalizeSearch(list.pokemon);
-        props.setExpectedDataLength((prev) => list.pokemon.length)
-        nextPage()
+        const list = await fetchPokemonArray(props.url);
+        console.log(props)
+
+        if (props.searchCriteria === "Types") {
+            await props.finalizeSearch(list.pokemon);
+            props.setExpectedDataLength((prev) => list.pokemon.length)
+            nextPage()
+        } else if (props.searchCriteria === "Locations") {
+            const newPokedexData = await fetchPokemonArray(list.pokedexes[0].url)
+            await props.finalizeSearch(newPokedexData.pokemon_entries);
+            props.setExpectedDataLength((prev) => newPokedexData.pokemon_entries.length)
+            nextPage()
+        }
+        
     }
 
     function nextPage() {

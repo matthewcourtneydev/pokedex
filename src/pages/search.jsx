@@ -33,7 +33,7 @@ const Search = (props) => {
   }
 
   async function retrieveData() {
-    determineUrl(searchData)
+    determineUrl(searchData);
     const dataIn = await getPokemon(url);
     await settingState(dataIn.results);
   }
@@ -68,6 +68,7 @@ const Search = (props) => {
                   finalizeSearch={props.finalizeSearch}
                   name={type.name}
                   url={type.url}
+                  searchCriteria={props.searchCriteria}
                 />
               ))}
             </div>

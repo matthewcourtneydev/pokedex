@@ -31,6 +31,11 @@ const Pokedex = (props) => {
         getPokemonData(pokemon.pokemon.url).then((data) => {
           setData(data);
         });
+      } else if(pokemon.pokemon_species) {
+        let id = pokemon.pokemon_species.url.split("/")[6]
+        getPokemonData(`https://pokeapi.co/api/v2/pokemon/${id}/`).then((data) => {
+          setData(data);
+        });
       } else {
         getPokemonData(pokemon.url).then((data) => {
           setData(data);
