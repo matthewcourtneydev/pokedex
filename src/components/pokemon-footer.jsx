@@ -32,7 +32,7 @@ const PokemonFooter = (props) => {
         localStorage.setItem("mdc_pokdex_favorite_list", JSON.stringify({"favorites" : [...props.favorites.favorites, {"id" : props.id, "url": `https://pokeapi.co/api/v2/pokemon/${props.id}/`}]}));
         setIsFavorite((prev) => !prev);
         props.setFavorites((prev) => {
-          return {"favorites" : [...props.favorites.favorites, {"id" : props.id, "url": `https://pokeapi.co/api/v2/pokemon/${props.id}/`}]}
+          return {"favorites" : [...props.favorites.favorites, {"id" : props.id, name: props.name, "url": `https://pokeapi.co/api/v2/pokemon/${props.id}/`}]}
         })
       }
       

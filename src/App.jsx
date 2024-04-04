@@ -52,7 +52,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path={"/"} element={<Home setSearchCriteria={setSearchCriteria} setExpectedDataLength={setExpectedDataLength} favorites={favorites} updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch}/>} />
+        <Route path={"/"} element={<Home setSearchCriteria={setSearchCriteria} setExpectedDataLength={setExpectedDataLength} setSearchInput={setSearchInput} favorites={favorites} updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch}/>} />
         <Route path={"/search"} element={<Search setSecondaryCriteria={setSecondaryCriteria} setExpectedDataLength={setExpectedDataLength} searchInput={searchInput} setSearchInput={setSearchInput} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup}/>} />
         <Route path={"/pokedex"} element={<Pokedex searchInput={searchInput} setSearchInput={setSearchInput} secondaryCriteria={secondaryCriteria} searchCriteria={searchCriteria} currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup} setExpectedDataLength={setExpectedDataLength}/>} />
         <Route path={"/pokemon"} element={<Pokemon setFavorites={setFavorites} favorites={favorites} setCurrentPokemon={setCurrentPokemon} currentPokemon={currentPokemon} />} />

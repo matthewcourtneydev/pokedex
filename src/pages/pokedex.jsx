@@ -92,9 +92,7 @@ const Pokedex = (props) => {
   }, [input]);
 
   useEffect(() => {
-    debugger;
     if (pokemonArray.length) {
-      debugger
       setDataPresent((prev) => {
         return true;
       });

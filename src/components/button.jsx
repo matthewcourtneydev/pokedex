@@ -5,10 +5,13 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 
-const Button = ({ buttonData, setSearchCriteria, selectSearch, favorites, finalizeSearch, setExpectedDataLength }) => {
+const Button = ({ setSearchInput, buttonData, setSearchCriteria, selectSearch, favorites, finalizeSearch, setExpectedDataLength }) => {
   const navigate = useNavigate();
 
   function handleSubmit(category) {
+  //   setSearchInput((prev) => {
+  //     return null;
+  // })
     if (category === 'Favorites') {
       console.log("Favorites");
       selectSearch(category);
