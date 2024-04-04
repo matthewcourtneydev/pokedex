@@ -316,7 +316,7 @@
     width: 100vw;
     height: 100vh;
     position: absolute;
-    overflow-x: hidden;
+    overflow: hidden;
     padding: 30px;
 
     padding-top: 150px;
@@ -570,25 +570,47 @@
         min-width: 100vw;
         margin: auto;
         min-height: 60px;
+        height: 91vh;
+        background-color: white;
+        z-index: 10000000;
         position: fixed;
         bottom: 0;
         left: 0;
         right: 0;
-        display: flex;
         border-radius: 25px 25px 0px 0px;
         box-shadow: rgba(0, 0, 0, 0.447) 0 0 10px;
         border-collapse: collapse;
 
-        .footer-btn {
-          width: 25%;
-          background: none;
-          border: none;
-          font-size: 20px;
+        .button-container {
+          background-color: pink;
+          height: 60px;
+          width: 100%;
+          padding: 20px;
+          
+          .footer-btn {
+            width: 25%;
+            background: none;
+            border: none;
+            font-size: 20px;
+            margin: auto;
+          }
+  
+          .red {
+            color: red;
+          }
         }
 
-        .red {
-          color: red;
+        .small-inner {
+          height: 100%;
+          width: 90%;
+          margin: auto;
+          background-color: blue;
+          min-height: 100%;
         }
+      }
+
+      .small {
+        max-height: 60px;
       }
     }
   }

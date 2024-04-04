@@ -37,6 +37,9 @@ const MiniButton = (props) => {
     }
 
     function nextPage() {
+        props.setSearchInput((prev) => {
+            return null;
+        })
         navigate("/pokedex")
     }
 

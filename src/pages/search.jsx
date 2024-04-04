@@ -62,7 +62,7 @@ const Search = (props) => {
             data={{ value: "", content: `${props.searchCriteria}` }}
           />
           <div className="search-inner">
-            <Searchbar />
+            <Searchbar searchInput={props.searchInput} setSearchInput={props.setSearchInput}/>
             <div className="mini-button-container">
               {currentResult.map((type) => (
                 <MiniButton
@@ -72,6 +72,7 @@ const Search = (props) => {
                   url={type.url}
                   setSecondaryCriteria={props.setSecondaryCriteria}
                   searchCriteria={props.searchCriteria}
+                  searchInput={props.searchInput} setSearchInput={props.setSearchInput}
                 />
               ))}
             </div>

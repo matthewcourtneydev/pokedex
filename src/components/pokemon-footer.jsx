@@ -43,10 +43,15 @@ const PokemonFooter = (props) => {
     }, [props.id])
   return (
     <div className="footer">
+      <div className="button-container">
       <button className="footer-btn" onClick={() => faceBtn()}><CiFaceSmile /></button>
       <button className={`footer-btn ${isFavorite ? "red" : ""}`} onClick={() => favoriteBtn()}><FaHeart /></button>
       <button className="footer-btn" onClick={() => shuffleBtn()}><IoShuffle /></button>
       <button className="footer-btn" onClick={() => locationBtn()}><FaLocationDot /></button>
+      </div>
+      <div className="small-inner">
+        
+      </div>
     </div>
   );
 };
