@@ -570,11 +570,11 @@
         min-width: 100vw;
         margin: auto;
         min-height: 60px;
-        height: 91vh;
+        height: calc(100vh + 60px);
         background-color: white;
         z-index: 10000000;
         position: fixed;
-        bottom: 0;
+        top: -60px;
         left: 0;
         right: 0;
         border-radius: 25px 25px 0px 0px;
@@ -582,7 +582,7 @@
         border-collapse: collapse;
 
         .button-container {
-          background-color: pink;
+          // background-color: pink;
           height: 60px;
           width: 100%;
           padding: 20px;
@@ -610,7 +610,7 @@
       }
 
       .small {
-        max-height: 60px;
+      top: calc(100vh - 60px)
       }
     }
   }

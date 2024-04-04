@@ -6,9 +6,10 @@ import { CiFaceSmile } from "react-icons/ci";
 
 const PokemonFooter = (props) => {
   const [isFavorite, setIsFavorite] = useState(props.favorites.favorites.some(obj => obj.id === props.id));
+  const [footerExpanded, setFooterExpanded] = useState(false);
 
     function faceBtn() {
-        console.log("Face Pressed");
+        setFooterExpanded((prev) => !prev)
     }
 
     function shuffleBtn() {
@@ -42,7 +43,7 @@ const PokemonFooter = (props) => {
       setIsFavorite(props.favorites.favorites.some(obj => obj.id === props.id))
     }, [props.id])
   return (
-    <div className="footer">
+    <div className={footerExpanded ? "footer" : "footer small"}>
       <div className="button-container">
       <button className="footer-btn" onClick={() => faceBtn()}><CiFaceSmile /></button>
       <button className={`footer-btn ${isFavorite ? "red" : ""}`} onClick={() => favoriteBtn()}><FaHeart /></button>
@@ -50,7 +51,7 @@ const PokemonFooter = (props) => {
       <button className="footer-btn" onClick={() => locationBtn()}><FaLocationDot /></button>
       </div>
       <div className="small-inner">
-        
+        <button className="back" onClick={() => setFooterExpanded((prev) => !prev)}>Back</button>
       </div>
     </div>
   );
