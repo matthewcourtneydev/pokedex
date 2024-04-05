@@ -2,15 +2,16 @@ import { React, useEffect, useState } from "react";
 import { FaHeart, FaLocationDot } from "react-icons/fa6";
 import { IoShuffle } from "react-icons/io5";
 import { CiFaceSmile } from "react-icons/ci";
-import { IoIosArrowBack } from "react-icons/io";
-import FooterEvolutionChain from "./footer-evolution-chain";
+import FooterEvolutionChain from "./footer-content/footer-evolution-chain";
+import FooterLocation from "./footer-content/footer-location";
 
 const PokemonFooter = (props) => {
   const [isFavorite, setIsFavorite] = useState(
     props.favorites.favorites.some((obj) => obj.id === props.id)
   );
   const [footerExpanded, setFooterExpanded] = useState(false);
-  const [isEvoOpen, setIsEvoOpen] = useState(false)
+  const [isEvoOpen, setIsEvoOpen] = useState(false);
+  const [isLocationOpen, setIsLocationOpen] = useState(false)
   const [evoChain, setEvoChain] = useState([]);
 
 
@@ -27,7 +28,10 @@ const PokemonFooter = (props) => {
   }
 
   function locationBtn() {
-    console.log("Location pressed");
+    setIsLocationOpen((prev) => {
+      return !prev
+    });
+    setFooterExpanded((prev) => !prev);
   }
 
   function favoriteBtn() {
@@ -100,16 +104,17 @@ const PokemonFooter = (props) => {
     setEvoChain((prev) => {
       return []
     });
+
     getSpeciesData(props.speciesUrl).then((data) => {
       getEvoData(data.evolution_chain.url).then((data) => {
         const dataArray = [];
-
         dataArray.push(data.chain.species);
+
         if (data.chain.evolves_to.length) {
           dataArray.push(data.chain.evolves_to[0].species)
         } 
 
-        if (data.chain.evolves_to[0].evolves_to.length) {
+        if (data.chain.evolves_to.length && data.chain.evolves_to[0].evolves_to.length) {
           dataArray.push(data.chain.evolves_to[0].evolves_to[0].species)
         }
         
@@ -120,9 +125,10 @@ const PokemonFooter = (props) => {
     })
   }, [props.speciesUrl]);
 
+  console.log(props.pokemon)
 
   return (
-    <div className={footerExpanded ? "footer" : "footer small"}>
+    <div className={isEvoOpen || isLocationOpen ? "footer" : "footer small"}>
       <div className="button-container">
         <button className="footer-btn" onClick={() => faceBtn()}>
           <CiFaceSmile />
@@ -140,22 +146,8 @@ const PokemonFooter = (props) => {
           <FaLocationDot />
         </button>
       </div>
-      <div className={`small-inner ${props.type}`}>
-        <div className="back-nav">
-          <div
-            className="back-button"
-            onClick={() => setFooterExpanded((prev) => !prev)}
-          >
-            <IoIosArrowBack />
-            <span>{`${
-              props.name.charAt(0).toUpperCase() + props.name.slice(1)
-            } #${props.id}`}</span>
-          </div>
-        </div>
-        <div className="lower" style={{ height: "90vh" }}>
-            {isEvoOpen ? <FooterEvolutionChain evoChain={evoChain} id={props.id} footerExpanded={footerExpanded} /> : <></>} 
-        </div>
-      </div>
+    {isLocationOpen ? <FooterLocation name={props.name} type={props.type} isLocationOpen={isLocationOpen} setIsLocationOpen={setIsLocationOpen} id={props.id} /> : <div></div>}
+    {isEvoOpen ? <FooterEvolutionChain type={props.type} isEvoOpen={isEvoOpen} setIsEvoOpen={setIsEvoOpen} name={props.name} evoChain={evoChain} id={props.id} footerExpanded={footerExpanded} /> : <div className="hide"></div>}
     </div>
   );
 };
