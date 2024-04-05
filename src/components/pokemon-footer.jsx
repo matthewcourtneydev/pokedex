@@ -13,6 +13,7 @@ const PokemonFooter = (props) => {
   const [isEvoOpen, setIsEvoOpen] = useState(false)
   const [evoChain, setEvoChain] = useState([]);
 
+
   function faceBtn() {
     setIsEvoOpen((prev) => true)
     setFooterExpanded((prev) => !prev);
@@ -87,11 +88,18 @@ const PokemonFooter = (props) => {
   }
 
   useEffect(() => {
+    setFooterExpanded((prev) => {
+      return false;
+    })
     setIsFavorite(props.favorites.favorites.some((obj) => obj.id === props.id));
   }, [props.id]);
 
 
+
   useEffect(() => {
+    setEvoChain((prev) => {
+      return []
+    });
     getSpeciesData(props.speciesUrl).then((data) => {
       getEvoData(data.evolution_chain.url).then((data) => {
         const dataArray = [];
@@ -110,7 +118,9 @@ const PokemonFooter = (props) => {
         })
       })
     })
-  }, [])
+  }, [props.speciesUrl]);
+
+
   return (
     <div className={footerExpanded ? "footer" : "footer small"}>
       <div className="button-container">
@@ -143,7 +153,7 @@ const PokemonFooter = (props) => {
           </div>
         </div>
         <div className="lower" style={{ height: "90vh" }}>
-            {isEvoOpen ? <FooterEvolutionChain evoChain={evoChain} /> : <></>} 
+            {isEvoOpen ? <FooterEvolutionChain evoChain={evoChain} id={props.id} footerExpanded={footerExpanded} /> : <></>} 
         </div>
       </div>
     </div>

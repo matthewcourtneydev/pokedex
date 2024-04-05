@@ -81,6 +81,7 @@ const Pokedex = (props) => {
     }
   }
 
+
   useEffect(() => {
     getAllData(props.pokemonToGetGroup);
   }, []);

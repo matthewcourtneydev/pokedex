@@ -39,6 +39,7 @@ const Pokemon = (props) => {
     getData(props.currentPokemon).then((data) => {
         setPokemon((prev) => data);
       });
+
   }, [props.currentPokemon]);
 
   return (
@@ -117,7 +118,7 @@ const Pokemon = (props) => {
                   </div>
                 </div>
               </div>
-              <PokemonFooter id={pokemon.id} speciesUrl={pokemon.species.url} type={pokemon.types[0].type.name} setFavorites={props.setFavorites} setCurrentPokemon={props.setCurrentPokemon} name={pokemon.name} favorites={props.favorites} />
+              <PokemonFooter id={pokemon.id} speciesUrl={pokemon.species.url} type={pokemon.types[0].type.name} setFavorites={props.setFavorites} setCurrentPokemon={props.setCurrentPokemon} name={pokemon.name} favorites={props.favorites} currentPokemon={props.currentPokemon} />
             </div>
           </div>
         </div>
