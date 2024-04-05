@@ -602,10 +602,33 @@
 
         .small-inner {
           height: 100%;
-          width: 90%;
+          width: 100%;
           margin: auto;
-          background-color: blue;
           min-height: 100%;
+
+          .back-nav {
+            padding: 30px;
+            font-size: 30px;
+            color: black;
+
+            span {
+              font-size: 27px;
+              vertical-align: top;
+            }
+          }
+        }
+
+
+        .evolution-chain-container {
+          z-index: 50000000;
+          color: black;
+          margin: auto;
+          padding-top: 30px;
+          position: relative;
+          font-size: 30px;
+          width: 100vw;
+          max-width: 500px;
+          background-color: pink;
         }
       }
 
