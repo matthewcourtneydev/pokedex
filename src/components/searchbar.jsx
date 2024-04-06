@@ -5,16 +5,16 @@ import { FaArrowRight } from "react-icons/fa";
 
 
 const Searchbar = (props) => {
-    console.log(props.input);
-
     function handleInput(e) {
         props.setInput((prev) => {
             return e.target.value;
         });
 
-        props.setSearchInput((prev) => {
-            return e.target.value
-        })
+        if (props.setSearchInput) {
+            props.setSearchInput((prev) => {
+                return e.target.value
+            })
+        }
     }
     return (
         <div className="searchbar">

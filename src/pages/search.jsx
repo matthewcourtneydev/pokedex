@@ -8,7 +8,9 @@ const Search = (props) => {
   const [searchData, setSearchData] = useState(props.searchCriteria);
   const [isLoading, setIsLoading] = useState(true);
   const [currentResult, setCurrentResult] = useState({});
-  const [currentData, setCurrentData] = useState("");
+  const [wholeArray, setWholeArray] = useState([]);
+  const [input, setInput] = useState(props.searchInput);
+  const [filteredArray, setFilteredArray] = useState([]);
   let url;
 
   async function getPokemon(url) {
@@ -49,8 +51,20 @@ const Search = (props) => {
     if (Object.keys(currentResult).length) {
       setIsLoading(false);
       console.log(currentResult);
+      setWholeArray((prev) => {
+        return currentResult;
+      })
+      setFilteredArray((prev) => {
+        return currentResult;
+      })
     }
   }, [currentResult]);
+
+
+  useEffect(() => {
+    console.log(input);
+    setFilteredArray((prev) => wholeArray.filter((result) => result.name.includes(input)))
+  }, [input])
 
   return (
     <>
@@ -62,9 +76,9 @@ const Search = (props) => {
             data={{ value: "", content: `${props.searchCriteria}` }}
           />
           <div className="search-inner">
-            <Searchbar searchInput={props.searchInput} setSearchInput={props.setSearchInput}/>
+          <Searchbar setInput={setInput} input={input} />
             <div className="mini-button-container">
-              {currentResult.map((type) => (
+              {filteredArray.map((type) => (
                 <MiniButton
                   setExpectedDataLength={props.setExpectedDataLength}
                   finalizeSearch={props.finalizeSearch}
