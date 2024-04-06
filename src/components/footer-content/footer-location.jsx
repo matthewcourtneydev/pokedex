@@ -75,16 +75,31 @@ const FooterLocation = (props) => {
                 {pickBy(locationData, ["red", "blue", "yellow"]).length ? (
                   <div className="generation generation-1">
                     <div className="generation">
-                      <h2>Generation 1</h2>
+                      <h3>Generation 1</h3>
                       {pickBy(locationData, ["red", "blue", "yellow"]).map(
                         (key) => {
                           return (
                             <div className="location-container">
-                              <span className="game-name">{key}</span>
+                                                          <span className={`game-name ${key}`}>{key.charAt(0).toUpperCase()  + key.slice(1)}</span>
                               <div className="locations">
                                 {locationData[key].map((loc) => {
                                   return (
-                                    <span className="location-name">{loc}</span>
+                                    <span className="location-name">
+                                      {loc
+                                        .replace("-area", "")
+                                        .replace(/-/g, " ")
+                                        .split(" ")[0]
+                                        .charAt(0)
+                                        .toUpperCase() +
+                                        loc.split("-")[0].slice(1) +
+                                        " " +
+                                        loc
+                                          .replace("-area", "")
+                                          .split("-")
+                                          .slice(1)
+                                          .join(" ")
+                                          .toString()}
+                                    </span>
                                   );
                                 })}
                               </div>
@@ -93,6 +108,8 @@ const FooterLocation = (props) => {
                         }
                       )}
                     </div>
+                             <div className="generation-footer"></div>
+                             
                   </div>
                 ) : (
                   <></>
@@ -100,16 +117,31 @@ const FooterLocation = (props) => {
                 {pickBy(locationData, ["gold", "silver", "crystal"]).length ? (
                   <div className="generation generation-1">
                     <div className="generation">
-                      <h2>Generation 2</h2>
+                      <h3>Generation 2</h3>
                       {pickBy(locationData, ["gold", "silver", "crystal"]).map(
                         (key) => {
                           return (
                             <div className="location-container">
-                              <span className="game-name">{key}</span>
+                                                         <span className={`game-name ${key}`}>{key.charAt(0).toUpperCase()  + key.slice(1)}</span>
                               <div className="locations">
                                 {locationData[key].map((loc) => {
                                   return (
-                                    <span className="location-name">{loc}</span>
+                                    <span className="location-name">
+                                      {loc
+                                        .replace("-area", "")
+                                        .replace(/-/g, " ")
+                                        .split(" ")[0]
+                                        .charAt(0)
+                                        .toUpperCase() +
+                                        loc.split("-")[0].slice(1) +
+                                        " " +
+                                        loc
+                                          .replace("-area", "")
+                                          .split("-")
+                                          .slice(1)
+                                          .join(" ")
+                                          .toString()}
+                                    </span>
                                   );
                                 })}
                               </div>
@@ -118,6 +150,8 @@ const FooterLocation = (props) => {
                         }
                       )}
                     </div>
+                             <div className="generation-footer"></div>
+                             
                   </div>
                 ) : (
                   <></>
@@ -126,7 +160,7 @@ const FooterLocation = (props) => {
                   .length ? (
                   <div className="generation generation-1">
                     <div className="generation">
-                      <h2>Generation 3</h2>
+                      <h3>Generation 3</h3>
                       {pickBy(locationData, [
                         "ruby",
                         "sapphire",
@@ -134,11 +168,26 @@ const FooterLocation = (props) => {
                       ]).map((key) => {
                         return (
                           <div className="location-container">
-                            <span className="game-name">{key}</span>
+                                                        <span className={`game-name ${key}`}>{key.charAt(0).toUpperCase()  + key.slice(1)}</span>
                             <div className="locations">
                               {locationData[key].map((loc) => {
                                 return (
-                                  <span className="location-name">{loc}</span>
+                                  <span className="location-name">
+                                    {loc
+                                      .replace("-area", "")
+                                      .replace(/-/g, " ")
+                                      .split(" ")[0]
+                                      .charAt(0)
+                                      .toUpperCase() +
+                                      loc.split("-")[0].slice(1) +
+                                      " " +
+                                      loc
+                                        .replace("-area", "")
+                                        .split("-")
+                                        .slice(1)
+                                        .join(" ")
+                                        .toString()}
+                                  </span>
                                 );
                               })}
                             </div>
@@ -146,6 +195,8 @@ const FooterLocation = (props) => {
                         );
                       })}
                     </div>
+                             <div className="generation-footer"></div>
+                             
                   </div>
                 ) : (
                   <></>
@@ -154,7 +205,7 @@ const FooterLocation = (props) => {
                   .length ? (
                   <div className="generation generation-1">
                     <div className="generation">
-                      <h2>Generation 4</h2>
+                      <h3>Generation 4</h3>
                       {pickBy(locationData, [
                         "platinum",
                         "heartgold",
@@ -162,11 +213,28 @@ const FooterLocation = (props) => {
                       ]).map((key) => {
                         return (
                           <div className="location-container">
-                            <span className="game-name">{key}</span>
+                            <span className={`game-name ${key}`}>
+                              {key.charAt(0).toUpperCase()  + key.slice(1)}
+                            </span>
                             <div className="locations">
                               {locationData[key].map((loc) => {
                                 return (
-                                  <span className="location-name">{loc}</span>
+                                  <span className="location-name">
+                                    {loc
+                                      .replace("-area", "")
+                                      .replace(/-/g, " ")
+                                      .split(" ")[0]
+                                      .charAt(0)
+                                      .toUpperCase() +
+                                      loc.split("-")[0].slice(1) +
+                                      " " +
+                                      loc
+                                        .replace("-area", "")
+                                        .split("-")
+                                        .slice(1)
+                                        .join(" ")
+                                        .toString()}
+                                  </span>
                                 );
                               })}
                             </div>
@@ -174,6 +242,8 @@ const FooterLocation = (props) => {
                         );
                       })}
                     </div>
+                             <div className="generation-footer"></div>
+                             
                   </div>
                 ) : (
                   <></>
@@ -181,15 +251,32 @@ const FooterLocation = (props) => {
                 {pickBy(locationData, ["black", "white"]).length ? (
                   <div className="generation generation-1">
                     <div className="generation">
-                      <h2>Generation 5</h2>
+                      <h3>Generation 5</h3>
                       {pickBy(locationData, ["black", "white"]).map((key) => {
                         return (
                           <div className="location-container">
-                            <span className="game-name">{key}</span>
+                            <span className={`game-name ${key}`}>
+                              {key.charAt(0).toUpperCase()  + key.slice(1)}
+                            </span>
                             <div className="locations">
                               {locationData[key].map((loc) => {
                                 return (
-                                  <span className="location-name">{loc}</span>
+                                  <span className="location-name">
+                                    {loc
+                                      .replace("-area", "")
+                                      .replace(/-/g, " ")
+                                      .split(" ")[0]
+                                      .charAt(0)
+                                      .toUpperCase() +
+                                      loc.split("-")[0].slice(1) +
+                                      " " +
+                                      loc
+                                        .replace("-area", "")
+                                        .split("-")
+                                        .slice(1)
+                                        .join(" ")
+                                        .toString()}
+                                  </span>
                                 );
                               })}
                             </div>
@@ -197,6 +284,8 @@ const FooterLocation = (props) => {
                         );
                       })}
                     </div>
+                             <div className="generation-footer"></div>
+                             
                   </div>
                 ) : (
                   <></>
