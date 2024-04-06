@@ -38,6 +38,18 @@
     position: relative;
     max-width: 400px;
     margin: auto;
+    display: flex;
+
+    .enter {
+      position: absolute;
+      z-index: 12000000;
+      bottom: 7px;
+      right: 20px;
+      font-size: 25px;
+      color: grey;
+      border: none;
+      background: none;
+    }
 
     .icon {
       position: absolute;

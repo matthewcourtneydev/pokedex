@@ -1,9 +1,11 @@
 import React from 'react';
 import { IoSearch } from "react-icons/io5";
+import { FaArrowRight } from "react-icons/fa";
+
 
 
 const Searchbar = (props) => {
-    console.log(props.input)
+    console.log(props.input);
 
     function handleInput(e) {
         props.setInput((prev) => {
@@ -18,6 +20,7 @@ const Searchbar = (props) => {
         <div className="searchbar">
             <span className="icon"><IoSearch /></span>
             <input type="text" className="search" placeholder="Search" value={props.input} id="pokemon-search" onChange={(e) => handleInput(e)} />
+            {props.isHome && <button className='enter' onClick={() => props.handleEnter()}><FaArrowRight /></button>}
         </div>
     );
 }
