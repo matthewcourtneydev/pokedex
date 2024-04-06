@@ -53,7 +53,7 @@ const Home = (props) => {
                 <div className="lower">
                     <div className="button-container">
                     {buttonData.map((btn, i) => {
-                        return <Button setSearchInput={props.setSearchInput} setSearchCriteria={props.setSearchCriteria} setExpectedDataLength={props.setExpectedDataLength} favorites={props.favorites} selectSearch={props.selectSearch} index={i} buttonData={btn}/>
+                        return <Button setSearchInput={props.setSearchInput} finalizeSearch={props.finalizeSearch} setSearchCriteria={props.setSearchCriteria} setExpectedDataLength={props.setExpectedDataLength} favorites={props.favorites} selectSearch={props.selectSearch} index={i} buttonData={btn}/>
                     })}
                     </div>
                 </div>
