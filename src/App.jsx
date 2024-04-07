@@ -8,6 +8,8 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 
 function App() {
   const [searchCriteria, setSearchCriteria] = useState(null);
+  const [prevPage, setPrevPage] = useState("/");
+  const [isFavFlow, setIsFavFlow] = useState(false)
   const [expectedDataLength, setExpectedDataLength] = useState(0);
   const [searchInput, setSearchInput] = useState(null);
   const [pokemonToGetGroup, setPokemonToGetGroup] = useState([]);
@@ -79,10 +81,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path={"/"} element={<Home finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup} searchInput={searchInput} setSearchInput={setSearchInput} setSearchCriteria={setSearchCriteria} setExpectedDataLength={setExpectedDataLength} favorites={favorites} updateInput={updateInput} selectSearch={selectSearch} searchCriteria={searchCriteria}/>} />
-        <Route path={"/search"} element={<Search setSecondaryCriteria={setSecondaryCriteria} setExpectedDataLength={setExpectedDataLength} searchInput={searchInput} setSearchInput={setSearchInput} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup}/>} />
-        <Route path={"/pokedex"} element={<Pokedex searchInput={searchInput} setSearchInput={setSearchInput} secondaryCriteria={secondaryCriteria} searchCriteria={searchCriteria} currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup} setExpectedDataLength={setExpectedDataLength}/>} />
-        <Route path={"/pokemon"} element={<Pokemon setFavorites={setFavorites} favorites={favorites} setCurrentPokemon={setCurrentPokemon} currentPokemon={currentPokemon} />} />
+        <Route path={"/"} element={<Home setIsFavFlow={setIsFavFlow} prevPage={prevPage} setPrevPage={setPrevPage} selectSearch={selectSearch} setSecondaryCriteria={setSecondaryCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup} searchInput={searchInput} setSearchInput={setSearchInput} setSearchCriteria={setSearchCriteria} setExpectedDataLength={setExpectedDataLength} favorites={favorites} updateInput={updateInput} searchCriteria={searchCriteria}/>} />
+        <Route path={"/search"} element={<Search prevPage={prevPage} setPrevPage={setPrevPage} setSecondaryCriteria={setSecondaryCriteria} setExpectedDataLength={setExpectedDataLength} searchInput={searchInput} setSearchInput={setSearchInput} searchCriteria={searchCriteria} finalizeSearch={finalizeSearch} pokemonToGetGroup={pokemonToGetGroup}/>} />
+        <Route path={"/pokedex"} element={<Pokedex isFavFlow={isFavFlow} prevPage={prevPage} setSecondaryCriteria={setSecondaryCriteria} setPrevPage={setPrevPage} searchInput={searchInput} setSearchInput={setSearchInput} secondaryCriteria={secondaryCriteria} searchCriteria={searchCriteria} currentPokemon={currentPokemon} setCurrentPokemon={setCurrentPokemon} expectedDataLength={expectedDataLength} pokemonToGetGroup={pokemonToGetGroup} setExpectedDataLength={setExpectedDataLength}/>} />
+        <Route path={"/pokemon"} element={<Pokemon prevPage={prevPage}  setFavorites={setFavorites} favorites={favorites} setCurrentPokemon={setCurrentPokemon} currentPokemon={currentPokemon} />} />
       </Routes>
     </div>
   );

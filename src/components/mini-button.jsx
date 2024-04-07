@@ -33,13 +33,12 @@ const MiniButton = (props) => {
             props.setSecondaryCriteria((prev) => props.name.charAt(0).toUpperCase() + props.name.slice(1))
             nextPage()
         }
+
+        props.setPrevPage((prev) => "/search")
         
     }
 
     function nextPage() {
-        props.setSearchInput((prev) => {
-            return null;
-        })
         navigate("/pokedex")
     }
 

@@ -1,11 +1,6 @@
 import { React, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const PokedexCard = (props) => {
-
-    // console.log(props.pokemon);
-    // debugger;
-    console.log(props)
     return (
         <div className="pokedex-card" onClick={() => props.selectPokemon(props.pokemon.id)}>
             <div className="id" ><span className={props.pokemon.types[0].type.name}>#{props.pokemon.id}</span></div>

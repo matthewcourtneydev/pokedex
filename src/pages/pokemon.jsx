@@ -48,6 +48,7 @@ const Pokemon = (props) => {
         <div className="page" id="pokemon">
           <Nav
             additionalClasses={"dark-text"}
+            prevPage={"/pokedex"}
             data={{
               content:
                 pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),

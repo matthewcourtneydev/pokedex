@@ -43,8 +43,8 @@ const Search = (props) => {
   }
 
   useEffect(() => {
+    props.setSecondaryCriteria(null)
     retrieveData();
-    console.log(props.searchCriteria, "SEARCH");
   }, []);
 
   useEffect(() => {
@@ -74,12 +74,15 @@ const Search = (props) => {
           <Nav
             additionalClasses={"dark-text"}
             data={{ value: "", content: `${props.searchCriteria}` }}
+            prevPage={"/"}
+            setSecondaryCriteria={props.setSecondaryCriteria}
           />
           <div className="search-inner">
           <Searchbar setInput={setInput} input={input} />
             <div className="mini-button-container">
               {filteredArray.map((type) => (
                 <MiniButton
+                  setPrevPage={props.setPrevPage}
                   setExpectedDataLength={props.setExpectedDataLength}
                   finalizeSearch={props.finalizeSearch}
                   name={type.name}

@@ -17,12 +17,16 @@ const Home = (props) => {
     }
 
     function handleEnter() {
-        console.log(filteredArray)
+        console.log(filteredArray);
+        props.setSecondaryCriteria(null);
+        props.setSearchCriteria("Pokemon")
         props.finalizeSearch(filteredArray);
         navigate("/pokedex")
     }
 
     useEffect(() => {
+        props.setIsFavFlow((prev) => false)
+        props.setPrevPage((prev) => "/")
         getAllPokemon().then((data) => {
             props.finalizeSearch(data.results, "home");
         })
@@ -52,7 +56,7 @@ const Home = (props) => {
                 <div className="lower">
                     <div className="button-container">
                     {buttonData.map((btn, i) => {
-                        return <Button setSearchInput={props.setSearchInput} finalizeSearch={props.finalizeSearch} setSearchCriteria={props.setSearchCriteria} setExpectedDataLength={props.setExpectedDataLength} favorites={props.favorites} selectSearch={props.selectSearch} index={i} buttonData={btn}/>
+                        return <Button setIsFavFlow={props.setIsFavFlow} setPrevPage={props.setPrevPage} setSearchInput={props.setSearchInput} finalizeSearch={props.finalizeSearch} setSearchCriteria={props.setSearchCriteria} setExpectedDataLength={props.setExpectedDataLength} favorites={props.favorites} selectSearch={props.selectSearch} index={i} buttonData={btn}/>
                     })}
                     </div>
                 </div>

@@ -5,7 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 
-const Button = ({ setSearchInput, buttonData, setSearchCriteria, selectSearch, favorites, finalizeSearch, setExpectedDataLength }) => {
+const Button = ({ setIsFavFlow, setPrevPage, buttonData, setSearchCriteria, selectSearch, favorites, finalizeSearch, setExpectedDataLength }) => {
   const navigate = useNavigate();
 
   function handleSubmit(category) {
@@ -13,7 +13,8 @@ const Button = ({ setSearchInput, buttonData, setSearchCriteria, selectSearch, f
   //     return null;
   // })
     if (category === 'Favorites') {
-      console.log("Favorites");
+      setPrevPage((prev) => "/");
+      setIsFavFlow(prev => true);
       selectSearch(category);
       setSearchCriteria((prev) => "Favorites")
       finalizeSearch(favorites.favorites, 'favorites');
@@ -23,6 +24,7 @@ const Button = ({ setSearchInput, buttonData, setSearchCriteria, selectSearch, f
       navigate("/pokedex");
       return;
     } else {
+      setPrevPage((prev) => "/")
       selectSearch(category);
       navigate("/search");
     }

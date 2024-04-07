@@ -12,6 +12,7 @@ const Pokedex = (props) => {
   const navigate = useNavigate();
 
   function selectPokemon(pokemon) {
+    props.setPrevPage((prev) => "/pokedex")
     props.setCurrentPokemon((prev) => pokemon);
     navigate("/pokemon");
   }
@@ -41,6 +42,12 @@ const Pokedex = (props) => {
   }
 
   useEffect(() => {
+    debugger;
+    if (props.isFavFlow) {
+      props.setPrevPage((prev) => "/")
+    } else {
+      props.setPrevPage((prev) => "/search");
+    }
     getAllData2(props.pokemonToGetGroup);
   }, []);
 
@@ -67,6 +74,8 @@ const Pokedex = (props) => {
       {dataPresent && (
         <div className="page" id="pokedex">
           <Nav
+          prevPage={props.prevPage}
+          setSecondaryCriteria={props.setSecondaryCriteria}
             data={{
               content: `${props.searchCriteria}${
                 props.secondaryCriteria ? `: ${props.secondaryCriteria}` : ""
