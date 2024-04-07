@@ -19,13 +19,12 @@ const Home = (props) => {
     function handleEnter() {
         console.log(filteredArray)
         props.finalizeSearch(filteredArray);
-        debugger
         navigate("/pokedex")
     }
 
     useEffect(() => {
         getAllPokemon().then((data) => {
-            props.finalizeSearch(data.results);
+            props.finalizeSearch(data.results, "home");
         })
     }, []);
 

@@ -6,6 +6,7 @@ import Searchbar from "../components/searchbar";
 
 const Pokedex = (props) => {
   const [pokemonArray, setPokemonArray] = useState([]);
+  const [filteredArray, setFilteredArray] = useState([])
   const [dataPresent, setDataPresent] = useState(false);
   const [input, setInput] = useState(props.searchInput);
   const navigate = useNavigate();
@@ -26,69 +27,29 @@ const Pokedex = (props) => {
     });
   }
 
-  async function getAllData(array) {
-    if (input) {
-      setDataPresent((prev) => {
-        return false;
+  async function getAllData2(array) {
+    console.log(array);
+    let fullfilledArray = [];
+    for (let pokemon of array) {
+      await getPokemonData(pokemon.url).then((data) => {
+        fullfilledArray.push(data)
       })
-      let filteredArray = [];
-      for (let pokemon of array) {
-        if (pokemon.pokemon && pokemon.pokemon.name.includes(input)) {
-          await getPokemonData(pokemon.pokemon.url).then((data) => {
-            filteredArray = [...filteredArray, data];
-          });
-        } else if (
-          pokemon.pokemon_species &&
-          pokemon.pokemon_species.name.includes(input)
-        ) {
-          let id = pokemon.pokemon_species.url.split("/")[6];
-          await getPokemonData(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
-            (data) => {
-              filteredArray = [...filteredArray, data];
-            }
-          );
-        } else if (pokemon.name && pokemon.name.includes(input)) {
-          await getPokemonData(pokemon.url).then((data) => {
-            filteredArray = [...filteredArray, data];
-          });
-        }
-      }
-
-      setData(filteredArray);
-
-    } else {
-      let filteredArray = [];
-      for (let pokemon of array) {
-        if (pokemon.pokemon) {
-          await getPokemonData(pokemon.pokemon.url).then((data) => {
-            filteredArray = [...filteredArray, data];
-          });
-        } else if (pokemon.pokemon_species) {
-          let id = pokemon.pokemon_species.url.split("/")[6];
-          await getPokemonData(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(
-            (data) => {
-              filteredArray = [...filteredArray, data];
-            }
-          );
-        } else {
-          await getPokemonData(pokemon.url).then((data) => {
-            filteredArray = [...filteredArray, data];
-          });
-        }
-      }
-
-      setData(filteredArray)
     }
+    
+    setData(fullfilledArray);
+    setFilteredArray((prev) => fullfilledArray);
   }
 
-
   useEffect(() => {
-    getAllData(props.pokemonToGetGroup);
+    getAllData2(props.pokemonToGetGroup);
   }, []);
 
   useEffect(() => {
     if(input) {
-      getAllData(props.pokemonToGetGroup)
+      setFilteredArray(pokemonArray.filter((pokemon) => {
+        return pokemon.name.includes(input)
+      }))
+
     }
   }, [input]);
 
@@ -116,7 +77,7 @@ const Pokedex = (props) => {
           <div className="pokedex-inner">
             <Searchbar setInput={setInput} input={input} setSearchInput={props.setSearchInput}/>
             <div className="pokemon-list">
-              {pokemonArray
+              {filteredArray
                 .sort(function (a, b) {
                   return a.id - b.id;
                 })

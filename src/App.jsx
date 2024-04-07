@@ -16,9 +16,36 @@ function App() {
   const [secondaryCriteria, setSecondaryCriteria] = useState(null);
   // const [searchBarInput, setSearchBarInput] = useState(null);
 
-  function finalizeSearch(array) {
+  function finalizeSearch(array, search) {
+    let adjustedArray;
+    if (search === "home" || search === "moves") {
+      adjustedArray = array.map((item) => {
+        return {
+          ...item,
+          id: item.url.split("/")[6]
+        }
+      })
+
+    } else if(search === "locations") {
+      adjustedArray = array.map((item) => {
+        return {
+          name: item.pokemon_species,
+          url: `https://pokeapi.co/api/v2/pokemon/${item.pokemon_species.url.split("/")[6]}/`,
+          id: item.pokemon_species.url.split("/")[6]
+        }
+      })
+    } else if(search === "types") {
+      adjustedArray = array.map((item) => {
+        return {
+          ...item.pokemon,
+          id: item.pokemon.url.split("/")[6]
+        }
+      })
+    } else {
+      adjustedArray = array;
+    }
     setPokemonToGetGroup((prev) => {
-      return array;
+      return (adjustedArray || []);
     })
   }
 

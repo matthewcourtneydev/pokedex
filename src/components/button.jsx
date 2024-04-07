@@ -16,7 +16,7 @@ const Button = ({ setSearchInput, buttonData, setSearchCriteria, selectSearch, f
       console.log("Favorites");
       selectSearch(category);
       setSearchCriteria((prev) => "Favorites")
-      finalizeSearch(favorites.favorites);
+      finalizeSearch(favorites.favorites, 'favorites');
       setExpectedDataLength((prev) => {
         return favorites.favorites.length
       })
