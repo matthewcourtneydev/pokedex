@@ -1,9 +1,10 @@
 import { React, useEffect, useState } from "react";
 import { FaHeart, FaLocationDot } from "react-icons/fa6";
-import { IoShuffle } from "react-icons/io5";
+import { PiShuffleAngularBold } from "react-icons/pi";
 import { CiFaceSmile } from "react-icons/ci";
 import FooterEvolutionChain from "./footer-content/footer-evolution-chain";
 import FooterLocation from "./footer-content/footer-location";
+import face from "../imgs/face.png"
 
 const PokemonFooter = (props) => {
   const [isFavorite, setIsFavorite] = useState(
@@ -131,7 +132,7 @@ const PokemonFooter = (props) => {
     <div className={isEvoOpen || isLocationOpen ? "footer" : "footer small"}>
       <div className="button-container">
         <button className="footer-btn" onClick={() => faceBtn()}>
-          <CiFaceSmile />
+         <img src={face} alt="" />
         </button>
         <button
           className={`footer-btn ${isFavorite ? "red" : ""}`}
@@ -140,7 +141,7 @@ const PokemonFooter = (props) => {
           <FaHeart />
         </button>
         <button className="footer-btn" onClick={() => shuffleBtn()}>
-          <IoShuffle />
+        <strong><PiShuffleAngularBold /></strong>
         </button>
         <button className="footer-btn" onClick={() => locationBtn()}>
           <FaLocationDot />

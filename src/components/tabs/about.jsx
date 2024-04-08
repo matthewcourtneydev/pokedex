@@ -17,7 +17,7 @@ const About = (props) => {
 
     function determineIcon(type) {
         switch (type) {
-            case "electric" : return <MdElectricBolt />
+            case "electric" : return <span className="strong-icon"></span>
             case "flying" : return <GiSpikyWing />
             case "water" : return <IoIosWater />
         }
@@ -85,19 +85,19 @@ const About = (props) => {
             <div className="height-weight">
                 <div className="height">
                     <h3>Height</h3>
-                    <p className='dark-text'>{convertHeight(props.height, "emperial")}</p>
-                    <p className='dark-text'>{convertHeight(props.height, "metric")}</p>
+                    <strong><p className='dark-text'>{convertHeight(props.height, "emperial")}</p></strong>
+                    <strong><p className='dark-text'>{convertHeight(props.height, "metric")}</p></strong>
                 </div>
                 <div className="weight">
                 <h3>Weight</h3>
-                <p className='dark-text'>{convertWeight(props.weight, "emperial")}</p>
-                <p className='dark-text'>{convertWeight(props.weight, "metric")}</p>
+                <strong><p className='dark-text'>{convertWeight(props.weight, "emperial")}</p></strong>
+                <strong><p className='dark-text'>{convertWeight(props.weight, "metric")}</p></strong>
                 </div>
                 <div className="strong">
                 <h3>Strong against</h3>
                 {typeDataLoaded && <>
                     {[...new Set(typeData)].map((type) => {
-                        return <div className="strength-icon dark-text"><span>{determineIcon(type)}</span></div>
+                        return <div className={`strength-icon ${type}`}><span><img src={`../imgs/${type}.png`} alt="" /></span></div>
                     })}
                 </>}
                 </div>

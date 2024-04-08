@@ -1,20 +1,31 @@
+$red: rgb(254, 82, 82);
+$green: rgb(141, 217, 141);
+$orange: rgb(250, 188, 111);
+$blue: rgb(185, 200, 255);
+$background: rgb(235, 235, 235);
+$fire: rgb(254, 177, 114);
+$yellow: rgb(252, 223, 34);
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .nav {
   position: fixed;
-  z-index: 10;
+  z-index: 100;
   padding: 30px;
   max-width: 500px;
   margin: auto;
 
+  .white {
+    color: white;
+  }
+
   .nav-items {
     font-size: 30px;
-    color: white;
     span {
       vertical-align: top;
       font-size: 27px;
@@ -31,8 +42,8 @@
   min-width: 100vw;
   max-height: 100vh;
   max-width: 100vw;
-  background-color: rgb(130, 130, 137);
   text-align: center;
+  background-color: $background;
 
   .searchbar {
     position: relative;
@@ -66,7 +77,7 @@
       border: none;
       border-radius: 30px;
       margin-top: 30px;
-      padding-left: 50px;
+      padding-left: 60px;
       font-size: 20px;
     }
   }
@@ -74,21 +85,36 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+
   .homepage-inner {
     width: 100vw;
     height: 100vh;
-    background-color: red;
+    background-color: $red;
     position: absolute;
     overflow-x: hidden;
     padding: 30px;
 
-    padding-top: 150px;
+    padding-top: 190px;
     text-align: left;
     color: white;
+
+    .home-image {
+      position: absolute;
+      width: 87vw;
+      top: 80px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      opacity: 50%;
+    }
 
     h1 {
       margin: auto;
       width: 400px;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 45px;
+      margin-bottom: -15px;
     }
 
     .lower {
@@ -108,33 +134,35 @@
         color: black;
 
         .button {
-          background-color: green;
+          background-color: $green;
           min-height: 65px;
           width: 90vw;
           margin: auto;
-          padding: 20px 30px;
+          padding: 15px 30px;
           font-size: 13px;
           color: white;
           display: flex;
+          font-weight: 300;
+          margin-bottom: 7px;
           justify-content: space-between;
           border-radius: 30px;
-          max-width: 400px;
+          max-width: 400px; box-shadow: rgba(0, 0, 0, 0.275) 0px 25px 20px -20px;
 
           .button-icon {
-            font-size: 20px;
+            font-size: 25px;
           }
         }
 
         .locations {
-          background-color: orange;
+          background-color: $orange;
         }
 
         .moves {
-          background-color: blue;
+          background-color: $blue;
         }
 
         .favorites {
-          background-color: red;
+          background-color: $red;
         }
       }
     }
@@ -143,7 +171,6 @@
   .search-inner {
     width: 100vw;
     height: 100vh;
-    background-color: rgb(180, 129, 129);
     padding: 30px;
     padding-top: 50px;
     position: relative;
@@ -156,8 +183,9 @@
       gap: 10px;
       padding-bottom: 30px;
       position: absolute;
-      bottom: 0;
+      top: 150px;
       max-height: 80vh;
+      min-height: fit-content;
       margin: auto;
       margin-top: 10px;
       margin-bottom: 10px;
@@ -176,90 +204,30 @@
         display: flex;
         align-items: center;
         font-weight: lighter;
+        margin-bottom: 7px;
+        box-shadow: rgba(0, 0, 0, 0.275) 0px 25px 20px -20px;
+        background-color: rgb(176, 176, 176);
+        overflow: hidden;
+        position: relative;
+      
+        img {
+          max-height: 120%;
+          max-width: 130px;
+          position: absolute;
+          right: -10px;
+        }
       }
 
       .dark-text {
         color: black;
       }
 
-      .normal {
-        background-color: grey;
-      }
-
-      .fire {
-        background-color: orange;
-      }
-
-      .fighting {
-        background-color: red;
-      }
-
-      .water {
-        background-color: blue;
-      }
-
-      .flying {
-        background-color: lavender;
-      }
-
-      .grass {
-        background-color: green;
-      }
-
-      .poison {
-        background-color: magenta;
-      }
-
-      .electric {
-        background-color: yellow;
-      }
-
-      .ground {
-        background-color: sandybrown;
-      }
-
-      .psychic {
-        background-color: pink;
-      }
-
-      .rock {
-        background-color: brown;
-      }
-
-      .ice {
-        background-color: aqua;
-      }
-
-      .bug {
-        background-color: limegreen;
-      }
-
-      .dragon {
-        background-color: purple;
-      }
-
-      .ghost {
-        background-color: blueviolet;
-      }
-
-      .dark {
-        background-color: burlywood;
-      }
-
-      .steel {
-        background-color: teal;
-      }
-
-      .fairy {
-        background-color: lightpink;
-      }
-
-      .unkown {
-        background-color: black;
+      .unknown {
+        display: none;
       }
 
       .shadow {
-        background-color: darkorchid;
+        display: none;
       }
     }
 
@@ -271,20 +239,18 @@
   .pokedex-inner {
     width: 100vw;
     height: 100vh;
-    background-color: red;
-    overflow-y: hidden;
     position: relative;
     padding: 30px;
     padding-top: 50px;
 
     .pokemon-list {
       position: absolute;
-      bottom: 0;
+      top: 200px;
       max-height: 80vh;
-      min-height: 80vh;
+      min-height: fit-content;
       width: 85%;
       margin: auto;
-      overflow: scroll;
+      overflow-y: scroll !important;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -298,6 +264,8 @@
         max-height: 170px;
         padding: 15px;
         border-radius: 20px;
+        margin-bottom: 10px;
+        box-shadow: rgba(0, 0, 0, 0.275) 0px 25px 20px -20px;
 
         .id {
           color: white;
@@ -333,32 +301,144 @@
 
     padding-top: 150px;
     text-align: left;
-    color: white;
 
     .upper {
       .img-container {
         width: 100vw;
-        min-width: 300px;
+        min-width: 100vw;
+        height: auto;
         min-height: 350px;
+        max-height: 380px;
         z-index: 25;
         position: absolute;
         margin: auto;
-        left: 20px;
+        left: 0;
         right: 0;
         top: 80px;
         background-size: contain;
         background-repeat: no-repeat;
 
+        img {
+          min-height: 100%;
+          width: auto;
+          min-width: 100vw;
+          position: absolute;
+          left: 0;
+          top: -50px;
+          right: 0;
+          margin: auto;
+        }
+
+        .gradient {
+          min-height: 180%;
+          width: 150vw;
+          position: absolute;
+          top: -155px;
+          left: -25vw;
+          right: 0;
+          margin: auto;
+
+          .circle {
+            min-height: 85vw;
+            min-width: 100vw;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 120px;
+            margin: auto;
+
+            div {
+              max-height: 85vw;
+              max-width: 85vw;
+              min-height: 85vw;
+              min-width: 85vw;
+              margin: auto;
+              background-image: url("./imgs/circle.png");
+              background-repeat: no-repeat;
+              background-size: contain;
+            };
+          }
+        }
+
+        .water-gradient {
+          background: radial-gradient(circle closest-side, #6b83e0, #e0ba6300);
+        }
+
+        .fire-gradient {
+          background: radial-gradient(circle closest-side, #f67456, #e0ba6300);
+        }
+
+        .grass-gradient {
+          background: radial-gradient(circle closest-side, #5fed5f, #e0ba6300);
+        }
+
+        .bug-gradient {
+          background: radial-gradient(circle closest-side, #3ac83a, #e0ba6300);
+        }
+
+        .normal-gradient {
+          background: radial-gradient(circle closest-side, #939393, #e0ba6300);
+        }
+
+        .poison-gradient {
+          background: radial-gradient(circle closest-side, #a949bc, #e0ba6300);
+        }
+
+        .electric-gradient {
+          background: radial-gradient(circle closest-side, #eeda2d, #e0ba6300);
+        }
+
+        .ground-gradient {
+          background: radial-gradient(circle closest-side, #cb8e09, #e0ba6300);
+        }
+
+        .fairy-gradient {
+          background: radial-gradient(circle closest-side, #ec5c9d, #e0ba6300);
+        }
+
+        .fighting-gradient {
+          background: radial-gradient(circle closest-side, #f52b2b, #e0ba6300);
+        }
+
+        .psychic-gradient {
+          background: radial-gradient(circle closest-side, #f73eb0, #e0ba6300);
+        }
+
+        .rock-gradient {
+          background: radial-gradient(circle closest-side, #99842f, #e0ba6300);
+        }
+
+        .ghost-gradient {
+          background: radial-gradient(circle closest-side, #7532ac, #e0ba6300);
+        }
+
+        .ice-gradient {
+          background: radial-gradient(circle closest-side, #40aebc, #e0ba6300);
+        }
+
+
+        .dragon-gradient {
+          background: radial-gradient(circle closest-side, #8040bc, #e0ba6300);
+        }
+
+        .dark-gradient {
+          background: radial-gradient(circle closest-side, #9a835d, #e0ba6300);
+        }
+
+        .steel-gradient {
+          background: radial-gradient(circle closest-side, #0bbc90, #e0ba6300);
+        }
+
         .pokemon-type {
           position: absolute;
           bottom: -50px;
-          left: -40px;
+          left: 0;
           right: 0;
           margin: auto;
           width: 130px;
           text-align: center;
           font-size: 20px;
-          border: 2px solid rgb(188, 187, 187);
+          border: 2px solid rgb(255, 255, 255);
           border-radius: 25px;
           padding: 3px;
         }
@@ -395,6 +475,7 @@
           min-height: 50px;
           align-items: center;
           z-index: 100000;
+          background-color: white;
         }
       }
 
@@ -415,7 +496,7 @@
               font-size: 20px;
               padding: 15px 10px;
               width: 33.33%;
-              border: solid 2px grey;
+              border: solid 1px rgb(255, 255, 255);
               text-align: center;
             }
 
@@ -429,7 +510,6 @@
           }
 
           .display-container {
-            min-height: 23vh;
             width: 90vw;
             margin: auto;
             margin-top: 15px;
@@ -442,9 +522,10 @@
               display: flex;
               display: flex;
               flex-direction: column;
-              gap: 7px;
+              gap: 10px;
               overflow-y: scroll;
-              max-height: 170px;
+              min-height: 25vh;
+              max-height: 25vh;
 
               div {
                 display: flex;
@@ -455,7 +536,7 @@
 
                 .progress-outter {
                   width: 80%;
-                  background-color: grey;
+                  background-color: rgb(236, 236, 236);
                   margin: auto;
                   border-radius: 25px;
                   position: relative;
@@ -467,10 +548,33 @@
 
                   .progress-bar {
                     min-height: 22px;
-                    background-color: green;
                     text-align: right;
                     justify-content: right;
                     border-radius: 25px;
+                  }
+
+                  .hp {
+                    background-color: $red;
+                  }
+
+                  .attack {
+                    background-color: $orange;
+                  }
+
+                  .defense {
+                    background-color: $yellow;
+                  }
+
+                  .special-attack {
+                    background-color: $blue;
+                  }
+
+                  .special-defense {
+                    background-color: $green;
+                  }
+
+                  .speed {
+                    background-color: pink;
                   }
                 }
               }
@@ -482,7 +586,7 @@
 
             .about-pokemon {
               padding-left: 20px;
-              padding-right: 20px;
+              padding-right: 0px;
 
               .pokemon-about-me-desc {
                 font-size: 14px;
@@ -493,18 +597,35 @@
                 flex-direction: column;
                 gap: 10px;
                 margin: auto;
-                width: 100%;
+                width: 130%;
                 padding-top: 12px;
 
                 .height,
                 .weight,
                 .strong {
                   h3 {
-                    color: grey;
+                    color: rgb(192, 192, 192);
                   }
                   display: flex;
                   justify-content: space-between;
                   width: 70%;
+                }
+
+                .strong {
+                  flex-wrap: wrap;
+                  .strength-icon {
+                    margin-left: 6px;
+                    background-color: green;
+                    max-height: 30px;
+                    padding: 5px;
+                    max-width: 30px;
+                    border-radius: 50%;
+
+                    img {
+                      height: 100%;
+                      width: 100%;
+                    }
+                  }
                 }
               }
             }
@@ -590,7 +711,7 @@
         left: 0;
         right: 0;
         border-radius: 25px 25px 0px 0px;
-        box-shadow: rgba(0, 0, 0, 0.447) 0 0 10px;
+        box-shadow: rgba(0, 0, 0, 0.237) 0 0 20px;
         border-collapse: collapse;
 
         .button-container {
@@ -605,7 +726,13 @@
             border: none;
             font-size: 20px;
             margin: auto;
+
+            img {
+              width: 35px;
+
+            }
           }
+
 
           .red {
             color: red;
@@ -677,37 +804,36 @@
             }
           }
         }
-          .location-info {
-            overflow-x: scroll;
-            padding-bottom: 150px;
+        .location-info {
+          overflow-x: scroll;
+          padding-bottom: 150px;
 
-            .generation-footer {
-              background-color: grey;
-              min-height: 2px;
-              width: 80vw;
-              margin: auto;
+          .generation-footer {
+            background-color: grey;
+            min-height: 2px;
+            width: 80vw;
+            margin: auto;
+            margin-top: 40px;
+          }
+
+          .nope {
+            margin-top: 30px;
+            font-size: 25px;
+          }
+
+          .generation {
+            font-size: 20px;
+            text-align: left;
+            max-width: 100vw;
+            margin: auto;
+
+            h3 {
+              padding-left: 30px;
+              font-size: 22px;
               margin-top: 40px;
             }
 
-            .nope {
-              margin-top: 30px;
-              font-size: 25px;
-            }
-
-            .generation {
-              font-size: 20px;
-              text-align: left;
-              max-width: 100vw;
-              margin: auto;
-
-              h3 {
-                padding-left: 30px;
-                font-size: 22px;
-                margin-top: 40px;
-              }
-
             .location-container {
-
               display: flex;
               flex-direction: column;
               max-width: 100vw;
@@ -723,7 +849,6 @@
                 border-radius: 25px;
                 margin-bottom: 15px;
                 text-align: center;
-
               }
 
               .red {
@@ -733,7 +858,7 @@
               .blue {
                 background-color: blue;
               }
-               
+
               .yellow {
                 background-color: yellow;
                 color: black;
@@ -790,29 +915,26 @@
                 border: black 1px solid;
                 color: black;
               }
-            
 
               .locations {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 5px;
 
-              .location-name {
-                background-color: rgb(244, 229, 163);
-                max-width: fit-content;
-                padding: 7px 10px;
-                color: black;
-                border-radius: 25px;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                text-align: center;
-                font-weight: bold;
-                font-size: 18px;
+                .location-name {
+                  background-color: rgb(244, 229, 163);
+                  max-width: fit-content;
+                  padding: 7px 10px;
+                  color: black;
+                  border-radius: 25px;
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  text-align: center;
+                  font-weight: bold;
+                  font-size: 18px;
+                }
               }
-
-            }
-    
             }
           }
         }
@@ -828,167 +950,117 @@
     }
   }
 
-  .dark-text {
-    color: black;
+  // NEW COLORS
+
+  .light {
+    background-color: rgb(254, 238, 217);
+  }
+
+  .kanto {
+    background-color: $red !important;
+  }
+
+  .johto {
+    background-color: $green !important;
+  }
+
+  .hoenn {
+    background-color: $blue !important;
+  }
+
+  .sinnoh {
+    background-color: rgb(176, 176, 176) !important;
+  }
+
+  .unova {
+    background-color: rgb(181, 115, 238) !important;
+  }
+
+  .kalos {
+    background-color: rgb(246, 118, 154) !important;
+  }
+
+  .alola {
+    background-color: rgb(252, 223, 34) !important;
+  }
+
+  .galar {
+    background-color: rgb(148, 238, 238) !important;
+  }
+
+  .paldea {
+    background-color: $orange !important;
   }
 
   .normal {
-    background-color: grey;
-  }
-
-  .normal-light {
-    background-color: rgb(158, 158, 158);
+    background-color: rgb(176, 176, 176) !important;
   }
 
   .fire {
-    background-color: orange;
-  }
-
-  .fire-light {
-    background-color: rgb(251, 195, 90);
+    background-color: rgb(254, 177, 114) !important;
   }
 
   .fighting {
-    background-color: red;
-  }
-
-  .fighting-light {
-    background-color: rgb(246, 80, 80);
+    background-color: $red !important;
   }
 
   .water {
-    background-color: blue;
-  }
-
-  .water-light {
-    background-color: rgb(82, 82, 247);
+    background-color: rgb(147, 177, 253) !important;
   }
 
   .flying {
-    background-color: lavender;
-  }
-
-  .flying-light {
-    background-color: rgb(83, 83, 254);
+    background-color: rgb(207, 177, 230) !important;
   }
 
   .grass {
-    background-color: green;
-  }
-
-  .grass-light {
-    background-color: rgb(43, 164, 43);
+    background-color: $green !important;
   }
 
   .poison {
-    background-color: magenta;
-  }
-
-  .poison-light {
-    background-color: rgb(248, 87, 248);
+    background-color: rgb(211, 118, 191) !important;
   }
 
   .electric {
-    background-color: yellow;
-  }
-
-  .electric-light {
-    background-color: rgb(243, 243, 135);
+    background-color: $yellow !important;
   }
 
   .ground {
-    background-color: sandybrown;
-  }
-
-  .ground-light {
-    background-color: rgb(241, 196, 157);
+    background-color: rgb(244, 197, 96) !important;
   }
 
   .psychic {
-    background-color: pink;
-  }
-
-  .psychic-light {
-    background-color: rgb(250, 218, 223);
+    background-color: rgb(246, 118, 154) !important;
   }
 
   .rock {
-    background-color: brown;
-  }
-
-  .rock-light {
-    background-color: rgb(170, 72, 72);
+    background-color: rgb(200, 182, 81) !important;
   }
 
   .ice {
-    background-color: aqua;
-  }
-
-  .ice-light {
-    background-color: rgb(133, 233, 233);
+    background-color: rgb(148, 238, 238) !important;
   }
 
   .bug {
-    background-color: limegreen;
-  }
-
-  .bug-light {
-    background-color: rgb(106, 199, 106);
+    background-color: rgb(170, 224, 112) !important;
   }
 
   .dragon {
-    background-color: purple;
-  }
-
-  .dragon-light {
-    background-color: rgb(208, 15, 208);
+    background-color: rgb(181, 115, 238) !important;
   }
 
   .ghost {
-    background-color: blueviolet;
-  }
-
-  .ghost-light {
-    background-color: rgb(161, 99, 220);
+    background-color: rgb(166, 140, 190) !important;
   }
 
   .dark {
-    background-color: burlywood;
-  }
-
-  .dark-light {
-    background-color: rgb(227, 204, 173);
+    background-color: rgb(161, 138, 108) !important;
   }
 
   .steel {
-    background-color: teal;
-  }
-
-  .steel-light {
-    background-color: rgb(27, 188, 188);
+    background-color: rgb(33, 149, 149) !important;
   }
 
   .fairy {
-    background-color: lightpink;
-  }
-
-  .fairy-light {
-    background-color: rgb(246, 217, 222);
-  }
-
-  .unkown {
-    background-color: black;
-  }
-
-  .unkown-light {
-    background-color: rgb(49, 49, 49);
-  }
-
-  .shadow {
-    background-color: darkorchid;
-  }
-
-  .shadow-light {
-    background-color: rgb(173, 103, 208);
+    background-color: rgb(246, 173, 184) !important;
   }
 }

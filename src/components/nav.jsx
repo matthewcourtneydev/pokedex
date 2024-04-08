@@ -25,7 +25,7 @@ const Nav = (props) => {
     }
     return (
         <div className="nav">
-            <span className={`nav-items ${props.additionalClasses}`}>{determineIcon()}<span>{props.data.content}</span>{props.data.id ? <span className="pokemon-id">#{props.data.id}</span> : <></>} </span>
+            <strong><span className={`nav-items ${props.additionalClasses}`}>{determineIcon()}<span>{props.data.content}</span>{props.data.id ? <span className="pokemon-id">#{props.data.id}</span> : <></>} </span></strong>
         </div>
     );
 }

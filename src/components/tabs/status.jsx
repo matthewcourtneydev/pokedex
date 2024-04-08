@@ -27,7 +27,7 @@ const Status = (props) => {
       <div className="wrapper">
         {props.stats.map((stat) => {
           return (
-            <div>
+            <div className="stat">
              <span className="stat-name dark-text">{getNameAbrv(stat.stat.name)}</span>
               <div className="progress-outter">
                 <div

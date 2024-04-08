@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import fire from "../imgs/fire.webp"
 
 const MiniButton = (props) => {
     const navigate = useNavigate()
@@ -45,6 +46,7 @@ const MiniButton = (props) => {
     return (
         <div className={`mini-button ${props.name}`} onClick={setPokemonListState}>
             <h3>{props.name.replace('-', ' ').replace(/(?:^|\s)\S/g, a => a.toUpperCase())}</h3>
+            <img src={`../imgs/${props.name}.png`} alt="" />
         </div>
     );
 }

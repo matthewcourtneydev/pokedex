@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import PokemonFooter from "../components/pokemon-footer";
+import circle from "../imgs/circle.png"
 import About from "../components/tabs/about";
 import Status from "../components/tabs/status";
 import Moves from "../components/tabs/moves";
@@ -19,14 +20,14 @@ const Pokemon = (props) => {
 
   function incPokemon() {
     props.setCurrentPokemon((prev) => {
-        return prev + 1;
-    })
+      return prev + 1;
+    });
   }
 
   function decPokemon() {
     props.setCurrentPokemon((prev) => {
-        return prev - 1;
-    })
+      return prev - 1;
+    });
   }
 
   useEffect(() => {
@@ -37,9 +38,8 @@ const Pokemon = (props) => {
 
   useEffect(() => {
     getData(props.currentPokemon).then((data) => {
-        setPokemon((prev) => data);
-      });
-
+      setPokemon((prev) => data);
+    });
   }, [props.currentPokemon]);
 
   return (
@@ -58,12 +58,14 @@ const Pokemon = (props) => {
           />
           <div className={`pokemon-inner ${pokemon.types[0].type.name}`}>
             <div className="upper">
-              <div
-                className="img-container"
-                style={{
-                  backgroundImage: `url(${pokemon.sprites.front_default})`,
-                }}
-              >
+              <div className="img-container">
+                <div className={`gradient ${pokemon.types[0].type.name}-gradient`}>
+                  <div className="circle">
+                   <div></div>
+                  </div>
+                </div>
+                <img src={pokemon.sprites.front_default} alt="" />
+
                 <div className={`pokemon-type ${pokemon.types[0].type.name}`}>
                   {pokemon.types[0].type.name}
                 </div>
@@ -83,43 +85,75 @@ const Pokemon = (props) => {
                   <ul className="tabs">
                     <li
                       id="tab-1"
-                      className={isActive === "about" ? `tab-active ${pokemon.types[0].type.name}` : `tab ${pokemon.types[0].type.name}-light`}
+                      className={
+                        isActive === "about"
+                          ? `tab-active ${pokemon.types[0].type.name}`
+                          : `tab light`
+                      }
                       onClick={() => {
                         setDisplayIndex("about");
                         setIsActive("about");
                       }}
                     >
-                        <p>About</p>
+                      <p>About</p>
                     </li>
                     <li
                       id="tab-2"
-                      className={isActive === "status" ? `tab-active ${pokemon.types[0].type.name}` : `tab ${pokemon.types[0].type.name}-light`}
+                      className={
+                        isActive === "status"
+                          ? `tab-active ${pokemon.types[0].type.name}`
+                          : `tab light`
+                      }
                       onClick={() => {
                         setDisplayIndex("status");
                         setIsActive("status");
                       }}
                     >
-                        <p>Status</p>
+                      <p>Status</p>
                     </li>
                     <li
                       id="tab-3"
-                      className={isActive === "moves" ? `tab-active ${pokemon.types[0].type.name}` : `tab ${pokemon.types[0].type.name}-light`}
+                      className={
+                        isActive === "moves"
+                          ? `tab-active ${pokemon.types[0].type.name}`
+                          : `tab light`
+                      }
                       onClick={() => {
                         setDisplayIndex("moves");
                         setIsActive("moves");
                       }}
                     >
-                        <p>Moves</p>
+                      <p>Moves</p>
                     </li>
                   </ul>
                   <div className="display-container" id="display-container">
-                    {displayIndex === "about" && <About id={pokemon.id} height={pokemon.height} weight={pokemon.weight} types={pokemon.types}/>}
-                    {displayIndex === "status" && <Status stats={pokemon.stats}/>}
-                    {displayIndex === "moves" && <Moves movesArray={pokemon.moves} />}
+                    {displayIndex === "about" && (
+                      <About
+                        id={pokemon.id}
+                        height={pokemon.height}
+                        weight={pokemon.weight}
+                        types={pokemon.types}
+                      />
+                    )}
+                    {displayIndex === "status" && (
+                      <Status stats={pokemon.stats} />
+                    )}
+                    {displayIndex === "moves" && (
+                      <Moves movesArray={pokemon.moves} />
+                    )}
                   </div>
                 </div>
               </div>
-              <PokemonFooter id={pokemon.id} speciesUrl={pokemon.species.url} type={pokemon.types[0].type.name} setFavorites={props.setFavorites} setCurrentPokemon={props.setCurrentPokemon} name={pokemon.name} favorites={props.favorites} currentPokemon={props.currentPokemon} />
+              <PokemonFooter
+                id={pokemon.id}
+                speciesUrl={pokemon.species.url}
+                type={pokemon.types[0].type.name}
+                setFavorites={props.setFavorites}
+                setCurrentPokemon={props.setCurrentPokemon}
+                name={pokemon.name}
+                favorites={props.favorites}
+                currentPokemon={props.currentPokemon}
+              />
             </div>
           </div>
         </div>

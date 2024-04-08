@@ -42,7 +42,6 @@ const Pokedex = (props) => {
   }
 
   useEffect(() => {
-    debugger;
     if (props.isFavFlow) {
       props.setPrevPage((prev) => "/")
     } else {
@@ -79,9 +78,10 @@ const Pokedex = (props) => {
             data={{
               content: `${props.searchCriteria}${
                 props.secondaryCriteria ? `: ${props.secondaryCriteria}` : ""
-              }`,
+              }`, 
+              
             }}
-            additionalClasses={"black"}
+            additionalClasses={"dark-text"}
           />
           <div className="pokedex-inner">
             <Searchbar setInput={setInput} input={input} setSearchInput={props.setSearchInput}/>

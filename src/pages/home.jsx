@@ -4,6 +4,7 @@ import Nav from '../components/nav';
 import Searchbar from '../components/searchbar';
 import buttonData from "../jcrs/home-buttons.json"
 import Button from '../components/button';
+import circle from "../imgs/circle.png"
 
 const Home = (props) => {
     const [input, setInput] = useState(props.searchInput);
@@ -47,10 +48,11 @@ const Home = (props) => {
     return (
         <>
         {!isLoading && <div className="page" id="home">
-                  <Nav data={{value: "home", content: "Pokedex"}}/>
+                  <Nav additionalClasses={"white"} data={{value: "home", content: "Pokedex"}}/>
             <div className="homepage-inner">
                 <div className="upper">
-                    <h1>Find your favorite pokemon</h1>
+                    <img className="home-image" src={circle} alt="" />
+                    <h1>Find your <br />favorite Pokemon</h1>
                     <Searchbar handleEnter={handleEnter} setInput={setInput} input={input} setSearchInput={props.setSearchInput} isHome={true} finalizeSearch={props.finalizeSearch} />
                 </div>
                 <div className="lower">
