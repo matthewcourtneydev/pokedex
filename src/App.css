@@ -1,0 +1,32 @@
+.App {
+    max-width: 100svw;
+    max-height: 100svh;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .page {
+    min-height: 100svh;
+    min-width: 100svw;
+    max-height: 100svh;
+    max-width: 100svw;
+  }
+
+  .homepage-inner {
+    width: 100svw;
+    height: 100svh;
+  }
+
+  .lower {
+    height: 50svh;
+  }
+
+  .pokedex-inner {
+    width: 100svw;
+    height: 100svh;
+  }
+
+  .pokemon-list {
+    max-height: 80svh;
+  }

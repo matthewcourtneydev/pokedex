@@ -97,7 +97,7 @@ const About = (props) => {
                 <h3>Strong against</h3>
                 {typeDataLoaded && <>
                     {[...new Set(typeData)].map((type) => {
-                        return <div className={`strength-icon ${type}`}><span><img src={`../imgs/${type}.png`} alt="" /></span></div>
+                        return <div className={`strength-icon ${type}`}><span><img src={require(`../../imgs/${type}.png`)} alt="" /></span></div>
                     })}
                 </>}
                 </div>

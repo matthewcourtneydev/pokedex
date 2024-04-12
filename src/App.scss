@@ -13,6 +13,18 @@ $yellow: rgb(252, 223, 34);
   font-family: "Open Sans", sans-serif;
 }
 
+html,
+body {
+  margin: 0;
+}
+
+.App {
+  max-width: 100svw;
+  max-height: 100svh;
+  position: fixed;
+  inset: 0;
+}
+
 .nav {
   position: fixed;
   z-index: 100;
@@ -25,10 +37,11 @@ $yellow: rgb(252, 223, 34);
   }
 
   .nav-items {
-    font-size: 30px;
+    font-size: 24px;
     span {
       vertical-align: top;
-      font-size: 27px;
+      font-size: 22px;
+      padding-left: 10px;
     }
 
     .pokemon-id {
@@ -38,12 +51,16 @@ $yellow: rgb(252, 223, 34);
 }
 
 .page {
-  min-height: 100vh;
-  min-width: 100vw;
-  max-height: 100vh;
-  max-width: 100vw;
+  min-height: 100svh;
+  min-width: 100svw;
+  max-height: 100svh;
+  max-width: 100svw;
   text-align: center;
   background-color: $background;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 
   .searchbar {
     position: relative;
@@ -56,7 +73,8 @@ $yellow: rgb(252, 223, 34);
       z-index: 12000000;
       bottom: 7px;
       right: 20px;
-      font-size: 25px;
+      bottom: 3px;
+      font-size: 22px;
       color: grey;
       border: none;
       background: none;
@@ -65,43 +83,37 @@ $yellow: rgb(252, 223, 34);
     .icon {
       position: absolute;
       z-index: 10;
-      bottom: 7px;
+      bottom: 3px;
       left: 20px;
-      font-size: 25px;
+      font-size: 22px;
       color: grey;
     }
     input {
       position: relative;
-      line-height: 50px;
+      line-height: 40px;
       width: 100%;
       border: none;
       border-radius: 30px;
       margin-top: 30px;
-      padding-left: 60px;
-      font-size: 20px;
+      padding-left: 50px;
+      font-size: 18px;
     }
   }
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
 
   .homepage-inner {
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
     background-color: $red;
     position: absolute;
-    overflow-x: hidden;
     padding: 30px;
-
-    padding-top: 190px;
+    padding-top: 120px;
     text-align: left;
     color: white;
 
     .home-image {
       position: absolute;
-      width: 87vw;
-      top: 80px;
+      width: 70svw;
+      top: 50px;
       left: 0;
       right: 0;
       margin: auto;
@@ -111,7 +123,7 @@ $yellow: rgb(252, 223, 34);
     h1 {
       margin: auto;
       width: 400px;
-      font-size: 40px;
+      font-size: 30px;
       font-weight: 500;
       line-height: 45px;
       margin-bottom: -15px;
@@ -120,12 +132,12 @@ $yellow: rgb(252, 223, 34);
     .lower {
       left: -50%;
       width: 200%;
-      height: 50vh;
+      height: 50svh;
       border-radius: 50% 50% 0 0;
       background-color: #fff;
       position: absolute;
       bottom: 0;
-      padding-top: 50px;
+      padding-top: 35px;
 
       .button-container {
         display: flex;
@@ -135,18 +147,17 @@ $yellow: rgb(252, 223, 34);
 
         .button {
           background-color: $green;
-          min-height: 65px;
-          width: 90vw;
+          width: 90svw;
           margin: auto;
-          padding: 15px 30px;
+          padding: 10px 30px;
           font-size: 13px;
           color: white;
           display: flex;
           font-weight: 300;
-          margin-bottom: 7px;
           justify-content: space-between;
           border-radius: 30px;
-          max-width: 400px; box-shadow: rgba(0, 0, 0, 0.275) 0px 25px 20px -20px;
+          max-width: 400px;
+          box-shadow: rgba(0, 0, 0, 0.275) 0px 25px 20px -20px;
 
           .button-icon {
             font-size: 25px;
@@ -169,33 +180,31 @@ $yellow: rgb(252, 223, 34);
   }
 
   .search-inner {
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100%;
+    overflow: auto;
     padding: 30px;
     padding-top: 50px;
-    position: relative;
 
     .mini-button-container {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      width: 85%;
-      gap: 10px;
+      width: 95%;
+      gap: 5px;
       padding-bottom: 30px;
-      position: absolute;
+      overflow-x: auto;
       top: 150px;
-      max-height: 80vh;
-      min-height: fit-content;
+      height: fit-content;
       margin: auto;
       margin-top: 10px;
       margin-bottom: 10px;
-      overflow: scroll;
 
       .mini-button {
         background-color: purple;
         color: white;
-        height: 65px;
-        width: 48%;
+        height: 45px;
+        width: 45%;
         margin: auto;
         font-size: 13px;
         border-radius: 35px;
@@ -209,7 +218,7 @@ $yellow: rgb(252, 223, 34);
         background-color: rgb(176, 176, 176);
         overflow: hidden;
         position: relative;
-      
+
         img {
           max-height: 120%;
           max-width: 130px;
@@ -230,15 +239,11 @@ $yellow: rgb(252, 223, 34);
         display: none;
       }
     }
-
-    .mini-button-container::-webkit-scrollbar {
-      display: none;
-    }
   }
 
   .pokedex-inner {
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
     position: relative;
     padding: 30px;
     padding-top: 50px;
@@ -246,11 +251,11 @@ $yellow: rgb(252, 223, 34);
     .pokemon-list {
       position: absolute;
       top: 200px;
-      max-height: 80vh;
+      max-height: 80svh;
       min-height: fit-content;
       width: 85%;
       margin: auto;
-      overflow-y: scroll !important;
+      overflow: scroll !important;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -293,54 +298,52 @@ $yellow: rgb(252, 223, 34);
   }
 
   .pokemon-inner {
-    width: 100vw;
-    height: 100vh;
+    width: 100svw;
+    height: 100svh;
     position: absolute;
     overflow: hidden;
-    padding: 30px;
-
-    padding-top: 150px;
     text-align: left;
 
     .upper {
+      position: relative;
       .img-container {
-        width: 100vw;
-        min-width: 100vw;
+        width: 100svw;
+        min-width: 100svw;
         height: auto;
         min-height: 350px;
         max-height: 380px;
         z-index: 25;
         position: absolute;
+        top: 50px;
         margin: auto;
         left: 0;
         right: 0;
-        top: 80px;
         background-size: contain;
         background-repeat: no-repeat;
 
         img {
-          min-height: 100%;
+          max-width: 80svw;
+          min-width: 80svw;
           width: auto;
-          min-width: 100vw;
           position: absolute;
           left: 0;
-          top: -50px;
+          top: 20px;
           right: 0;
           margin: auto;
         }
 
         .gradient {
           min-height: 180%;
-          width: 150vw;
+          width: 150svw;
           position: absolute;
-          top: -155px;
-          left: -25vw;
           right: 0;
+          top: -170px;
+          left: -25svw;
           margin: auto;
 
           .circle {
-            min-height: 85vw;
-            min-width: 100vw;
+            min-height: 85svw;
+            min-width: 100svw;
             position: absolute;
             left: 0;
             right: 0;
@@ -348,15 +351,15 @@ $yellow: rgb(252, 223, 34);
             margin: auto;
 
             div {
-              max-height: 85vw;
-              max-width: 85vw;
-              min-height: 85vw;
-              min-width: 85vw;
+              max-height: 85svw;
+              max-width: 85svw;
+              min-height: 85svw;
+              min-width: 85svw;
               margin: auto;
               background-image: url("./imgs/circle.png");
               background-repeat: no-repeat;
               background-size: contain;
-            };
+            }
           }
         }
 
@@ -416,7 +419,6 @@ $yellow: rgb(252, 223, 34);
           background: radial-gradient(circle closest-side, #40aebc, #e0ba6300);
         }
 
-
         .dragon-gradient {
           background: radial-gradient(circle closest-side, #8040bc, #e0ba6300);
         }
@@ -431,16 +433,16 @@ $yellow: rgb(252, 223, 34);
 
         .pokemon-type {
           position: absolute;
-          bottom: -50px;
+          bottom: -10px;
           left: 0;
           right: 0;
           margin: auto;
-          width: 130px;
+          width: 100px;
           text-align: center;
-          font-size: 20px;
+          font-size: 16px;
           border: 2px solid rgb(255, 255, 255);
           border-radius: 25px;
-          padding: 3px;
+          padding: 2px;
         }
       }
     }
@@ -448,7 +450,7 @@ $yellow: rgb(252, 223, 34);
     .lower {
       left: -50%;
       width: 200%;
-      height: 70vh;
+      height: 70svh;
       border-radius: 50% 50% 0 0;
       background-color: #fff;
       position: absolute;
@@ -457,8 +459,8 @@ $yellow: rgb(252, 223, 34);
 
       .navigate-buttons {
         margin: auto;
-        margin-top: 80px;
-        width: 100vw;
+        margin-top: 70px;
+        width: 100svw;
         display: flex;
         justify-content: space-between;
         padding-left: 20px;
@@ -468,11 +470,11 @@ $yellow: rgb(252, 223, 34);
         .right {
           font-size: 15px;
           font-weight: bold;
-          padding: 20px;
+          padding: 15px;
           border: none;
           border-radius: 50%;
           display: flex;
-          min-height: 50px;
+          min-height: 40px;
           align-items: center;
           z-index: 100000;
           background-color: white;
@@ -480,10 +482,10 @@ $yellow: rgb(252, 223, 34);
       }
 
       .tab-content {
-        width: 100vw;
+        width: 100svw;
         margin: auto;
         min-height: 50px;
-        padding-top: 70px;
+        padding-top: 60px;
 
         .container {
           .tabs {
@@ -491,10 +493,12 @@ $yellow: rgb(252, 223, 34);
             width: 80%;
             margin: auto;
             list-style: none;
+            position: relative;
+            z-index: 5000000;
 
             li {
-              font-size: 20px;
-              padding: 15px 10px;
+              font-size: 14px;
+              padding: 5px 10px;
               width: 33.33%;
               border: solid 1px rgb(255, 255, 255);
               text-align: center;
@@ -510,11 +514,12 @@ $yellow: rgb(252, 223, 34);
           }
 
           .display-container {
-            width: 90vw;
+            width: 90svw;
             margin: auto;
             margin-top: 15px;
             overflow-y: scroll;
             padding: 10px;
+            margin-top: -5px;
 
             .wrapper {
               width: 100%;
@@ -522,16 +527,17 @@ $yellow: rgb(252, 223, 34);
               display: flex;
               display: flex;
               flex-direction: column;
-              gap: 10px;
+              gap: 3px;
               overflow-y: scroll;
-              min-height: 25vh;
-              max-height: 25vh;
+              min-height: 25svh;
+              max-height: 25svh;
 
               div {
                 display: flex;
 
                 .stat-name {
                   width: 10%;
+                  font-size: 14px;
                 }
 
                 .progress-outter {
@@ -544,10 +550,11 @@ $yellow: rgb(252, 223, 34);
                   span {
                     position: absolute;
                     right: 10px;
+                    font-size: 12px;
                   }
 
                   .progress-bar {
-                    min-height: 22px;
+                    min-height: 17px;
                     text-align: right;
                     justify-content: right;
                     border-radius: 25px;
@@ -580,25 +587,28 @@ $yellow: rgb(252, 223, 34);
               }
             }
 
-            .wrapper::-webkit-scrollbar {
-              display: none;
-            }
+            // .wrapper::-webkit-scrollbar {
+            //   display: none;
+            // }
 
             .about-pokemon {
               padding-left: 20px;
               padding-right: 0px;
+              max-height: 20px;
+              overflow: hidden;
 
               .pokemon-about-me-desc {
-                font-size: 14px;
+                font-size: 12px;
+                max-height: fit-content;
+                margin-bottom: -15px;
               }
 
               .height-weight {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 1px;
                 margin: auto;
                 width: 130%;
-                padding-top: 12px;
 
                 .height,
                 .weight,
@@ -609,22 +619,30 @@ $yellow: rgb(252, 223, 34);
                   display: flex;
                   justify-content: space-between;
                   width: 70%;
+                  font-size: 15px;
                 }
 
                 .strong {
                   flex-wrap: wrap;
+                  max-width: fit-content;
+
                   .strength-icon {
                     margin-left: 6px;
-                    background-color: green;
-                    max-height: 30px;
-                    padding: 5px;
-                    max-width: 30px;
+                    max-height: 25px;
+                    max-width: 25px;
+                    padding: 3px;
+                    margin-left: 10px;
                     border-radius: 50%;
+                    justify-content: center;
 
                     img {
                       height: 100%;
                       width: 100%;
                     }
+                  }
+
+                  .strength-icon:first-of-type {
+                    margin-left: 20px;
                   }
                 }
               }
@@ -646,7 +664,7 @@ $yellow: rgb(252, 223, 34);
                 height: 100%;
 
                 h3 {
-                  font-size: 20px;
+                  font-size: 15px;
                   color: grey;
                 }
                 // background-color: yellow;
@@ -661,19 +679,19 @@ $yellow: rgb(252, 223, 34);
                   .stat-values {
                     display: flex;
                     justify-content: space-between;
-                    font-size: 20px;
+                    font-size: 15px;
                     margin-bottom: 5px;
                   }
 
                   .stat-headers {
-                    font-size: 20px;
+                    font-size: 14px;
                     color: grey;
                   }
 
                   .attack-type {
                     text-align: center;
-                    width: 90px;
-                    padding: 8px;
+                    width: 80px;
+                    padding: 3px;
                     border: solid 1px white;
                     margin: auto;
                     display: flex;
@@ -681,7 +699,7 @@ $yellow: rgb(252, 223, 34);
                     margin-top: 15px;
                     margin-bottom: 15px;
                     border-radius: 25px;
-                    font-size: 16px;
+                    font-size: 12px;
                   }
                 }
               }
@@ -699,14 +717,15 @@ $yellow: rgb(252, 223, 34);
       }
 
       .footer {
-        width: 100vw;
-        min-width: 100vw;
+        width: 100svw;
+        min-width: 100svw;
         margin: auto;
         min-height: 60px;
-        height: calc(100vh + 60px);
+        height: calc(100svh + 60px);
         background-color: white;
         z-index: 10000000;
         position: fixed;
+        background-color: rgb(0, 128, 107);
         top: -60px;
         left: 0;
         right: 0;
@@ -729,14 +748,16 @@ $yellow: rgb(252, 223, 34);
 
             img {
               width: 35px;
-
             }
           }
-
 
           .red {
             color: red;
           }
+        }
+
+        .small {
+          top: 0px;
         }
 
         .small-inner {
@@ -770,31 +791,31 @@ $yellow: rgb(252, 223, 34);
           position: absolute;
           left: -50%;
           height: 90%;
-          min-height: 90vh;
+          min-height: 90svh;
           border-radius: 50% 50% 0 0;
           justify-content: center;
           text-align: center;
           background-color: white;
 
           h1 {
-            font-size: 30px;
+            font-size: 20px;
           }
 
           .evo-pokemon {
             h2 {
-              font-size: 22px;
+              font-size: 16px;
             }
 
             img {
-              min-height: 130px;
+              height: 80px;
             }
 
             .type {
               margin: auto;
-              width: 130px;
+              width: 60px;
               text-align: center;
-              font-size: 20px;
-              border: 2px solid rgb(188, 187, 187);
+              font-size: 10px;
+              border: 1px solid rgb(188, 187, 187);
               border-radius: 25px;
               padding: 3px;
             }
@@ -805,46 +826,45 @@ $yellow: rgb(252, 223, 34);
           }
         }
         .location-info {
-          overflow-x: scroll;
+          overflow-y: scroll;
           padding-bottom: 150px;
 
           .generation-footer {
             background-color: grey;
             min-height: 2px;
-            width: 80vw;
+            width: 80svw;
             margin: auto;
             margin-top: 40px;
           }
 
           .nope {
             margin-top: 30px;
-            font-size: 25px;
+            font-size: 20px;
           }
 
           .generation {
-            font-size: 20px;
             text-align: left;
-            max-width: 100vw;
+            max-width: 100svw;
             margin: auto;
 
             h3 {
               padding-left: 30px;
-              font-size: 22px;
+              font-size: 18px;
               margin-top: 40px;
             }
 
             .location-container {
               display: flex;
               flex-direction: column;
-              max-width: 100vw;
+              max-width: 100svw;
               margin: auto;
               padding: 10px 30px;
               justify-content: left;
 
               .game-name {
                 max-width: 110px;
-                font-size: 18px;
-                padding: 7px 10px;
+                font-size: 16px;
+                padding: 3px 7px;
                 color: white;
                 border-radius: 25px;
                 margin-bottom: 15px;
@@ -924,7 +944,7 @@ $yellow: rgb(252, 223, 34);
                 .location-name {
                   background-color: rgb(244, 229, 163);
                   max-width: fit-content;
-                  padding: 7px 10px;
+                  padding: 5px 10px;
                   color: black;
                   border-radius: 25px;
                   display: flex;
@@ -932,7 +952,7 @@ $yellow: rgb(252, 223, 34);
                   flex-wrap: wrap;
                   text-align: center;
                   font-weight: bold;
-                  font-size: 18px;
+                  font-size: 16px;
                 }
               }
             }
@@ -945,7 +965,7 @@ $yellow: rgb(252, 223, 34);
       }
 
       .small {
-        top: calc(100vh - 60px);
+        top: calc(100svh - 60px);
       }
     }
   }
@@ -1062,5 +1082,293 @@ $yellow: rgb(252, 223, 34);
 
   .fairy {
     background-color: rgb(246, 173, 184) !important;
+  }
+}
+
+@media (min-height: 700px) {
+  .nav {
+    .nav-items {
+      font-size: 32px;
+      span {
+        vertical-align: top;
+        font-size: 28px;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .page {
+    .searchbar {
+      .enter {
+        bottom: 9px;
+        font-size: 24px;
+      }
+
+      .icon {
+        bottom: 6px;
+        font-size: 28px;
+      }
+      input {
+        line-height: 55px;
+        font-size: 22px;
+        padding-left: 60px;
+      }
+    }
+
+    .homepage-inner {
+      padding-top: 180px;
+
+      .home-image {
+        width: 80svw;
+        top: 100px;
+      }
+
+      h1 {
+        font-size: 35px;
+      }
+
+      .lower {
+        padding-top: 50px;
+
+        .button-container {
+          gap: 25px;
+
+          .button {
+            padding: 17px 30px;
+            font-size: 14px;
+
+            .button-icon {
+              font-size: 26px;
+            }
+          }
+        }
+      }
+    }
+
+    .search-inner {
+      .mini-button-container {
+        gap: 7px;
+        margin-top: 30px;
+
+        .mini-button {
+          height: 65px;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+        .unknown {
+          display: none;
+        }
+
+        .shadow {
+          display: none;
+        }
+      }
+    }
+
+    .pokedex-inner {
+      .pokemon-list {
+        top: 170px;
+      }
+  
+      // .pokemon-list::-webkit-scrollbar {
+      //   display: none;
+      // }
+    }
+
+    .pokemon-inner {
+      .upper {
+        .img-container {
+          top: 120px;
+  
+          .gradient {
+            .circle {
+              bottom: 100px;
+            }
+          }
+  
+          .pokemon-type {
+            bottom: -20px;
+          }
+        }
+      }
+  
+      .lower {
+        padding-top: 80px;
+  
+        .navigate-buttons {
+          .left,
+          .right {
+            font-size: 20px;
+          }
+        }
+  
+        .tab-content {
+          padding-top: 70px;
+  
+          .container {
+            .tabs {
+              display: flex;
+              width: 80%;
+              margin: auto;
+              list-style: none;
+              position: relative;
+              z-index: 5000000;
+  
+              li {
+                font-size: 18px;
+                padding: 15px 10px;
+              }
+            }
+  
+            .display-container {
+              padding: 10px;
+              margin-top: 10px;
+  
+              .wrapper {
+                gap: 5px;
+  
+                div {
+                  .stat-name {
+                    font-size: 18px;
+                  }
+  
+                  .progress-outter {
+  
+                    span {
+                      position: absolute;
+                      right: 10px;
+                      font-size: 16px;
+                    }
+  
+                    .progress-bar {
+                      min-height: 22px;
+                    }
+                  }
+                }
+              }
+  
+              // .wrapper::-webkit-scrollbar {
+              //   display: none;
+              // }
+  
+              .about-pokemon {
+                .pokemon-about-me-desc {
+                  font-size: 16px;
+                }
+  
+                .height-weight {
+                  gap: 6px;
+  
+                  .height,
+                  .weight,
+                  .strong {
+                    font-size: 18px;
+                  }
+  
+                  .strong {
+                    .strength-icon {
+                      margin-left: 6px;
+                      max-height: 30px;
+                      max-width: 30px;
+                    }
+  
+                    .strength-icon:first-of-type {
+                      margin-left: 20px;
+                    }
+                  }
+                }
+              }
+  
+              .moves {
+                .attack-card {
+  
+                  h3 {
+                    font-size: 20px;
+                  }
+  
+                  .attack-types,
+                  .attack-stats {
+                    .stat-headers,
+                    .stat-values {
+                      font-size: 20px;
+                    }
+  
+                    .stat-headers {
+                      font-size: 18px;
+                      color: grey;
+                    }
+  
+                    .attack-type {
+                      margin-top: 35px;
+                      margin-bottom: 35px;
+                      font-size: 16px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+  
+        .footer {
+          .button-container {
+            .footer-btn {
+              font-size: 22px;
+            }
+          }
+          .evolution-chain-container,
+          .location-info {
+            h1 {
+              font-size: 30px;
+            }
+  
+            .evo-pokemon {
+              h2 {
+                font-size: 22px;
+              }
+  
+              img {
+                height: 150px;
+              }
+  
+              .type {
+                font-size: 16px;
+                padding: 3px;
+              }
+  
+              span {
+                font-size: 22px;
+              }
+            }
+          }
+          .location-info {
+            .nope {
+              margin-top: 30px;
+              font-size: 25px;
+            }
+  
+            .generation {
+              h3 {
+                font-size: 22px;
+              }
+  
+              .location-container {
+                .locations {
+                  gap: 7px;
+                }
+              }
+            }
+          }
+  
+          .hide {
+            display: none;
+          }
+        }
+  
+        .small {
+          top: calc(100svh - 60px);
+        }
+      }
+    }
   }
 }

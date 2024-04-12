@@ -1,4 +1,5 @@
 import "./App.scss";
+import "./App.css";
 import { useState, useEffect, useRef } from "react";
 import Home from "./pages/home";
 import Search from "./pages/search";
