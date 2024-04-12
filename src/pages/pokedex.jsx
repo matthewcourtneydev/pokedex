@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PokedexCard from "../components/pokedex-card";
 import Nav from "../components/nav";
 import Searchbar from "../components/searchbar";
+import Loading from "../components/loading";
 
 const Pokedex = (props) => {
   const [pokemonArray, setPokemonArray] = useState([]);
@@ -103,7 +104,7 @@ const Pokedex = (props) => {
       )}
       {!dataPresent && (
         <div className="page" id="pokedex">
-          <h1>Loading</h1>
+          <Loading />
         </div>
       )}
     </>

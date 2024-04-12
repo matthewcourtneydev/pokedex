@@ -78,7 +78,7 @@ const Search = (props) => {
             setSecondaryCriteria={props.setSecondaryCriteria}
           />
           <div className="search-inner">
-          <Searchbar setInput={setInput} input={input} />
+          <Searchbar classname="searchsearch" setInput={setInput} input={input} />
             <div className="mini-button-container">
               {filteredArray.map((type) => (
                 <MiniButton

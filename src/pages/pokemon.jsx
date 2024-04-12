@@ -10,6 +10,7 @@ import Nav from "../components/nav";
 
 const Pokemon = (props) => {
   const [pokemon, setPokemon] = useState(null);
+  const [isShiny, setIsShiny] = useState(false);
   const [displayIndex, setDisplayIndex] = useState("about");
   const [isActive, setIsActive] = useState("about");
 
@@ -64,7 +65,7 @@ const Pokemon = (props) => {
                    <div></div>
                   </div>
                 </div>
-                <img src={pokemon.sprites.front_default} alt="" />
+                <img src={isShiny ? pokemon.sprites.front_shiny : pokemon.sprites.front_default} alt="" />
 
                 <div className={`pokemon-type ${pokemon.types[0].type.name}`}>
                   {pokemon.types[0].type.name}
@@ -153,6 +154,8 @@ const Pokemon = (props) => {
                 name={pokemon.name}
                 favorites={props.favorites}
                 currentPokemon={props.currentPokemon}
+                setIsShiny={setIsShiny}
+                isShiny={isShiny}
               />
             </div>
           </div>

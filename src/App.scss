@@ -4,7 +4,7 @@ $orange: rgb(250, 188, 111);
 $blue: rgb(185, 200, 255);
 $background: rgb(235, 235, 235);
 $fire: rgb(254, 177, 114);
-$yellow: rgb(252, 223, 34);
+$yellow: rgb(250, 232, 115);
 
 * {
   box-sizing: border-box;
@@ -24,6 +24,84 @@ body {
   position: fixed;
   inset: 0;
 }
+
+.loading-page {
+  justify-content: center;
+  margin-top: 30svh;
+
+  .pokeball {
+    margin-top: 20px;
+  }
+}
+
+.water-gradient {
+  background: radial-gradient(circle closest-side, #3d5fe8, #e0ba6300);
+}
+
+.fire-gradient {
+  background: radial-gradient(circle closest-side, #e45333, #e0ba6300);
+}
+
+.grass-gradient {
+  background: radial-gradient(circle closest-side, #3ed33e, #e0ba6300);
+}
+
+.bug-gradient {
+  background: radial-gradient(circle closest-side, #3ac83a, #e0ba6300);
+}
+
+.normal-gradient {
+  background: radial-gradient(circle closest-side, #939393, #e0ba6300);
+}
+
+.poison-gradient {
+  background: radial-gradient(circle closest-side, #a949bc, #e0ba6300);
+}
+
+.electric-gradient {
+  background: radial-gradient(circle closest-side, #eeda2d, #e0ba6300);
+}
+
+.ground-gradient {
+  background: radial-gradient(circle closest-side, #ecc97c, #e0ba6300);
+}
+
+.fairy-gradient {
+  background: radial-gradient(circle closest-side, #ec5c9d, #e0ba6300);
+}
+
+.fighting-gradient {
+  background: radial-gradient(circle closest-side, #f52b2b, #e0ba6300);
+}
+
+.psychic-gradient {
+  background: radial-gradient(circle closest-side, #e257af, #e0ba6300);
+}
+
+.rock-gradient {
+  background: radial-gradient(circle closest-side, #99842f, #e0ba6300);
+}
+
+.ghost-gradient {
+  background: radial-gradient(circle closest-side, #7532ac, #e0ba6300);
+}
+
+.ice-gradient {
+  background: radial-gradient(circle closest-side, #40aebc, #e0ba6300);
+}
+
+.dragon-gradient {
+  background: radial-gradient(circle closest-side, #864ac1, #e0ba6300);
+}
+
+.dark-gradient {
+  background: radial-gradient(circle closest-side, #9a835d, #e0ba6300);
+}
+
+.steel-gradient {
+  background: radial-gradient(circle closest-side, #3a947d, #e0ba6300);
+}
+
 
 .nav {
   position: fixed;
@@ -363,74 +441,6 @@ body {
           }
         }
 
-        .water-gradient {
-          background: radial-gradient(circle closest-side, #6b83e0, #e0ba6300);
-        }
-
-        .fire-gradient {
-          background: radial-gradient(circle closest-side, #f67456, #e0ba6300);
-        }
-
-        .grass-gradient {
-          background: radial-gradient(circle closest-side, #5fed5f, #e0ba6300);
-        }
-
-        .bug-gradient {
-          background: radial-gradient(circle closest-side, #3ac83a, #e0ba6300);
-        }
-
-        .normal-gradient {
-          background: radial-gradient(circle closest-side, #939393, #e0ba6300);
-        }
-
-        .poison-gradient {
-          background: radial-gradient(circle closest-side, #a949bc, #e0ba6300);
-        }
-
-        .electric-gradient {
-          background: radial-gradient(circle closest-side, #eeda2d, #e0ba6300);
-        }
-
-        .ground-gradient {
-          background: radial-gradient(circle closest-side, #cb8e09, #e0ba6300);
-        }
-
-        .fairy-gradient {
-          background: radial-gradient(circle closest-side, #ec5c9d, #e0ba6300);
-        }
-
-        .fighting-gradient {
-          background: radial-gradient(circle closest-side, #f52b2b, #e0ba6300);
-        }
-
-        .psychic-gradient {
-          background: radial-gradient(circle closest-side, #f73eb0, #e0ba6300);
-        }
-
-        .rock-gradient {
-          background: radial-gradient(circle closest-side, #99842f, #e0ba6300);
-        }
-
-        .ghost-gradient {
-          background: radial-gradient(circle closest-side, #7532ac, #e0ba6300);
-        }
-
-        .ice-gradient {
-          background: radial-gradient(circle closest-side, #40aebc, #e0ba6300);
-        }
-
-        .dragon-gradient {
-          background: radial-gradient(circle closest-side, #8040bc, #e0ba6300);
-        }
-
-        .dark-gradient {
-          background: radial-gradient(circle closest-side, #9a835d, #e0ba6300);
-        }
-
-        .steel-gradient {
-          background: radial-gradient(circle closest-side, #0bbc90, #e0ba6300);
-        }
-
         .pokemon-type {
           position: absolute;
           bottom: -10px;
@@ -725,7 +735,6 @@ body {
         background-color: white;
         z-index: 10000000;
         position: fixed;
-        background-color: rgb(0, 128, 107);
         top: -60px;
         left: 0;
         right: 0;
@@ -753,6 +762,10 @@ body {
 
           .red {
             color: red;
+          }
+
+          .yellow {
+            color: yellow
           }
         }
 
@@ -1084,8 +1097,8 @@ body {
     background-color: rgb(246, 173, 184) !important;
   }
 }
-
-@media (min-height: 700px) {
+// Iphone ProMax 14
+@media only screen and (min-height: 700px) {
   .nav {
     .nav-items {
       font-size: 32px;
@@ -1373,7 +1386,8 @@ body {
   }
 }
 
-@media (min-height: 1000px) {
+// Above Iphone 14 ProMax
+@media only screen and (min-height: 1000px) {
   .page {
     .homepage-inner {
       padding-top: 170px;
@@ -1459,12 +1473,12 @@ body {
           background-repeat: no-repeat;
   
           img {
-            max-width: 60svw;
-            min-width: 60svw;
+            max-width: 70svw;
+            min-width: 70svw;
             width: auto;
             position: absolute;
-            left: -60px;
-            top: 30px;
+            left: -110px;
+            top: 10px;
             right: 0;
             margin: auto;
           }
@@ -1734,4 +1748,1053 @@ body {
       }
     }
     }
+
+    .water-gradient {
+      background: radial-gradient(circle closest-side, #2548d4, #e0ba6300) !important;
+    }
+    
+    .fire-gradient {
+      background: radial-gradient(circle closest-side, #e45333, #e0ba6300) !important;
+    }
+    
+    .grass-gradient {
+      background: radial-gradient(circle closest-side, #0f710f, #e0ba6300) !important;
+    }
+    
+    .bug-gradient {
+      background: radial-gradient(circle closest-side, #148d14, #e0ba6300) !important;
+    }
+    
+    .normal-gradient {
+      background: radial-gradient(circle closest-side, #5d5d5d, #e0ba6300) !important;
+    }
+    
+    .poison-gradient {
+      background: radial-gradient(circle closest-side, #702b7e, #e0ba6300) !important;
+    }
+    
+    .electric-gradient {
+      background: radial-gradient(circle closest-side, #d4bb00, #e0ba6300) !important;
+    }
+    
+    .ground-gradient {
+      background: radial-gradient(circle closest-side, #89620e, #e0ba6300) !important;
+    }
+    
+    .fairy-gradient {
+      background: radial-gradient(circle closest-side, #b52f6c, #e0ba6300) !important;
+    }
+    
+    .fighting-gradient {
+      background: radial-gradient(circle closest-side, #860707, #e0ba6300) !important;
+    }
+    
+    .psychic-gradient {
+      background: radial-gradient(circle closest-side, #9d156b, #e0ba6300) !important;
+    }
+    
+    .rock-gradient {
+      background: radial-gradient(circle closest-side, #5f5017, #e0ba6300) !important;
+    }
+    
+    .ghost-gradient {
+      background: radial-gradient(circle closest-side, #3e1262, #e0ba6300) !important;
+    }
+    
+    .ice-gradient {
+      background: radial-gradient(circle closest-side, #176e7a, #e0ba6300) !important;
+    }
+    
+    .dragon-gradient {
+      background: radial-gradient(circle closest-side, #4e1587, #e0ba6300) !important;
+    }
+    
+    .dark-gradient {
+      background: radial-gradient(circle closest-side, #654513, #e0ba6300) !important;
+    }
+    
+    .steel-gradient {
+      background: radial-gradient(circle closest-side, #054d3b, #e0ba6300) !important;
+    }
+}
+
+// Desktop
+@media only screen and (min-height: 700px) and (min-width: 1100px) {
+  .nav {
+    position: fixed;
+    left: 5svw;
+    z-index: 100;
+    padding-left: 0px;
+    padding-top: 5svh;
+  
+    .white {
+      color: white;
+    }
+  
+    .nav-items {
+      font-size: 32px;
+      span {
+        vertical-align: top;
+        font-size: 28px;
+      }
+  
+      .pokemon-id {
+        padding-left: 15px;
+      }
+    }
+  }
+
+  .page {
+    .searchbar {
+      position: absolute;
+      left: 5svw;
+      max-width: 20svw;
+      width: 20svw;
+  
+      .enter {
+        position: absolute;
+        z-index: 12000000;
+        bottom: 7px;
+        right: 20px;
+        bottom: 3px;
+        font-size: 22px;
+        color: grey;
+        border: none;
+        background: none;
+      }
+  
+      .icon {
+        position: absolute;
+        z-index: 10;
+        bottom: 3px;
+        left: 20px;
+        font-size: 22px;
+        color: grey;
+      }
+      input {
+        position: relative;
+        line-height: 40px;
+        width: 100%;
+        border: none;
+        border-radius: 30px;
+        margin-top: 30px;
+        padding-left: 50px;
+        font-size: 18px;
+      }
+    }
+
+    .homepage-inner {
+      max-width: 2000px;
+      padding-top: 120px;
+  
+      .home-image {
+        width: 40svw;
+        top: 100px;
+        left: 5svw;
+        // right: 0;
+        right: auto;
+        margin: auto;
+        opacity: 50%;
+      }
+  
+      h1 {
+        margin-left: 3.5svw;
+        width: 800px;
+        font-size: 60px;
+        font-weight: 500;
+        line-height: 70px;
+        margin-bottom: -15px;
+        margin-top: 15svh;
+        padding-left: 0;
+      }
+  
+      .lower {
+        right: 0;
+        left: auto;
+        width: 50svw;
+        height: 100svh;
+        border-radius: 0;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        padding-top: 0;
+  
+        .button-container {
+          gap: 25px;
+          color: black;
+          margin-top: 28svh;
+  
+          .button {
+            background-color: $green;
+            width: 90svw;
+            margin: auto;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            display: flex;
+            font-weight: 300;
+            justify-content: space-between;
+            border-radius: 30px;
+            max-width: 500px;
+            box-shadow: rgba(0, 0, 0, 0.275) 0px 25px 20px -20px;
+  
+            .button-icon {
+              font-size: 30px;
+              padding-top: 5px;
+            }
+          }
+  
+          .locations {
+            background-color: $orange;
+          }
+  
+          .moves {
+            background-color: $blue;
+          }
+  
+          .favorites {
+            background-color: $red;
+          }
+        }
+      }
+    }
+
+    .search-inner {
+      width: 100svw;
+      height: 100%;
+      overflow: auto;
+      padding: 0px;
+      padding-top: 0px;
+
+      .searchbar {
+        margin-top: 12svh;
+        position: absolute;
+        left: 5svw;
+        max-width: 25svw;
+        width: 25svw;
+    
+        .icon {
+          position: absolute;
+          z-index: 10;
+          bottom: -5px;
+          left: 20px;
+          font-size: 30px;
+          color: grey;
+        }
+        input {
+          position: relative;
+          line-height: 40px;
+          width: 100%;
+          border: none;
+          margin-top: 0px;
+          border-radius: 26px;
+          padding-left: 60px;
+          font-size: 24px;
+        }
+
+      }
+  
+      .mini-button-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 50svw;
+        gap: 5px;
+        padding-bottom: 30px;
+        overflow-x: auto;
+        height: fit-content;
+        margin: auto;
+        margin-right: 5svw;
+        margin-top: 12svh;
+        margin-bottom: 10px;
+  
+        .mini-button {
+          font-size: 20px;
+
+          img {
+            max-height: 120%;
+            max-width: 130px;
+            position: absolute;
+            right: -10px;
+          }
+        }
+  
+        .dark-text {
+          color: black;
+        }
+  
+        .unknown {
+          display: none;
+        }
+  
+        .shadow {
+          display: none;
+        }
+      }
+    }
+
+    .pokedex-inner {  
+      padding: 0px;
+      margin: 0px;
+      width: 100svw;
+
+      .searchbar {
+        margin-top: 12svh;
+        position: absolute;
+        left: 5svw;
+        max-width: 25svw;
+        width: 25svw;
+    
+        .icon {
+          position: absolute;
+          z-index: 10;
+          bottom: -5px;
+          left: 20px;
+          font-size: 30px;
+          color: grey;
+        }
+        input {
+          position: relative;
+          line-height: 40px;
+          width: 100%;
+          border: none;
+          margin-top: 0px;
+          border-radius: 26px;
+          padding-left: 60px;
+          font-size: 24px;
+        }
+
+      }
+      .pokemon-list {
+        position: absolute;
+        top: 12svh;
+        max-height: 100svh;
+        width: 40svw;
+        margin: auto;
+        overflow: scroll !important;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        right: 5svw;
+        padding-bottom: 30px;
+  
+        .pokedex-card {
+          background-color: white;
+          width: 45%;
+          min-height: 190px;
+          max-height: 190px;
+          padding: 15px;
+          border-radius: 20px;
+          margin-bottom: 10px;
+          box-shadow: rgba(0, 0, 0, 0.275) 0px 25px 20px -20px;
+  
+          .id {
+            color: white;
+            justify-content: right;
+            width: 100%;
+            display: flex;
+  
+            span {
+              padding: 2px;
+              width: 50px;
+              border-radius: 20px;
+            }
+          }
+  
+          img {
+            height: 90px;
+            width: auto;
+          }
+        }
+      }
+  
+      .pokemon-list::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .pokemon-inner {
+      width: 100svw;
+      height: 100svh;
+      position: absolute;
+      overflow: hidden;
+      text-align: left;
+  
+      .upper {
+        position: relative;
+        .img-container {
+          width: 50svw;
+          min-width: 50svw;
+          min-height: 100svh;
+          max-height: 100svh;
+          top: 0px;
+          margin: auto;
+          left: 0;
+          right: auto;
+          background-size: contain;
+          background-repeat: no-repeat;
+  
+          img {
+            max-width: 60%;
+            min-width: 60%;
+            width: auto;
+            position: absolute;
+            left: 0;
+            top: 10svh;
+            right: 0;
+            margin: auto;
+          }
+  
+          .gradient {
+            min-height: 1000px;
+            width: 50svw;
+            position: absolute;
+            right: 0;
+            top: -175px;
+            left: 0svw;
+            margin: auto;
+  
+            .circle {
+              min-height: 20svw;
+              min-width: 20svw;
+              position: absolute;
+              left: 0svw;
+              right: 0;
+              bottom: 0;
+              top: 30svh;
+              margin: auto;
+  
+              div {
+                max-height: 28svw;
+                max-width: 28svw;
+                min-height: 28svw;
+                min-width: 28svw;
+                margin: auto;
+                background-image: url("./imgs/circle.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+              }
+            }
+          }
+
+          
+.water-gradient {
+  background: radial-gradient(circle closest-side, #2a42a0, #e0ba6300);
+}
+
+.fire-gradient {
+  background: radial-gradient(circle closest-side, #c8482b, #e0ba6300);
+}
+
+.grass-gradient {
+  background: radial-gradient(circle closest-side, #208e20, #e0ba6300);
+}
+
+.bug-gradient {
+  background: radial-gradient(circle closest-side, #219121, #e0ba6300);
+}
+
+.normal-gradient {
+  background: radial-gradient(circle closest-side, #434242, #e0ba6300);
+}
+
+.poison-gradient {
+  background: radial-gradient(circle closest-side, #6e237d, #e0ba6300);
+}
+
+.electric-gradient {
+  background: radial-gradient(circle closest-side, #b7a401, #e0ba6300);
+}
+
+.ground-gradient {
+  background: radial-gradient(circle closest-side, #70561d, #e0ba6300);
+}
+
+.fairy-gradient {
+  background: radial-gradient(circle closest-side, #ec5c9d, #e0ba6300);
+}
+
+.fighting-gradient {
+  background: radial-gradient(circle closest-side, #f52b2b, #e0ba6300);
+}
+
+.psychic-gradient {
+  background: radial-gradient(circle closest-side, #902d6c, #e0ba6300);
+}
+
+.rock-gradient {
+  background: radial-gradient(circle closest-side, #5f5018, #e0ba6300);
+}
+
+.ghost-gradient {
+  background: radial-gradient(circle closest-side, #672998, #e0ba6300);
+}
+
+.ice-gradient {
+  background: radial-gradient(circle closest-side, #1a626b, #e0ba6300);
+}
+
+.dragon-gradient {
+  background: radial-gradient(circle closest-side, #562885, #e0ba6300);
+}
+
+.dark-gradient {
+  background: radial-gradient(circle closest-side, #624c28, #e0ba6300);
+}
+
+.steel-gradient {
+  background: radial-gradient(circle closest-side, #145847, #e0ba6300);
+}
+
+          .pokemon-type {
+            position: absolute;
+            bottom: auto;
+            top: 60svh;
+            left: 21svw;
+            right: auto;
+            margin: auto;
+            width: 120px;
+            text-align: center;
+            font-size: 25px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 25px;
+            padding: 5px 10px;
+          }
+        }
+      }
+  
+      .lower {
+        left: auto;
+        right: 0;
+        width: 50svw;
+        height: 100svh;
+        border-radius: 0;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        padding-top: 12svh;
+        // margin-top: 28svh;
+  
+        .navigate-buttons {
+          width: 40svw;
+          position: fixed;
+          left: 5svw;
+          top: 60svh;
+          z-index: 1000000000000000;
+
+          .left,
+          .right {
+            font-size: 20px;
+            padding: 18px;
+          }
+        }
+  
+        .tab-content {
+          width: 40svw;
+          margin: auto;
+          min-height: 50px;
+          padding-top: 16svh;
+  
+          .container {
+            .tabs {
+              display: flex;
+              width: 80%;
+              margin: auto;
+              list-style: none;
+              position: relative;
+              z-index: 5000000;
+  
+              li {
+                font-size: 25px;
+                padding: 10px 12px;
+                width: 33.33%;
+                border: solid 1px rgb(255, 255, 255);
+                text-align: center;
+              }
+  
+              li:first-child {
+                border-radius: 25px 0px 0px 25px;
+              }
+  
+              li:last-child {
+                border-radius: 0px 25px 25px 0px;
+              }
+            }
+  
+            .display-container {
+              width: 35svw;
+              margin-top: 2svh;
+              min-height: fit-content;
+              overflow: hidden;
+
+  
+              .wrapper {
+                gap: 7px;
+                min-height: 30svh;
+                max-height: 30svh;
+                div {
+                  display: flex;
+  
+                  .stat-name {
+                    width: 10%;
+                    font-size: 22px;
+                  }
+  
+                  .progress-outter {
+  
+                    span {
+                      position: absolute;
+                      right: 10px;
+                      font-size: 20px;
+                    }
+  
+                    .progress-bar {
+                      min-height: 28px;
+                    }
+                  }
+                }
+              }
+  
+              // .wrapper::-webkit-scrollbar {
+              //   display: none;
+              // }
+  
+              .about-pokemon {
+                .pokemon-about-me-desc {
+                  font-size: 20px;
+                }
+  
+                .height-weight {
+                  gap: 15px;
+  
+                  .height,
+                  .weight,
+                  .strong {
+                    font-size: 20px;
+                  }
+  
+                  .strong {
+                    .strength-icon {
+                      max-height: 35px;
+                      max-width: 35px;
+                    }
+  
+                    .strength-icon:first-of-type {
+                      margin-left: 20px;
+                    }
+                  }
+                }
+              }
+  
+              .moves {
+                display: flex;
+                width: 35svw;
+                flex-direction: row;
+                gap: 0;
+                justify-content: space-around;
+                max-height: fit-content;
+  
+                .attack-card {
+                  display: flex;
+                  flex-direction: column;
+                  max-width: 100%;
+                  min-width: 17svw;
+                  padding: 10px;
+                  text-align: center;
+                  height: 100%;
+  
+                  h3 {
+                    font-size: 22px;
+                    color: grey;
+                    margin-left: -35px;
+                  }
+                  // background-color: yellow;
+  
+                  .attack-types,
+                  .attack-stats {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+  
+                    .stat-headers,
+                    .stat-values {
+                      display: flex;
+                      justify-content: space-between;
+                      font-size: 20px;
+                      margin-bottom: 5px;
+                    }
+  
+                    .stat-headers {
+                      font-size: 20px;
+                      color: grey;
+                    }
+  
+                    .attack-type {
+                      text-align: center;
+                      width: 80px;
+                      padding: 5px;
+                      border: solid 1px white;
+                      margin: auto;
+                      display: flex;
+                      justify-content: space-around;
+                      margin-top: 45px;
+                      margin-bottom: 45px;
+                      border-radius: 25px;
+                      font-size: 16px;
+                    }
+                  }
+                }
+  
+                .right {
+                  .attack-card {
+                    border-left: grey solid 2px;
+                    padding-left: 22px;
+                    padding-right: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+  
+        .footer {
+          width: 50svw;
+          min-width: 50svw;
+          margin: auto;
+          min-height: 60px;
+          height: calc(100svh + 60px);
+          background-color: white;
+          z-index: 10000000;
+          position: fixed;
+          top: -60px;
+          left: auto;
+          right: 0;
+          border-radius: 25px 25px 0px 0px;
+          box-shadow: rgba(0, 0, 0, 0.237) 0 0 20px;
+          border-collapse: collapse;
+  
+          .button-container {
+            // background-color: pink;
+            height: 60px;
+            width: 100%;
+            padding: 20px;
+  
+            .footer-btn {
+              width: 25%;
+              background: none;
+              border: none;
+              font-size: 20px;
+              margin: auto;
+  
+              img {
+                width: 35px;
+              }
+            }
+  
+            .red {
+              color: red;
+            }
+          }
+  
+          .small {
+            top: 0px;
+          }
+  
+          .small-inner {
+            height: 12svh;
+            margin: auto;
+            min-height: 12svh;
+            background-color: white !important;
+  
+            .back-nav {
+              padding: 30px;
+              font-size: 30px;
+              color: black;
+  
+              span {
+                font-size: 27px;
+                vertical-align: top;
+                display: none;
+              }
+            }
+          }
+  
+          .evolution-chain-container,
+          .location-info {
+            z-index: 50000000;
+            color: black;
+            margin: auto;
+            padding-top: 0px;
+            position: relative;
+            font-size: 30px;
+            width: 50svw;
+            position: absolute;
+            left: auto;
+            height: 100%;
+            min-height: 90svh;
+            border-radius: 0;
+            justify-content: center;
+            text-align: center;
+            background-color: white;
+  
+            h1 {
+              font-size: 30px;
+            }
+  
+            .evo-pokemon {
+              h2 {
+                font-size: 18px;
+              }
+  
+              img {
+                height: 150px;
+              }
+  
+              .type {
+                margin: auto;
+                width: 60px;
+                text-align: center;
+                font-size: 14px;
+                border: 1px solid rgb(188, 187, 187);
+                border-radius: 25px;
+                padding: 3px;
+              }
+  
+              span {
+                font-size: 20px;
+              }
+            }
+          }
+          .location-info {
+            overflow-y: scroll;
+            padding-bottom: 150px;
+  
+            .generation-footer {
+              background-color: grey;
+              min-height: 2px;
+              width: 80svw;
+              margin: auto;
+              margin-top: 40px;
+            }
+  
+            .nope {
+              margin-top: 30px;
+              font-size: 20px;
+            }
+  
+            .generation {
+              text-align: left;
+              max-width: 100svw;
+              margin: auto;
+  
+              h3 {
+                padding-left: 30px;
+                font-size: 18px;
+                margin-top: 40px;
+              }
+  
+              .location-container {
+                max-width: 40svw;
+                margin: auto;
+                padding: 10px 30px;
+  
+                  .location-name {
+                    font-size: 16px;
+                  }
+              }
+            }
+          }
+  
+          .hide {
+            display: none;
+          }
+        }
+  
+        .small {
+          top: calc(100svh - 60px);
+        }
+      }
+    }
+  }
+
+
+}
+
+// Ipad mini
+@media only screen and (min-height: 1000px) and (max-height: 1100px) and (max-width: 1100px) {
+.gradient {
+  top: -5svh !important;
+  margin-left: -2svw !important;
+}
+}
+
+// Ipad air
+@media only screen and (min-width: 800px) and (max-width: 850px) and (min-height: 1100px) and (max-height: 1200px) {
+  .gradient {
+    top: 0svh !important;
+  }
+
+  .img-container {
+    img {
+      top: 40px !important;
+    }
+  }
+
+  .pokemon-type {
+    bottom: -230px !important;
+  }
+
+  .navigate-buttons {
+    margin-top: -200px !important;
+  }
+
+  .tab-content {
+    margin-top: 100px !important;
+  }
+  }
+
+  // Ipad Pro
+  @media only screen and (min-width: 1000px) and (max-width: 1100px) and (min-height: 1300px) and (max-height: 1400px) {
+    .gradient {
+      top: 6svh !important;
+      left: -20svw !important;
+    }
+  
+    .img-container {
+      img {
+        top: 40px !important;
+        max-width: 65svw !important;
+        min-width: 65svw !important;
+      }
+    }
+
+    .pokemon-type {
+      bottom: -270px !important;
+    }
+  
+    .navigate-buttons {
+      margin-top: -200px !important;
+    }
+  
+    .tab-content {
+      margin-top: 100px !important;
+    }
+  }
+
+
+
+
+
+
+.light {
+  background-color: rgb(254, 238, 217);
+}
+
+.kanto {
+  background-color: $red !important;
+}
+
+.johto {
+  background-color: $green !important;
+}
+
+.hoenn {
+  background-color: $blue !important;
+}
+
+.sinnoh {
+  background-color: rgb(176, 176, 176) !important;
+}
+
+.unova {
+  background-color: rgb(181, 115, 238) !important;
+}
+
+.kalos {
+  background-color: rgb(246, 118, 154) !important;
+}
+
+.alola {
+  background-color: rgb(252, 223, 34) !important;
+}
+
+.galar {
+  background-color: rgb(148, 238, 238) !important;
+}
+
+.paldea {
+  background-color: $orange !important;
+}
+
+.normal {
+  background-color: rgb(176, 176, 176) !important;
+}
+
+.fire {
+  background-color: rgb(254, 177, 114) !important;
+}
+
+.fighting {
+  background-color: $red !important;
+}
+
+.water {
+  background-color: rgb(147, 177, 253) !important;
+}
+
+.flying {
+  background-color: rgb(207, 177, 230) !important;
+}
+
+.grass {
+  background-color: $green !important;
+}
+
+.poison {
+  background-color: rgb(211, 118, 191) !important;
+}
+
+.electric {
+  background-color: $yellow !important;
+}
+
+.ground {
+  background-color: rgb(244, 197, 96) !important;
+}
+
+.psychic {
+  background-color: rgb(246, 118, 154) !important;
+}
+
+.rock {
+  background-color: rgb(200, 182, 81) !important;
+}
+
+.ice {
+  background-color: rgb(148, 238, 238) !important;
+}
+
+.bug {
+  background-color: rgb(170, 224, 112) !important;
+}
+
+.dragon {
+  background-color: rgb(181, 115, 238) !important;
+}
+
+.ghost {
+  background-color: rgb(166, 140, 190) !important;
+}
+
+.dark {
+  background-color: rgb(161, 138, 108) !important;
+}
+
+.steel {
+  background-color: rgb(33, 149, 149) !important;
+}
+
+.fairy {
+  background-color: rgb(246, 173, 184) !important;
 }

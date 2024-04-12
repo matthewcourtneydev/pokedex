@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from "react";
 import { FaHeart, FaLocationDot } from "react-icons/fa6";
 import { PiShuffleAngularBold } from "react-icons/pi";
-import { CiFaceSmile } from "react-icons/ci";
+import { HiMiniSparkles } from "react-icons/hi2";
+
 import FooterEvolutionChain from "./footer-content/footer-evolution-chain";
 import FooterLocation from "./footer-content/footer-location";
 import face from "../imgs/face.png"
@@ -23,9 +24,7 @@ const PokemonFooter = (props) => {
   }
 
   function shuffleBtn() {
-    props.setCurrentPokemon((prev) => {
-      return Math.round(Math.random() * (1025 - 0) + 0);
-    });
+    props.setIsShiny((prev) => !prev)
   }
 
   function locationBtn() {
@@ -140,8 +139,8 @@ const PokemonFooter = (props) => {
         >
           <FaHeart />
         </button>
-        <button className="footer-btn" onClick={() => shuffleBtn()}>
-        <strong><PiShuffleAngularBold /></strong>
+        <button className={`footer-btn ${props.isShiny ? "yellow" : ""}`} onClick={() => shuffleBtn()}>
+        <strong><HiMiniSparkles /></strong>
         </button>
         <button className="footer-btn" onClick={() => locationBtn()}>
           <FaLocationDot />
